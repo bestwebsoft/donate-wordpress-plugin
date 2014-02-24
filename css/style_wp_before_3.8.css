@@ -1,0 +1,428 @@
+#adminmenu #toplevel_page_bws_plugins div.wp-menu-image {
+    background: url("../images/icon_16.png") no-repeat scroll center center transparent;
+}
+.admin-color-classic #adminmenu #toplevel_page_bws_plugins div.wp-menu-image {
+    background: url("../images/icon_16_b.png") no-repeat scroll center center transparent;
+}
+#adminmenu #toplevel_page_bws_plugins:hover div.wp-menu-image,
+#adminmenu #toplevel_page_bws_plugins.wp-has-current-submenu div.wp-menu-image {
+    background: url("../images/icon_16_c.png") no-repeat scroll center center transparent;
+}
+.wrap #icon-options-general.icon32-bws {
+	background: url("../images/icon_36.png") no-repeat scroll left top transparent;
+}
+.admin-color-classic .wrap #icon-options-general.icon32-bws {
+	background: url("../images/icon_36_b.png") no-repeat scroll left top transparent;
+}
+#toplevel_page_bws_plugins .wp-submenu .wp-first-item {
+	display: none;
+}
+.bws_system_info_meta_box {
+    width: 850px;
+}
+.bws_system_info_meta_box .hndle {
+    cursor: pointer !important;
+}
+.bws_system_info {
+    float: left;
+    margin-right: 10px;
+    width: 400px;
+}
+.bws_system_info th {
+    padding: 10px 0;
+    text-align: left;
+    width: 50%;
+}
+.bws_system_info tbody td {
+	border-bottom: 1px solid #DFDFDF;
+}
+/*
+* styles for rate-support div on the settings page
+*/
+.bws-plugin-reviews {
+    background: none repeat scroll 0 0 #BEE1F1;
+    border: 1px solid #70A8C2;
+    border-radius: 3px;
+    max-width: 400px;
+}
+.bws-plugin-reviews-rate {
+    padding: 10px;
+    border-bottom: 1px dashed #70A8C2;
+}
+.bws-plugin-reviews-support {
+    padding: 10px;
+}
+/*=====JavaScript On/Off=====*/
+#dnt_shortcode_options_co .dnt_output_block_co,
+#dnt_shortcode_options_paypal .dnt_output_block_paypal {
+	position: static;
+	margin: 0;
+	color: #000!important;
+}
+/*Donate styling for admin*/
+#dnt_shortcode_style {
+	color: #00f;
+	font-weight: bold;
+}
+#dnt_shortcode_options_paypal,
+#dnt_shortcode_options_co {
+	font-size: 12px;
+}
+#dnt_shortcode_options_paypal td li,
+#dnt_shortcode_options_co td li {
+	margin-bottom: 0;
+	padding-left: 20px;
+}
+/*===Pay Settings===*/
+#dnt_settings_box {
+	width: 100%;
+}
+#dnt_donate {
+	width: 100%;
+}
+.dnt_row {
+	width: 222px;
+	vertical-align: top;
+}
+.dnt_account_row {
+	color: #444!important;
+}
+.dnt_notice {
+	color: #999;
+	margin: 2px 0;
+}
+.dnt_size_notice {
+	font-size: 10px;
+	color: #ccc;
+}
+/*==Payment Tabs==*/
+#dnt_shortcode_options_co {
+	position: relative;
+	top: -1px;
+	padding-top: 0;
+}
+#dnt_settings_box .nav-tab {
+	border-color: #CCCCCC #CCCCCC #FFFFFF;
+	margin-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	position: relative;
+	top: 1px;
+}
+#dnt_paypal_account,
+#dnt_co_account,
+#dnt_quantity_donate {
+	margin-right: 5px;
+}
+#dnt_co_account {
+	margin-bottom: 10px;
+}
+#dnt_settings_box .nav-tab {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+#dnt_settings_box .nav-tab-wrapper {
+	margin-top: 2px;
+}
+.dnt_paypal_text,
+.dnt_co_text {
+	padding: 6px 12px;
+}
+.dnt_output_block_co {
+	background-color: #E6E6E6;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px 3px 3px 3px;
+	top: 7px;
+	left: 798px;
+	width: 262px;
+}
+.dnt_output_block_paypal {
+	background-color: #E6E6E6;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px 3px 3px 3px;
+	top: 10px;
+	left: 800px;
+	width: 262px;
+}
+.dnt_notice_box {
+	padding: 10px;
+	text-align: center;
+	padding-top: 0;
+}
+.dnt_local_upload_paypal,
+.dnt_local_upload_co {
+	width: 398px;
+	margin: 5px 0 20px 15px;
+	display: none;
+}
+.dnt_local_box {
+	padding: 2px;
+	width: 440px;
+}
+.dnt_local_box > div,
+.dnt_url_box > div {
+	margin-bottom: 10px;
+}
+.dnt_url_box {
+	padding: 2px;
+}
+.dnt_img_box {
+	width: 170px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 10px;
+}
+.dnt_shortcode_box {
+	border-bottom-color: #6D6D6D;
+	border-top-color: #808080;
+	text-align: center;
+	padding: 0 10px 10px 10px;
+}
+.dnt_display_box h3 {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	margin-right: 5px;
+}
+
+/*==Pay Options Box==*/
+#dnt_paypal_account,
+#dnt_co_account,
+#dnt_quantity_donate,
+#dnt_product_id,
+#dnt_paypal_purpose {
+	width: 250px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+#dnt_custom_url_paypal,
+#dnt_custom_url_co {
+	width: 350px;
+}
+input[type='image'] { 
+	border: none!important;
+}
+.dnt_clear_both {
+	clear: both;
+}
+.widget #dnt_options_box,
+.widgets #dnt_options_box{
+	right: 20px;
+}
+#dnt_options_box {
+	margin-top: 20px;
+	padding: 10px;
+	padding-left: 0;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 5px;
+	width: 333px;
+	z-index: 1000;
+	margin: 0 auto;
+	position: absolute;
+}
+/*No JS button*/
+.dnt_noscript_box {
+	display: none;
+	top: 0;
+}
+.dnt_noscript_button:active .dnt_noscript_box {
+	display: block!important;
+}
+.dnt_noscript_box:hover {
+	display: block;
+}
+#dnt_options_box input {
+	border: none!important;
+	border-radius: 0!important;
+	box-shadow: none!important;
+	margin: 0!important;
+	padding: 0!important;
+	position: static!important;
+	width: auto!important;
+}
+#dnt_paypal_button {
+	border:none;
+}
+.dnt_paypal_button,
+.dnt_co_button {
+	margin-bottom: 10px;
+}
+#dnt_co_button {
+	border: none;
+}
+#dnt_options_title {
+	text-align: center;
+	font-size: 13px;
+	color: #444;
+}
+#dnt_pay_options {
+	margin: 0 auto;
+}
+.dnt_paypal_image {
+	float: left;
+}
+.dnt_co_image {
+	float: right;
+}
+#dnt_pay_options div {
+	padding-top: 20px;
+}
+.dnt_option_check {
+	padding-bottom: 10px;
+}
+.dnt_post_page_color {
+	color: #f00;
+	font-weight: bold;
+}
+#dnt_table_buttons td {
+	vertical-align:top;
+}
+#dnt_table_donate_custom td {
+	vertical-align: top;
+}
+.dnt_paypal_button,
+.dnt_resize_img_paypal {
+	border: none!important;
+	padding: 0!important;
+}
+#dnt_settings_box .nav-tab-active {
+	position: relative!important;
+	top: 1px!important;
+	background-color: #FFF;
+}
+#dnt_noscript {
+	position: relative;
+}
+#dnt_noscript .postbox {
+	margin: 20px 0;
+	width: 350px;
+	margin-bottom: 10px;
+}
+#dnt_noscript .dnt_buttons_block {
+	font-size: 13px;
+	font-style: normal!important;
+	padding: 8px;
+}
+#dnt_noscript #dnt_sc_box td {
+	width: 50px;
+	height: 50px;
+}
+#dnt_noscript input[type='image'] {
+	border: none!important;
+}
+/*===Widget settings===*/
+.dnt_widget {
+	position: relative;
+	z-index: 100;
+	width: 260px;
+}
+.dnt_widget_title {
+	width: 100%;
+}
+.dnt_lbl {
+	padding-top: 10px;
+}
+.dnt_donate_button > img {
+	z-index: 1000;
+}
+.dnt_donate_button {
+	position: relative;
+	margin-bottom: 10px;
+	z-index: 100;
+}
+.dnt_donate_button:hover {
+	cursor: pointer;
+}
+.post .dnt_donate_button #dnt_options_box {
+	left: 0;
+}
+.dnt_widget_settings_donate .dnt_tabs-panel label {
+	margin-top: 4px;
+}
+.dnt_widget_settings_donate label {
+	padding-bottom: 12px;
+}
+.dnt_widget_settings_donate .dnt_tabs-panel-co,
+.dnt_tabs-panel-paypal {
+	border: 1px solid #DFDFDF;
+	margin-bottom: 5px;
+	margin-top: 4px;
+	padding: 10px 10px 0;
+	background-color: #FFF;
+}
+.dnt_widget_settings_donate input[type='text'] {
+	margin-top: 1px;
+	margin-bottom: 9px;
+}
+.category-tabs > input,
+.dnt_tabs-panel-paypal > input,
+.dnt_tabs-panel-co > input {
+	margin-top: -4px;
+}
+.category-tabs li:hover {
+	cursor: default;
+}
+.widget-inside > form {
+	margin-top: -7px;
+}
+.dnt_widget ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 18px;
+}
+#widget-donate_widget_id-4-dnt_widget_donate {
+	margin-top: 5px;
+}
+#widget-donate_widget_id-4-dnt_widget_donate + label {
+	padding: 0;
+	padding-top: 6px;
+}
+
+/*Script classes*/
+.dnt_red_border {
+	border: 1px solid #f00!important;
+}
+.dnt_green_border {
+	border: 1px solid #0f0!important;
+}
+.default_border {
+	border: 1px solid #ccc!important;
+}
+.dnt_hidden {
+	display: none;
+}
+.dnt_display {
+	display: block;
+}
+.dnt_display tr td {
+	padding-left: 20px;
+}
+.dnt_black_color {
+	color: #000;
+}
+.dnt_grey_color {
+	color: 787878;
+}
+.dnt_none_border {
+	border: none;
+}
+.dnt_position {
+	position: absolute!important;
+}
+.dnt_widget_settings_donate {
+	position: relative;
+}
+.dnt_disabled {
+	background-color: #000000;
+	bottom: 1px;
+	height: 94px;
+	opacity: 0.33;
+	position: absolute;
+	width: 225px;
+}
+.dnt_display table td {
+	padding-left:1px;
+}
