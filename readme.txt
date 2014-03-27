@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: donation, donate, 2checkout, paypal, donate buttons, button, custom buttons, payment, payment button, 2CO, PP
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.9
+Tested up to: 3.8.1
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,14 @@ You should check `One button donate` and click `Save changes`.
 
 You may use images not bigger than size 170x70.
 
+= I have some problems with the plugin's work. What Information should I provide to receive proper support? =
+
+Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+1. the link to the page where the problem occurs
+2. the name of the plugin and its version. If you are using a pro version - your order number.
+3. the version of your WordPress installation
+4. copy and paste into the message your system status report. Please read more here: <a href="https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit?pli=1" target="_blank">System_Status</a>
+
 == Screenshots ==
 
 1. Donate settings - check one button.
@@ -84,6 +92,12 @@ You may use images not bigger than size 170x70.
 6. Click on button `Donate`, displays all payment systems.
 
 == Changelog ==
+
+= V2.0 - 24.03.2014 =
+* Update : Screenshots are updated.
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 3.8.1.
+* Budfix : Plugin optimization is done.
 
 = V1.9 - 16.12.2013 =
 * NEW : The Ukrainian language file is added to the plugin.
@@ -125,6 +139,9 @@ You may use images not bigger than size 170x70.
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0 =
+Screenshots are updated. BWS plugins section is updated. We updated all functionality for wordpress 3.8.1. Plugin optimization is done.
 
 = V1.9 =
 The Ukrainian language file is added to the plugin. We updated all functionality for wordpress 3.8. Add checking installed wordpress version. A notice when changing settings on the plugin's settings page was added.

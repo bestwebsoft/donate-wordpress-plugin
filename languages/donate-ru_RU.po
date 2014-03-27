@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donate\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-16 09:37+0300\n"
+"POT-Creation-Date: 2014-03-17 17:08+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: BestWebSoft <bestwebsoft.com>\n"
@@ -13,243 +13,271 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.5.7\n"
-"X-Poedit-Language: Russian\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: donate.php:37
+#: donate.php:76
 msgid "Donate"
-msgstr "Пожертвования"
+msgstr "Donate"
 
-#: donate.php:53
+#: donate.php:117
 msgid "requires"
 msgstr "требует"
 
-#: donate.php:53
-msgid "or higher, that is why it has been deactivated! Please upgrade WordPress and try again."
-msgstr "или выше, поэтому плагин был деактивирован! Обновите WordPress и повторите попытку."
+#: donate.php:117
+msgid ""
+"or higher, that is why it has been deactivated! Please upgrade WordPress and "
+"try again."
+msgstr ""
+"или выше, поэтому плагин был деактивирован! Обновите WordPress и повторите "
+"попытку."
 
-#: donate.php:53
+#: donate.php:117
 msgid "Back to the WordPress"
 msgstr "Вернутся назад на"
 
-#: donate.php:53
+#: donate.php:117
 msgid "Plugins page"
 msgstr "Страницу плагинов"
 
-#: donate.php:172
-#: donate.php:187
+#: donate.php:234 donate.php:250
 msgid "Settings"
 msgstr "Настройки"
 
-#: donate.php:173
+#: donate.php:235
 msgid "FAQ"
 msgstr "Часто задаваемые вопросы"
 
-#: donate.php:174
+#: donate.php:236
 msgid "Support"
 msgstr "Поддержка"
 
-#: donate.php:198
+#: donate.php:261
 msgid "Please choose the payment system to make a donation"
 msgstr "Выберите систему для пожертвований"
 
-#: donate.php:232
-#: donate.php:233
+#: donate.php:295 donate.php:296
 msgid "Donate Widget"
-msgstr "Виджет пожертвования"
+msgstr "Donate Виджет"
 
-#: donate.php:293
+#: donate.php:362
 msgid "Title:"
 msgstr "Название:"
 
-#: donate.php:297
+#: donate.php:366
 msgid "One button"
 msgstr "Одна кнопка"
 
-#: donate.php:300
+#: donate.php:371
 msgid "PayPal"
 msgstr "PayPal"
 
-#: donate.php:301
+#: donate.php:372
 msgid "2CO"
 msgstr "2СО"
 
-#: donate.php:306
-#: donate.php:317
+#: donate.php:376 donate.php:394
 msgid "Small button"
 msgstr "Маленькая"
 
-#: donate.php:308
-#: donate.php:319
+#: donate.php:379 donate.php:397
 msgid "Credit cards button"
 msgstr "Кнопка с кредитками"
 
-#: donate.php:310
-#: donate.php:321
-#: donate.php:886
+#: donate.php:382 donate.php:400 donate.php:976
 msgid "Default button"
 msgstr "Кнопка по умолчанию"
 
-#: donate.php:312
-#: donate.php:323
-#: donate.php:807
-#: donate.php:906
+#: donate.php:385 donate.php:403 donate.php:895 donate.php:996
 msgid "Custom button"
 msgstr "Пользовательская кнопка"
 
-#: donate.php:397
+#: donate.php:388 donate.php:406
+msgid "Don&apos;t show"
+msgstr "Не показывать"
+
+#: donate.php:486
 msgid "Unable to move the file"
 msgstr "Перемещение файла не удалось"
 
-#: donate.php:401
-#: donate.php:440
+#: donate.php:490 donate.php:529
 msgid "Uploaded file smaller than 16x16"
 msgstr "Размер загружаемого файла меньше 16х16"
 
-#: donate.php:403
-#: donate.php:442
+#: donate.php:492 donate.php:531
 msgid "Uploaded file bigger then 170x70"
 msgstr "Загружаемый файл превышает допустимые параметры 170х70"
 
-#: donate.php:406
-#: donate.php:445
-#: donate.php:823
-#: donate.php:834
-#: donate.php:922
-#: donate.php:933
+#: donate.php:495 donate.php:534 donate.php:911 donate.php:922 donate.php:1012
+#: donate.php:1023
 msgid "You can upload only image files"
 msgstr "Вы можете загружать только файлы изображений"
 
-#: donate.php:449
+#: donate.php:538
 msgid "Please enable curl on server"
 msgstr "Пожалуйста подключите cURL на сервере"
 
-#: donate.php:465
+#: donate.php:554
 msgid "Display all custom buttons"
 msgstr "Отобразить все загруженные кнопки"
 
-#: donate.php:490
+#: donate.php:579
 msgid "Use button"
 msgstr "Выбрать кнопку"
 
-#: donate.php:532
-#: donate.php:541
+#: donate.php:621 donate.php:630
 msgid "Output"
 msgstr "Вывод"
 
-#: donate.php:535
-#: donate.php:544
-msgid "If you would like to add the button to your website, just copy and paste this shortcode to your post page or widget:"
-msgstr "Если вы хотите добавить кнопку на свой сайт, скопируйте и вставьте этот шорткод в нужное для вас место"
+#: donate.php:624 donate.php:633
+msgid ""
+"If you would like to add the button to your website, just copy and paste "
+"this shortcode to your post page or widget:"
+msgstr ""
+"Если вы хотите добавить кнопку на свой сайт, скопируйте и вставьте этот "
+"шорткод в нужное для вас место"
 
-#: donate.php:562
+#: donate.php:651
 msgid "Email validation error, email must be written like example@gmail.com"
-msgstr "Ошибка валидации электронного адреса, он должен быть вида example@gmail.com"
+msgstr ""
+"Ошибка валидации электронного адреса, он должен быть вида example@gmail.com"
 
-#: donate.php:568
-msgid "Account name is required field, please write your account name in PayPal tab"
-msgstr "Поле аккаунта обязательное для ввода, пожалуйста введите имя аккаунта во вкладке PayPal"
+#: donate.php:657
+msgid ""
+"Account name is required field, please write your account name in PayPal tab"
+msgstr ""
+"Поле аккаунта обязательное для ввода, пожалуйста введите имя аккаунта во "
+"вкладке PayPal"
 
-#: donate.php:604
-msgid "Account name is required field, please write your account name in 2CO tab"
-msgstr "Поле аккаунта обязательное для ввода, пожалуйста введите имя аккаунта в вкладке 2CO"
+#: donate.php:693
+msgid ""
+"Account name is required field, please write your account name in 2CO tab"
+msgstr ""
+"Поле аккаунта обязательное для ввода, пожалуйста введите имя аккаунта в "
+"вкладке 2CO"
 
-#: donate.php:607
+#: donate.php:696
 msgid "2CO Account error:You type string, numeric expected."
 msgstr "2CO ошибка аккаунта: вы вписали текст в числовое поле."
 
-#: donate.php:610
+#: donate.php:699
 msgid "2CO Quantity error:You type string, numeric expected."
 msgstr "2CO ошибка поля количества: вы вписали текст в числовое поле."
 
-#: donate.php:613
+#: donate.php:702
 msgid "2CO Product ID error:You type string, numeric expected."
 msgstr "2CO ошибка продукта: вы вписали текст в числовое поле."
 
-#: donate.php:619
-msgid "Quantity is required field, please write quantity of products in 2CO tab"
-msgstr "Количество - обязательное поле, пожалуйста введите нужное количество продукции во вкладке 2CO"
+#: donate.php:708
+msgid ""
+"Quantity is required field, please write quantity of products in 2CO tab"
+msgstr ""
+"Количество - обязательное поле, пожалуйста введите нужное количество "
+"продукции во вкладке 2CO"
 
-#: donate.php:625
+#: donate.php:714
 msgid "Product ID is required field, please write product ID in 2CO tab"
-msgstr "Поле c ID продукта не должно оставаться пустым, пожалуйста введите ID продукта в вкладке 2CO"
+msgstr ""
+"Поле c ID продукта не должно оставаться пустым, пожалуйста введите ID "
+"продукта в вкладке 2CO"
 
-#: donate.php:687
+#: donate.php:776
 msgid "Donate Settings"
-msgstr "Настройки пожертвований"
+msgstr "Настройки Donate"
 
-#: donate.php:725
+#: donate.php:777
+msgid "Notice:"
+msgstr "Внимание:"
+
+#: donate.php:777
+msgid ""
+"The plugin's settings have been changed. In order to save them please don't "
+"forget to click the 'Save Changes' button."
+msgstr ""
+"Настройки плагина были изменены. Для того, чтобы сохранить их, пожалуйста, "
+"не забудьте нажать кнопку \"Сохранить\"."
+
+#: donate.php:815
 msgid "Changes saved"
 msgstr "Настройки сохранены"
 
-#: donate.php:743
+#: donate.php:831
 msgid "One button for both systems"
 msgstr "Одна кнопка для обеих систем"
 
-#: donate.php:748
+#: donate.php:836
 msgid "Please fill in the required fields for each payment system"
-msgstr "Пожалуйста, заполните необходимые поля для работы с каждой платёжной системой."
+msgstr ""
+"Пожалуйста, заполните необходимые поля для работы с каждой платёжной "
+"системой."
 
-#: donate.php:767
+#: donate.php:855
 msgid "Your paypal account email address:"
 msgstr "Введите аккаунт PayPal (email адрес):"
 
-#: donate.php:775
+#: donate.php:863
 msgid "Your donation purpose:"
 msgstr "Цель вашего пожертвования:"
 
-#: donate.php:783
-#: donate.php:882
+#: donate.php:871 donate.php:972
 msgid "Button type:"
 msgstr "Тип кнопки:"
 
-#: donate.php:787
+#: donate.php:875
 msgid "Default"
 msgstr "Кнопка по умолчанию"
 
-#: donate.php:792
-#: donate.php:891
+#: donate.php:880 donate.php:981
 msgid "Use small image"
 msgstr "Использовать маленькое изображение"
 
-#: donate.php:797
-#: donate.php:896
+#: donate.php:885 donate.php:986
 msgid "Use credit card image"
 msgstr "Использовать изображение кредитных карт"
 
-#: donate.php:818
-#: donate.php:917
+#: donate.php:906 donate.php:1007
 msgid "Use image from file"
 msgstr "Загрузить изображение из компьютера"
 
-#: donate.php:822
-#: donate.php:833
-#: donate.php:921
-#: donate.php:932
-msgid "The size of the image you upload must be no more than 170x70 and no smaller than 16x16"
-msgstr "Размер загружаемого изображения не должен быть больше 170x70 и не меньше 16х16"
+#: donate.php:910 donate.php:921 donate.php:1011 donate.php:1022
+msgid ""
+"The size of the image you upload must be no more than 170x70 and no smaller "
+"than 16x16"
+msgstr ""
+"Размер загружаемого изображения не должен быть больше 170x70 и не меньше "
+"16х16"
 
-#: donate.php:829
-#: donate.php:928
+#: donate.php:917 donate.php:1018
 msgid "Use image from URL"
 msgstr "Загрузить изображение из URL"
 
-#: donate.php:858
+#: donate.php:948
 msgid "Your 2CO account ID:"
 msgstr "Введите ID аккаунта 2CO:"
 
-#: donate.php:866
+#: donate.php:956
 msgid "Quantity:"
 msgstr "Количество:"
 
-#: donate.php:874
+#: donate.php:964
 msgid "Product ID:"
 msgstr "ID продукта:"
 
-#: donate.php:952
+#: donate.php:1044
 msgid "Save changes"
 msgstr "Сохранить изменения"
+
+#: donate.php:1053
+msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
+msgstr " Если вам понравился плагин, то поставьте нам 5 звезд на WordPress"
+
+#: donate.php:1054
+msgid "Rate the plugin"
+msgstr "Оценить плагин"
+
+#: donate.php:1057
+msgid "If there is something wrong about it, please contact us"
+msgstr "Если у вас есть какие-то вопросы, обращайтесь"
 
 #~ msgid ""
 #~ "You can upload only image files ( .png, .jpg, .jpeg, .gif, .bmp, .ico, ."

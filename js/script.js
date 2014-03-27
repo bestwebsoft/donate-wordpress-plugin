@@ -62,8 +62,8 @@
 		} );
 		/*Tabs*/
 		$( '#dnt_donate .nav-tab-wrapper' ).addClass( 'dnt_display' );
-		$( '.nav-tab-wrapper' ).children( '.nav-tab' ).first().toggleClass( 'nav-tab-active' );
-		$( '.nav-tab' ).click( function() {
+		$( '#dnt_settings_box .nav-tab-wrapper' ).children( '.nav-tab' ).first().toggleClass( 'nav-tab-active' );
+		$( '#dnt_settings_box .nav-tab' ).click( function() {
 			if ( $( this ).hasClass( 'nav-tab-active' ) ) {
 				$( this ).next().removeClass( 'nav-tab-active' );
 				$( this ).prev().removeClass( 'nav-tab-active' );
@@ -75,12 +75,12 @@
 		} );
 		
 		$( '.dnt_paypal_text' ).click( function() {
-			$( '#dnt_shortcode_options_paypal' ).removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
-			$( '#dnt_shortcode_options_co' ).removeClass( 'dnt_display' ).addClass( 'dnt_hidden' );
+			$( '#dnt_shortcode_options_paypal' ).show();
+			$( '#dnt_shortcode_options_co' ).hide();
 		} );
 		$( '.dnt_co_text' ).click( function() {
-			$( '#dnt_shortcode_options_paypal' ).removeClass( 'dnt_display' ).addClass( 'dnt_hidden' );
-			$( '#dnt_shortcode_options_co' ).removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
+			$( '#dnt_shortcode_options_paypal' ).hide();
+			$( '#dnt_shortcode_options_co' ).show();
 		} );
 		
 		/*For One button donate (hide others)*/
@@ -100,34 +100,35 @@
 		dtn_checker( 'paypal' );
 		dtn_checker( 'co' );
 		
+		$( '.dnt_local_upload_paypal' ).hide();
+		$( '.dnt_local_upload_co' ).hide();
+
 		/*Show/Hide custom block*/
 		$( '#dnt_custom_paypal' ).click( function() {
 			$( '.dnt_local_upload_paypal' ).show();
-			//$( '.dnt_local_upload_paypal .inside' ).removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
-			$( '.dnt_elements_disabled_paypal' ).hide(); //.attr( 'disabled', 'disabled' );
+			$( '.dnt_elements_disabled_paypal' ).hide();
 		} );
 		$( '#dnt_custom_co' ).click( function() {
 			$( '.dnt_local_upload_co' ).show();
-			//$( '.dnt_local_upload_co .inside' ).removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
-			$( '.dnt_elements_disabled_co' ).hide(); //.attr( 'disabled', 'disabled' );
+			$( '.dnt_elements_disabled_co' ).hide();
 		} );
 		
 		$( '#dnt_default_paypal' ).click( function() {
 			$( '.dnt_local_upload_paypal' ).hide();
-			$( '.dnt_elements_disabled_paypal' ).show();//.removeAttr( 'disabled' );
+			$( '.dnt_elements_disabled_paypal' ).show();
 		} );
 		$( '#dnt_default_co' ).click( function() {
 			$( '.dnt_local_upload_co' ).hide();
-			$( '.dnt_elements_disabled_co' ).show();//.removeAttr( 'disabled' );
+			$( '.dnt_elements_disabled_co' ).show();
 		} );
 		
 		if ( $( '#dnt_custom_paypal' ).attr( "checked" ) == "checked" ) {
-			$( '.dnt_local_upload_paypal' ).show();//.find( '.inside' ).removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
-			$( '.dnt_elements_disabled_paypal' ).hide();//.attr( 'disabled', 'disabled' );
+			$( '.dnt_local_upload_paypal' ).show();
+			$( '.dnt_elements_disabled_paypal' ).hide();
 		}
 		if ( $( '#dnt_custom_co' ).attr( "checked" ) == "checked" ) {
-			$( '.dnt_local_upload_co' ).show();//.find( '.inside' ).removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
-			$( '.dnt_elements_disabled_co' ).hide();//.attr( 'disabled', 'disabled' );
+			$( '.dnt_local_upload_co' ).show();
+			$( '.dnt_elements_disabled_co' ).hide();
 		}
 		
 		if ( ( $( '#dnt_custom_paypal' ).attr( "checked" ) == "checked" ) || ( $( '#dnt_button_donate' ).attr( "checked" ) == "checked" ) ) {
@@ -197,9 +198,11 @@
 		/*Widget disabling/enabling checkboxes*/
 		$( '.dnt_widget_checkbox_donate' ).live( 'click', function() {
 			if ( $( this ).attr( 'checked' ) == 'checked' ) {
-				$( this ).parent( '.dnt_widget_settings_donate' ).find( '.dnt_disabled' ).removeClass( 'dnt_hidden' ).toggleClass( 'dnt_display' );
+				$('.dnt_tabs-panel-paypal input[type="radio"]').each(function(){ $(this).attr( 'disabled', 'disabled' ); });
+				$('.dnt_tabs-panel-co input[type="radio"]').each(function(){ $(this).attr( 'disabled', 'disabled' ); });
 			} else {
-				$( this ).nextAll( '.dnt_disabled' ).removeClass( 'dnt_display' ).toggleClass( 'dnt_hidden' );
+				$('.dnt_tabs-panel-paypal input[type="radio"]').each(function(){ $(this).removeAttr( 'disabled' ); });
+				$('.dnt_tabs-panel-co input[type="radio"]').each(function(){ $(this).removeAttr( 'disabled' ); });
 			}
 		} );
 
@@ -225,13 +228,13 @@
 		if ( $( '.dnt_co_text' ).parent().hasClass( 'dnt_display_tab' ) ) {
 			$( '.dnt_paypal_text' ).parent().removeClass( 'nav-tab-active' );
 			$( '.dnt_co_text' ).parent().addClass( 'nav-tab-active' );
-			$( '#dnt_shortcode_options_co' ).removeClass( 'dnt_hidden' );
-			$( '#dnt_shortcode_options_paypal' ).removeClass( 'dnt_display' );
+			$( '#dnt_shortcode_options_co' ).show();
+			$( '#dnt_shortcode_options_paypal' ).hide();
 		} else if ( $( '.dnt_paypal_text' ).parent().hasClass( 'dnt_display_tab' ) ) {
 			$( '.dnt_co_text' ).parent().removeClass( 'nav-tab-active' );
 			$( '.dnt_paypal_text' ).parent().addClass( 'nav-tab-active' );
-			$( '#dnt_shortcode_options_paypal' ).removeClass( 'dnt_hidden' );
-			$( '#dnt_shortcode_options_co' ).removeClass( 'dnt_display' );
+			$( '#dnt_shortcode_options_paypal' ).show();
+			$( '#dnt_shortcode_options_co' ).hide();
 		}
 		
 		/*Imitate click on tab*/
