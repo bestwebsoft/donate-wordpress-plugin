@@ -4,7 +4,7 @@ Plugin Name: Donate
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Create custom buttons for payment systems
 Author: BestWebSoft
-Version: 2.0
+Version: 2.0.1
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -32,7 +32,8 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 	function dnt_add_admin_menu() {
 		global $bstwbsftwppdtplgns_options, $wpmu, $bstwbsftwppdtplgns_added_menu;
-		$bws_menu_version = '1.2.3';
+		$bws_menu_info = get_plugin_data( plugin_dir_path( __FILE__ ) . "bws_menu/bws_menu.php" );
+		$bws_menu_version = $bws_menu_info["Version"];
 		$base = plugin_basename( __FILE__ );
 
 		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
@@ -770,7 +771,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 		<!--Errors-->
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php _e( 'Donate Settings', 'donate' ); ?></h2>
+			<h2><?php _e( 'Donate Settings', 'donate' ); ?></h2>		
 			<div id="dnt_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'donate' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'donate' ); ?></p></div>
 			<div class="error">
 				<?php if ( ( isset ( $dnt_error['account_paypal'] ) ) && ( null != $dnt_error['account_paypal'] ) && ( '1' == $_POST['dnt_tab_paypal'] ) ) { ?>
@@ -838,6 +839,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 										<h2 class='nav-tab-wrapper dnt_hidden'>
 											<a class='nav-tab <?php echo $dnt_tab_active_paypal; ?>'><span class='dnt_paypal_text'>PayPal</span></a>
 											<a class='nav-tab <?php echo $dnt_tab_active_co; ?>'><span class='dnt_co_text'>2CO</span></a>
+											<a class='nav-tab' href="http://bestwebsoft.com/plugin/donate/#faq" target='_blank'><?php _e( 'FAQ', 'donate' ); ?></a>
 										</h2>
 									</td>
 								</tr>

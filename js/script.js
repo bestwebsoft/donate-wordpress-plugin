@@ -64,13 +64,9 @@
 		$( '#dnt_donate .nav-tab-wrapper' ).addClass( 'dnt_display' );
 		$( '#dnt_settings_box .nav-tab-wrapper' ).children( '.nav-tab' ).first().toggleClass( 'nav-tab-active' );
 		$( '#dnt_settings_box .nav-tab' ).click( function() {
-			if ( $( this ).hasClass( 'nav-tab-active' ) ) {
-				$( this ).next().removeClass( 'nav-tab-active' );
-				$( this ).prev().removeClass( 'nav-tab-active' );
-			} else {
+			if( ! $( this ).hasClass( 'nav-tab-active' ) && $( this ).index() != 2 ) {
+				$( '#dnt_settings_box .nav-tab' ).removeClass( 'nav-tab-active' );
 				$( this ).toggleClass( 'nav-tab-active' );
-				$( this ).next().removeClass( 'nav-tab-active' );
-				$( this ).prev().removeClass( 'nav-tab-active' );
 			}
 		} );
 		

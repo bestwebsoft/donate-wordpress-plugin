@@ -1,10 +1,10 @@
 === Donate ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
-Tags: donation, donate, 2checkout, paypal, donate buttons, button, custom buttons, payment, payment button, 2CO, PP
+Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Tags: 2checkout, 2co, button, custom buttons, denate, donat, donate, donnate, doneit, donte, donate buttons, donate button in post, donate button in sidebar, donate button on page, donate plugin, donation, get donations, payment, payment button, payment system, paypal, Pp, shortcode
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 2.0
+Tested up to: 3.9.1
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,8 @@ This plugin makes it possible to place donation buttons of various payment syste
 == Description ==
 
 Donate plugin can help you get donations from payment systems, like PayPal or 2CheckOut. You may customize and place donate button where you want(sidebar, post or page). Friendly and nice interface.
+
+http://www.youtube.com/watch?v=82g6FTpQTr0
 
 <a href="http://wordpress.org/plugins/donate-button/faq/" target="_blank">FAQ</a>
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
@@ -93,6 +95,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.0.1 - 14.05.2014 =
+* Update : We updated all functionality for wordpress 3.9.1.
+* Update : The Ukrainian language is updated in the plugin.
+
 = V2.0 - 24.03.2014 =
 * Update : Screenshots are updated.
 * Update : BWS plugins section is updated.
@@ -139,6 +145,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0.1 =
+We updated all functionality for wordpress 3.9.1. The Ukrainian language is updated in the plugin.
 
 = V2.0 =
 Screenshots are updated. BWS plugins section is updated. We updated all functionality for wordpress 3.8.1. Plugin optimization is done.
