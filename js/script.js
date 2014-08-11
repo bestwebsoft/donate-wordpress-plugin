@@ -64,7 +64,7 @@
 		$( '#dnt_donate .nav-tab-wrapper' ).addClass( 'dnt_display' );
 		$( '#dnt_settings_box .nav-tab-wrapper' ).children( '.nav-tab' ).first().toggleClass( 'nav-tab-active' );
 		$( '#dnt_settings_box .nav-tab' ).click( function() {
-			if( ! $( this ).hasClass( 'nav-tab-active' ) && $( this ).index() != 2 ) {
+			if ( ! $( this ).hasClass( 'nav-tab-active' ) && $( this ).index() != 2 ) {
 				$( '#dnt_settings_box .nav-tab' ).removeClass( 'nav-tab-active' );
 				$( this ).toggleClass( 'nav-tab-active' );
 			}
@@ -135,11 +135,11 @@
 		}
 		
 		/*Block hide/show*/
-		$( '.handlediv' ).click( function() {
-			if ( $( '.inside' ).is( ':visible' ) ) {
-				$( '.inside' ).removeClass( 'dnt_display' ).addClass( 'dnt_hidden' );
+		$( '.dnt_handlediv' ).click( function() {
+			if ( $( '.dnt_custom_buttons .inside' ).is( ':visible' ) ) {
+				$( '.dnt_custom_buttons .inside' ).removeClass( 'dnt_display' ).addClass( 'dnt_hidden' );
 			} else {
-				$( '.inside' ).removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
+				$( '.dnt_custom_buttons .inside' ).removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
 			}
 		} );
 		
@@ -237,13 +237,12 @@
 		$( '.button-primary' ).click( function() {
 			if ( $( '#dnt_shortcode_options_co' ).hasClass( 'dnt_display' ) ) {
 				$( '.dnt_co_text' ).trigger( 'click' );
-			}
-			else if ( $( '#dnt_shortcode_options_paypal' ).hasClass( 'dnt_display' ) ) {
+			} else if ( $( '#dnt_shortcode_options_paypal' ).hasClass( 'dnt_display' ) ) {
 				$( '.dnt_paypal_text' ).trigger( 'click' );
 			}
 		} );
 		
-		$( '.wp-menu-image' ).find( 'img' ).remove();
+		/*	$( '.wp-menu-image' ).find( 'img' ).remove(); */
 
 		/* add notice about changing in the settings page */
 		$( '#dnt_settings_form input' ).bind( "change click select", function() {

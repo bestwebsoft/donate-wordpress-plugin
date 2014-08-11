@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: 2checkout, 2co, button, custom buttons, denate, donat, donate, donnate, doneit, donte, donate buttons, donate button in post, donate button in sidebar, donate button on page, donate plugin, donation, get donations, payment, payment button, payment system, paypal, Pp, shortcode
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 2.0.1
+Tested up to: 3.9.2
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ This plugin makes it possible to place donation buttons of various payment syste
 
 == Description ==
 
-Donate plugin can help you get donations from payment systems, like PayPal or 2CheckOut. You may customize and place donate button where you want(sidebar, post or page). Friendly and nice interface.
+Donate plugin helps to get donations from payment systems, like PayPal or 2CheckOut. It has a user-friendly and simple interface which allows to place the donate button anywhere on the site. 
 
 http://www.youtube.com/watch?v=82g6FTpQTr0
 
@@ -95,6 +95,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.0.2 - 08.08.2014 =
+* Bugfix : Security Exploit was fixed.
+* Bugfix : Bug with uploading custom images was fixed.
+
 = V2.0.1 - 14.05.2014 =
 * Update : We updated all functionality for wordpress 3.9.1.
 * Update : The Ukrainian language is updated in the plugin.
@@ -145,6 +149,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0.2 =
+Security Exploit was fixed. Bug with uploading custom images was fixed.
 
 = V2.0.1 =
 We updated all functionality for wordpress 3.9.1. The Ukrainian language is updated in the plugin.

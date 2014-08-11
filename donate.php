@@ -4,7 +4,7 @@ Plugin Name: Donate
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Create custom buttons for payment systems
 Author: BestWebSoft
-Version: 2.0.1
+Version: 2.0.2
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -70,7 +70,7 @@ if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 				require_once( ABSPATH . $wp_content_dir . '/plugins/' . $plugin_with_newer_menu[0] . '/bws_menu/bws_menu.php' );
 			else
 				require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
-			$bstwbsftwppdtplgns_added_menu = true;            
+			$bstwbsftwppdtplgns_added_menu = true;
 		}
 
 		add_menu_page( 'BWS Plugins', 'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', plugins_url( "images/px.png", __FILE__ ), 1001 );
@@ -107,7 +107,6 @@ if ( ! function_exists( 'dnt_admin_init' ) ) {
 if ( ! function_exists ( 'dnt_version_check' ) ) {
 	function dnt_version_check() {
 		global $wp_version, $dnt_plugin_info;
-
 		$require_wp		=	"3.0"; /* Wordpress at least requires version */
 		$plugin			=	plugin_basename( __FILE__ );
 	 	if ( version_compare( $wp_version, $require_wp, "<" ) ) {
@@ -128,7 +127,7 @@ if ( ! function_exists ( 'dnt_register_settings' ) ) {
 		if ( ! $dnt_plugin_info ) {
 			if ( ! function_exists( 'get_plugin_data' ) )
 				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-			$dnt_plugin_info = get_plugin_data( __FILE__ );	
+			$dnt_plugin_info = get_plugin_data( __FILE__ );
 		}
 
 		$default_pay_options = array(
@@ -185,11 +184,7 @@ if ( ! function_exists ( 'dnt_register_settings' ) ) {
 if ( ! function_exists ( 'dnt_draw_paypal_form' ) ) {
 	function dnt_draw_paypal_form() {
 		global $wpmu;
-		if ( 1 == $wpmu )
-			$dnt_options = get_site_option( 'dnt_options', array() );
-		else
-			$dnt_options = get_option( 'dnt_options', array() );
-		?>
+		$dnt_options = ( 1 == $wpmu ) ? get_site_option( 'dnt_options', array() ) : get_option( 'dnt_options', array() ); ?>
 		<input type='hidden' name='business' value="<?php echo $dnt_options['paypal_options']['paypal_account']; ?>" />
 		<input type='hidden' name='item_name' value="<?php echo $dnt_options['paypal_options']['paypal_purpose']; ?>" />
 		<input type='hidden' name='amount' value='1.00'>
@@ -201,11 +196,7 @@ if ( ! function_exists ( 'dnt_draw_paypal_form' ) ) {
 if ( ! function_exists ( 'dnt_draw_co_form' ) ) {
 	function dnt_draw_co_form() {
 		global $wpmu;
-		if ( 1 == $wpmu )
-			$dnt_options = get_site_option( 'dnt_options', array() );
-		else
-			$dnt_options = get_option( 'dnt_options', array() );
-		?>
+		$dnt_options = ( 1 == $wpmu ) ? get_site_option( 'dnt_options', array() ) : get_option( 'dnt_options', array() ); ?>
 		<input type='hidden' name='sid' value="<?php echo $dnt_options['co_options']['co_account']; ?>" />
 		<input type='hidden' name='quantity' value="<?php echo $dnt_options['co_options']['co_quantity']; ?>" />
 		<input type='hidden' name='product_id' value="<?php echo $dnt_options['co_options']['product_id']; ?>" />
@@ -216,12 +207,14 @@ if ( ! function_exists ( 'dnt_draw_co_form' ) ) {
 if ( ! function_exists ( 'dnt_plugin_stylesheet' ) ) {
 	function dnt_plugin_stylesheet() {
 		global $wp_version;
-		if ( 3.8 > $wp_version )
-			wp_enqueue_style( 'dnt_style', plugins_url( 'css/style_wp_before_3.8.css', __FILE__ ) );	
-		else
-			wp_enqueue_style( 'dnt_style', plugins_url( 'css/style.css', __FILE__ ) );
-		
-		wp_enqueue_script( 'dnt_script', plugins_url( '/js/script.js', __FILE__ ) , array( 'jquery' ) );
+		if ( ! is_admin() || ( isset( $_GET['page'] ) && "donate.php" == $_GET['page'] ) ) {
+			if ( 3.8 > $wp_version )
+				wp_enqueue_style( 'dnt_style', plugins_url( 'css/style_wp_before_3.8.css', __FILE__ ) );
+			else
+				wp_enqueue_style( 'dnt_style', plugins_url( 'css/style.css', __FILE__ ) );
+
+			wp_enqueue_script( 'dnt_script', plugins_url( '/js/script.js', __FILE__ ) , array( 'jquery' ) );
+		}
 	}
 }
 
@@ -302,45 +295,45 @@ class Donate_Widget extends WP_Widget {
 		if ( 'hide' == $instance['dnt_widget_button_options_co'] && 'hide' == $instance['dnt_widget_button_options_paypal'] ) {
 			/* Do not show widget in front-end */
 		} else {
-			echo $args['before_widget'] ?>
-				<h3 class='widget-title'><?php echo $instance['dnt_widget_title']; ?></h3>
-				<ul>
-					<li>
-						<?php if ( ( 'donate' != $instance['dnt_widget_button_system'] ) && ( ( 'default' == $instance['dnt_widget_button_options_co'] ) || ( 'small' == $instance['dnt_widget_button_options_co'] ) || ( 'custom' == $instance['dnt_widget_button_options_co'] ) || ( 'credits' == $instance['dnt_widget_button_options_co'] ) ) ) { ?>
-							<form action='https://www.2checkout.com/checkout/purchase' method='post' target='co_window'>
-								<?php if ( 'default' == $instance['dnt_widget_button_options_co'] ) { ?>
-									<input type='image' class='dnt_co_button' src="<?php echo plugins_url( 'images/co-default.png', __FILE__ ); ?>" alt='co-default' />
-								<?php } elseif ( 'small' == $instance['dnt_widget_button_options_co'] ) { ?>
-									<input type='image' class='dnt_co_button' src="<?php echo plugins_url( 'images/co-small.png', __FILE__ ); ?>" alt='co-small' />
-								<?php } elseif ( 'credits' == $instance['dnt_widget_button_options_co'] ) { ?>
-									<input type='image' class='dnt_co_button' src="<?php echo plugins_url( 'images/co-credits.png', __FILE__ ); ?>" alt='co-credits' />
-								<?php }	elseif ( 'custom' == $instance['dnt_widget_button_options_co'] ) { ?>
-									<input type='image' src='<?php echo $dnt_options['co_options']['img']; ?>' alt='custom-button-co' />
-								<?php }
-								dnt_draw_co_form(); ?>
-							</form>
-						<?php }
-						if ( ( 'donate' != $instance['dnt_widget_button_system'] ) && ( ( 'default' == $instance['dnt_widget_button_options_paypal'] ) || ( 'small' == $instance['dnt_widget_button_options_paypal'] ) || ( 'custom' == $instance['dnt_widget_button_options_paypal'] ) || ( 'credits' == $instance['dnt_widget_button_options_paypal'] ) ) ) { ?>
-							<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='paypal_window'>
-								<?php if ( 'default' == $instance['dnt_widget_button_options_paypal'] ) { ?>
-									<input type='image' class='dnt_paypal_button' src="<?php echo plugins_url( 'images/paypal-default.png', __FILE__ ); ?>" alt='paypal-default' />
-								<?php } elseif ( 'small' == $instance['dnt_widget_button_options_paypal'] ) { ?>
-									<input type='image' class='dnt_paypal_button' src="<?php echo plugins_url( 'images/paypal-small.png', __FILE__ ); ?>" alt='paypal-small' />
-								<?php } elseif ( 'credits' == $instance['dnt_widget_button_options_paypal'] ) { ?>
-									<input type='image' class='dnt_paypal_button' src="<?php echo plugins_url( 'images/paypal-credits.png', __FILE__ ); ?>" alt='paypal-credits' />
-								<?php } elseif ( 'custom' == $instance['dnt_widget_button_options_paypal'] ) { ?>
-									<input type='image' src='<?php echo $dnt_options['paypal_options']['img']; ?>' alt='custom-button-paypal' />
-								<?php }
-								dnt_draw_paypal_form(); ?>
-							</form>
-						<?php }
-						elseif ( 'donate' == $instance['dnt_widget_button_system'] ) { ?>
-							<div class='dnt_donate_button dnt_noscript_button'><img src="<?php echo plugins_url( 'images/donate-button.png', __FILE__ ); ?>" alt='donate-button' />
-								<?php dnt_options_box(); ?>
-							</div>
-						<?php } ?>
-					</li>
-				</ul>
+			echo $args['before_widget']; ?>
+			<h3 class='widget-title'><?php echo $instance['dnt_widget_title']; ?></h3>
+			<ul>
+				<li>
+					<?php if ( ( 'donate' != $instance['dnt_widget_button_system'] ) && ( ( 'default' == $instance['dnt_widget_button_options_co'] ) || ( 'small' == $instance['dnt_widget_button_options_co'] ) || ( 'custom' == $instance['dnt_widget_button_options_co'] ) || ( 'credits' == $instance['dnt_widget_button_options_co'] ) ) ) { ?>
+						<form action='https://www.2checkout.com/checkout/purchase' method='post' target='co_window'>
+							<?php if ( 'default' == $instance['dnt_widget_button_options_co'] ) { ?>
+								<input type='image' class='dnt_co_button' src="<?php echo plugins_url( 'images/co-default.png', __FILE__ ); ?>" alt='co-default' />
+							<?php } elseif ( 'small' == $instance['dnt_widget_button_options_co'] ) { ?>
+								<input type='image' class='dnt_co_button' src="<?php echo plugins_url( 'images/co-small.png', __FILE__ ); ?>" alt='co-small' />
+							<?php } elseif ( 'credits' == $instance['dnt_widget_button_options_co'] ) { ?>
+								<input type='image' class='dnt_co_button' src="<?php echo plugins_url( 'images/co-credits.png', __FILE__ ); ?>" alt='co-credits' />
+							<?php }	elseif ( 'custom' == $instance['dnt_widget_button_options_co'] ) { ?>
+								<input type='image' src='<?php echo $dnt_options['co_options']['img']; ?>' alt='custom-button-co' />
+							<?php }
+							dnt_draw_co_form(); ?>
+						</form>
+					<?php }
+					if ( ( 'donate' != $instance['dnt_widget_button_system'] ) && ( ( 'default' == $instance['dnt_widget_button_options_paypal'] ) || ( 'small' == $instance['dnt_widget_button_options_paypal'] ) || ( 'custom' == $instance['dnt_widget_button_options_paypal'] ) || ( 'credits' == $instance['dnt_widget_button_options_paypal'] ) ) ) { ?>
+						<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='paypal_window'>
+							<?php if ( 'default' == $instance['dnt_widget_button_options_paypal'] ) { ?>
+								<input type='image' class='dnt_paypal_button' src="<?php echo plugins_url( 'images/paypal-default.png', __FILE__ ); ?>" alt='paypal-default' />
+							<?php } elseif ( 'small' == $instance['dnt_widget_button_options_paypal'] ) { ?>
+								<input type='image' class='dnt_paypal_button' src="<?php echo plugins_url( 'images/paypal-small.png', __FILE__ ); ?>" alt='paypal-small' />
+							<?php } elseif ( 'credits' == $instance['dnt_widget_button_options_paypal'] ) { ?>
+								<input type='image' class='dnt_paypal_button' src="<?php echo plugins_url( 'images/paypal-credits.png', __FILE__ ); ?>" alt='paypal-credits' />
+							<?php } elseif ( 'custom' == $instance['dnt_widget_button_options_paypal'] ) { ?>
+								<input type='image' src='<?php echo $dnt_options['paypal_options']['img']; ?>' alt='custom-button-paypal' />
+							<?php }
+							dnt_draw_paypal_form(); ?>
+						</form>
+					<?php }
+					elseif ( 'donate' == $instance['dnt_widget_button_system'] ) { ?>
+						<div class='dnt_donate_button dnt_noscript_button'><img src="<?php echo plugins_url( 'images/donate-button.png', __FILE__ ); ?>" alt='donate-button' />
+							<?php dnt_options_box(); ?>
+						</div>
+					<?php } ?>
+				</li>
+			</ul>
 			<?php echo $args['after_widget'];
 		}
 	}
@@ -386,7 +379,6 @@ class Donate_Widget extends WP_Widget {
 						<input type='radio' class='dnt_default_paypal' name="<?php echo $this->get_field_name( 'dnt_widget_button_options_paypal' ); ?>" class="dnt_widget_checkers" id="<?php echo $this->get_field_id( 'dnt_widget_button_style_paypal' ); ?>" <?php if ( 'hide' == $instance['dnt_widget_button_options_paypal'] ) { echo "checked='checked'"; } else if ( 'donate' == $instance['dnt_widget_button_system'] ) { echo "disabled='disabled'"; } ?> value='hide' /> <?php _e( 'Don&apos;t show', 'donate' ); ?>
 					</label>
 				</div>
-
 				<div class='dnt_tabs-panel-co dnt_hidden'>
 					<label>
 						<input type='radio' class='dnt_small_co' name="<?php echo $this->get_field_name( 'dnt_widget_button_options_co' ); ?>" id="<?php echo $this->get_field_id( 'dnt_widget_button_small_co' ); ?>" <?php if ( 'small' == $instance['dnt_widget_button_options_co'] ) { echo "checked='checked'"; } else if ( 'donate' == $instance['dnt_widget_button_system'] ) { echo "disabled='disabled'"; } ?> value='small' /> <?php _e( 'Small button', 'donate' ); ?>
@@ -450,6 +442,10 @@ if ( ! function_exists ( 'dnt_save_custom_images' ) ) {
 			'svg'	=>	'image/svg+xml',
 			'svgz'	=>	'image/svg+xml'
 		);
+		if ( ! file_exists( $uploaddir ) ) {
+			/*Create dir with absolute path */
+			@mkdir( $uploaddir, 0755 );
+		}
 		if ( isset ( $_POST['dnt_button_choice_' . $payment] ) ) {
 			if ( 'custom' == $_POST['dnt_button_choice_' . $payment] ) {
 				$dnt_options[$payment . '_options']['choice_check'] = 0;
@@ -465,8 +461,6 @@ if ( ! function_exists ( 'dnt_save_custom_images' ) ) {
 							$current_image_width	=	${"get_size_uploaded_file_$payment"}[0];
 							$current_image_height	=	${"get_size_uploaded_file_$payment"}[1];
 							if ( ( $current_image_width <= $max_width ) && ( $current_image_height <= $max_height ) && ( $current_image_width >= $min_width ) && ( $current_image_height >= $min_height ) ) {
-								/* Create dir with absolute path */
-								@mkdir( $uploaddir, 0755 );
 								/* File name */
 								${"uploadfile_$payment"} = "id-" . time() . "-" . basename( $_FILES['dnt_custom_local_' . $payment]['name'] );
 								${"source_$payment"} = $uploaddir . ${"uploadfile_$payment"};
@@ -481,7 +475,7 @@ if ( ! function_exists ( 'dnt_save_custom_images' ) ) {
 									}
 									$dnt_options[$payment . '_options']['image_' . $payment . '_id'] = ${"shortcode_id_$payment"};
 								} else {
-									$dnt_error['upload_error'] = _e( 'Unable to move the file', 'donate' );
+									$dnt_error['upload_error'] = __( 'Unable to move the file', 'donate' );
 								}
 							} else {
 								if ( ( $current_image_width < $min_width ) || ( $current_image_height < $min_height ) )
@@ -496,12 +490,13 @@ if ( ! function_exists ( 'dnt_save_custom_images' ) ) {
 				} elseif ( ( isset ( $_POST['dnt_button_custom_choice_' . $payment ] ) ) && ( 'url' == $_POST['dnt_button_custom_choice_' . $payment ] ) ) {
 					$dnt_options[$payment . '_options']['style_load'] = 2;
 					/* URL upload */
-					if ( null != $_POST['dnt_custom_url_' . $payment] ) {
+					$dnt_headers = @get_headers( $_POST['dnt_custom_url_' . $payment] );
+					if ( null != $_POST['dnt_custom_url_' . $payment] && preg_match( "#^https?:(.*).(png|jpg|jpeg|gif|bmp|ico|tif|tiff|jpe|svg|svgz)$#i", $_POST['dnt_custom_url_' . $payment] ) && preg_match("|200|", $dnt_headers[0] ) ) {
 						if ( is_callable( 'curl_init' ) ) {
 							/* Url from form element value */
-							${"url_$payment"} = curl_init( $_POST['dnt_custom_url_' . $payment] );
+							${"url_$payment"} = curl_init( $_POST['dnt_custom_url_' . $payment ] );
 							if ( isset( $_POST['dnt_custom_url_' . $payment] ) ) {
-								${"get_size_uploaded_file_$payment"} = getimagesize( $_POST['dnt_custom_url_' . $payment] );
+								${"get_size_uploaded_file_$payment"} = getimagesize( $_POST['dnt_custom_url_' . $payment ] );
 								if ( in_array ( ${"get_size_uploaded_file_$payment"}['mime'], $dnt_mime_types ) ) {
 									$current_image_width	=	${"get_size_uploaded_file_$payment"}[0];
 									$current_image_height	=	${"get_size_uploaded_file_$payment"}[1];
@@ -521,12 +516,12 @@ if ( ! function_exists ( 'dnt_save_custom_images' ) ) {
 										for ( $k = 0; $k <= count( $dnt_options[$payment . '_options']['item_source_' . $payment], COUNT_RECURSIVE ) - 1; $k++ ) {
 											${"shortcode_id_$payment"} = $k + 1;
 										}
-										$dnt_options[$payment . '_options']['image_' . $payment . '_id'] = ${"shortcode_id_$payment"};
+										$dnt_options[ $payment . '_options']['image_' . $payment . '_id'] = ${"shortcode_id_$payment"};
 									} else {
 										if ( ( $current_image_width < $min_width ) || ( $current_image_height < $min_height ) )
-											$dnt_error[$payment . '_upload'] = __( 'Uploaded file smaller than 16x16', 'donate' );
+											$dnt_error[ $payment . '_upload'] = __( 'Uploaded file smaller than 16x16', 'donate' );
 										else
-											$dnt_error[$payment . '_upload'] = __( 'Uploaded file bigger then 170x70', 'donate' );
+											$dnt_error[ $payment . '_upload'] = __( 'Uploaded file bigger then 170x70', 'donate' );
 									}
 								} else {
 									$dnt_error['mime_type'] = __( 'You can upload only image files', 'donate' ) . '(.png, .jpg, .jpeg, .gif, .bmp, .ico, .tif, .tiff, .jpe, .svg, .svgz)';
@@ -546,9 +541,9 @@ if ( ! function_exists ( 'dnt_save_custom_images' ) ) {
 if ( ! function_exists ( 'dnt_display_custom_buttons' ) ) {
 	function dnt_display_custom_buttons( $payment ) {
 		global $dnt_options, $style_paypal, $style_co, $image_source_paypal, $image_source_co, $shortcode_paypal, $shortcode_co;
-		if ( null != $dnt_options[$payment . '_options']['item_source_' . $payment] ) { ?>
+		if ( null != $dnt_options[$payment . '_options']['item_source_' . $payment ] ) { ?>
 			<div class='postbox'>
-				<div class='handlediv'></div>
+				<div class='dnt_handlediv handlediv'></div>
 				<h3 class='dnt_buttons_block'><span><?php _e( 'Display all custom buttons', 'donate' ); ?></span></h3>
 				<div class='inside'>
 					<table id='dnt_imagex_box'>
@@ -645,17 +640,17 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 		/* PayPal save options */
 		if ( isset( $_POST['option_form'] ) && check_admin_referer( plugin_basename( __FILE__ ), 'dnt_check_field' ) ) {
 			if ( null != $_POST['dnt_paypal_account'] ) {
-				if ( ! preg_match( '^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$^' ,$_POST['dnt_paypal_account'] ) ) {
+				if ( ! is_email( $_POST['dnt_paypal_account'] ) ) {
 					$dnt_error['account_paypal'] = __( 'Email validation error, email must be written like example@gmail.com', 'donate' );
 				} else {
-					$dnt_options['paypal_options']['paypal_account'] = $_POST['dnt_paypal_account'];
+					$dnt_options['paypal_options']['paypal_account'] = stripslashes( esc_html(  $_POST['dnt_paypal_account'] ) );
 				}
 			} else {
 				$dnt_options['paypal_options']['paypal_account'] = '';
 				$dnt_error['account_paypal'] = __( 'Account name is required field, please write your account name in PayPal tab', 'donate' );
 			}
 			if ( ( isset ( $_POST['dnt_paypal_purpose'] ) ) && ( null != $_POST['dnt_paypal_purpose'] ) ) {
-				$dnt_options['paypal_options']['paypal_purpose'] = $_POST['dnt_paypal_purpose'];
+				$dnt_options['paypal_options']['paypal_purpose'] = stripslashes( esc_html( $_POST['dnt_paypal_purpose'] ) );
 			} else {
 				$dnt_options['paypal_options']['paypal_purpose'] = '';
 			}
@@ -771,7 +766,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 		<!--Errors-->
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php _e( 'Donate Settings', 'donate' ); ?></h2>		
+			<h2><?php _e( 'Donate Settings', 'donate' ); ?></h2>
 			<div id="dnt_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'donate' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'donate' ); ?></p></div>
 			<div class="error">
 				<?php if ( ( isset ( $dnt_error['account_paypal'] ) ) && ( null != $dnt_error['account_paypal'] ) && ( '1' == $_POST['dnt_tab_paypal'] ) ) { ?>
@@ -813,7 +808,6 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 					$message = __( 'Changes saved', 'donate' );
 				} ?>
 			</div>
-
 			<?php if ( ( null != $message ) && ( isset( $_POST['option_form'] ) ) ) { ?>
 				<div class="updated fade">
 					<p><strong><?php echo $message; ?></strong></p>
@@ -854,7 +848,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 													<?php _e( 'Your paypal account email address:', 'donate' ); ?>
 												</td>
 												<td class='dnt_account_row'>
-													<input type='text' name='dnt_paypal_account' id='dnt_paypal_account' <?php if ( null != $dnt_options['paypal_options']['paypal_account'] ) echo "value='" . $dnt_options['paypal_options']['paypal_account'] . "'"; else echo "value=''"; ?> />
+													<input type='text' name='dnt_paypal_account' id='dnt_paypal_account' value="<?php if ( null != $dnt_options['paypal_options']['paypal_account'] ) echo $dnt_options['paypal_options']['paypal_account']; ?>" />
 												</td>
 											</tr>
 											<tr>
@@ -862,7 +856,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 													<?php _e( 'Your donation purpose:', 'donate' ); ?>
 												</td>
 												<td class='dnt_account_row'>
-													<input type='text' id='dnt_paypal_purpose' name='dnt_paypal_purpose' <?php if ( null != $dnt_options['paypal_options']['paypal_purpose'] ) echo "value='" . $dnt_options['paypal_options']['paypal_purpose'] . "'"; else echo "value=''"; ?> />
+													<input type='text' id='dnt_paypal_purpose' name='dnt_paypal_purpose' value="<?php if ( null != $dnt_options['paypal_options']['paypal_purpose'] ) echo $dnt_options['paypal_options']['paypal_purpose']; ?>" />
 												</td>
 											</tr>
 											<tr>
@@ -871,17 +865,17 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 												</td>
 												<td>
 													<label class='dnt_checkers'>
-														<input id='dnt_default_paypal' class='dnt_elements' type='radio' value='default' name='dnt_button_choice_paypal' <?php if ( '1' == $style_paypal ) { ?>checked='checked' <?php } ?> /> <?php _e( 'Default', 'donate' ); ?>
+														<input id='dnt_default_paypal' class='dnt_elements' type='radio' value='default' name='dnt_button_choice_paypal' <?php if ( '1' == $style_paypal ) echo 'checked="checked"'; ?> /> <?php _e( 'Default', 'donate' ); ?>
 													</label>
 													<ul>
 													<li>
 														<label class='dnt_elements dnt_elements_disabled_paypal'>
-															<input id='dnt_small_paypal' class='dnt_elements dnt_elements_disabled_paypal' type='checkbox' value='small' name='dnt_check_choice_paypal' <?php if ( '1' == $choice_check ) { ?>checked='checked' <?php } ?> /> <?php _e( 'Use small image', 'donate' ); ?>
+															<input id='dnt_small_paypal' class='dnt_elements dnt_elements_disabled_paypal' type='checkbox' value='small' name='dnt_check_choice_paypal' <?php if ( '1' == $choice_check ) echo 'checked="checked"'; ?> /> <?php _e( 'Use small image', 'donate' ); ?>
 														</label>
 													</li>
 													<li>
 														<label class='dnt_elements dnt_elements_disabled_paypal'>
-															<input id='dnt_credits_paypal' class='dnt_elements dnt_elements_disabled_paypal' type='checkbox' value='credits' name='dnt_check_choice_paypal' <?php if ( '2' == $choice_check ) { ?>checked='checked' <?php } ?> /> <?php _e( 'Use credit card image', 'donate' ); ?>
+															<input id='dnt_credits_paypal' class='dnt_elements dnt_elements_disabled_paypal' type='checkbox' value='credits' name='dnt_check_choice_paypal' <?php if ( '2' == $choice_check ) echo 'checked="checked"'; ?> /> <?php _e( 'Use credit card image', 'donate' ); ?>
 														</label>
 													</li>
 													</ul>
@@ -891,7 +885,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 												<td></td>
 												<td>
 													<label class='dnt_checkers'>
-														<input id='dnt_custom_paypal' class='dnt_elements' type='radio' value='custom' name='dnt_button_choice_paypal' <?php if ( '2' == $style_paypal ) { ?>checked='checked' <?php } ?> /> <?php _e( 'Custom button', 'donate' ); ?>
+														<input id='dnt_custom_paypal' class='dnt_elements' type='radio' value='custom' name='dnt_button_choice_paypal' <?php if ( '2' == $style_paypal ) echo 'checked="checked"'; ?> /> <?php _e( 'Custom button', 'donate' ); ?>
 													</label>
 												</td>
 											</tr>
@@ -947,7 +941,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 													<?php _e( 'Your 2CO account ID:', 'donate' ); ?>
 												</td>
 												<td class='dnt_account_row'>
-													<input type='number' name='dnt_co_account' id='dnt_co_account' <?php if ( null != $dnt_options['co_options']['co_account'] ) echo "value='" . $dnt_options['co_options']['co_account'] . "'"; else echo "value=''"; ?> />
+													<input type='number' name='dnt_co_account' id='dnt_co_account' value="<?php if ( null != $dnt_options['co_options']['co_account'] ) echo $dnt_options['co_options']['co_account']; ?>" />
 												</td>
 											</tr>
 											<tr>
@@ -955,7 +949,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 													<?php _e( 'Quantity:', 'donate' ); ?>
 												</td>
 												<td class='dnt_account_row'>
-													<input id='dnt_quantity_donate' type='number' name='dnt_quantity_donate' <?php if ( null != $dnt_options['co_options']['co_quantity'] ) echo "value='" . $dnt_options['co_options']['co_quantity'] . "'"; else echo "value=''"; ?> />
+													<input id='dnt_quantity_donate' type='number' name='dnt_quantity_donate' value="<?php if ( null != $dnt_options['co_options']['co_quantity'] ) echo $dnt_options['co_options']['co_quantity']; ?>" />
 												</td>
 											</tr>
 											<tr>
@@ -963,7 +957,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 													<?php _e( 'Product ID:', 'donate' ); ?>
 												</td>
 												<td class='dnt_account_row'>
-													<input type='number' name='dnt_product_id' id='dnt_product_id' <?php if ( null != $dnt_options['co_options']['product_id'] ) echo "value='" . $dnt_options['co_options']['product_id'] . "'"; ?> />
+													<input type='number' name='dnt_product_id' id='dnt_product_id' value="<?php if ( null != $dnt_options['co_options']['product_id'] ) echo $dnt_options['co_options']['product_id']; ?>" />
 												</td>
 											</tr>
 											<tr>
@@ -972,17 +966,17 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 												</td>
 												<td>
 													<label class='dnt_checkers'>
-														<input id='dnt_default_co' class='dnt_elements' type='radio' value='default' name='dnt_button_choice_co' <?php if ( '1' == $style_co ) { ?>checked='checked' <?php } ?> /> <?php _e( 'Default button', 'donate' ); ?>
+														<input id='dnt_default_co' class='dnt_elements' type='radio' value='default' name='dnt_button_choice_co' <?php if ( '1' == $style_co ) echo 'checked="checked"'; ?> /> <?php _e( 'Default button', 'donate' ); ?>
 													</label>
 													<ul>
 														<li>
 															<label class='dnt_checkers dnt_elements_disabled_co'>
-																<input id='dnt_small_co' class='dnt_elements dnt_elements_disabled_co' type='checkbox' value='small' name='dnt_check_choice_co' <?php if ( '1' == $choice_check_co ) { ?>checked='checked' <?php } ?> /> <?php _e( 'Use small image', 'donate' ); ?>
+																<input id='dnt_small_co' class='dnt_elements dnt_elements_disabled_co' type='checkbox' value='small' name='dnt_check_choice_co' <?php if ( '1' == $choice_check_co ) echo 'checked="checked"'; ?> /> <?php _e( 'Use small image', 'donate' ); ?>
 															</label>
 														</li>
 														<li>
 															<label class='dnt_checkers dnt_elements_disabled_co'>
-																<input id='dnt_credits_co' class='dnt_elements dnt_elements_disabled_co' type='checkbox' value='credits' name='dnt_check_choice_co' <?php if ( '2' == $choice_check_co ) { ?>checked='checked' <?php } ?> /> <?php _e( 'Use credit card image', 'donate' ); ?>
+																<input id='dnt_credits_co' class='dnt_elements dnt_elements_disabled_co' type='checkbox' value='credits' name='dnt_check_choice_co' <?php if ( '2' == $choice_check_co ) echo 'checked="checked"'; ?> /> <?php _e( 'Use credit card image', 'donate' ); ?>
 															</label>
 														</li>
 													</ul>
@@ -992,7 +986,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 												<td></td>
 												<td>
 													<label class='dnt_checkers'>
-														<input id='dnt_custom_co' class='dnt_elements' type='radio' value='custom' name='dnt_button_choice_co' <?php if ( '2' == $style_co ) { ?>checked='checked' <?php } ?> /> <?php _e( 'Custom button', 'donate' ); ?>
+														<input id='dnt_custom_co' class='dnt_elements' type='radio' value='custom' name='dnt_button_choice_co' <?php if ( '2' == $style_co ) echo 'checked="checked"'; ?> /> <?php _e( 'Custom button', 'donate' ); ?>
 													</label>
 												</td>
 											</tr>
@@ -1046,14 +1040,14 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 					</td>
 				</tr>
 			</table>
-			<br/>		
+			<br/>
 			<div class="bws-plugin-reviews">
 				<div class="bws-plugin-reviews-rate">
-					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'donate' ); ?>: 
+					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'donate' ); ?>:
 					<a href="http://wordpress.org/support/view/plugin-reviews/donate-button/" target="_blank" title="Donate reviews"><?php _e( 'Rate the plugin', 'donate' ); ?></a><br/>
 				</div>
 				<div class="bws-plugin-reviews-support">
-					<?php _e( 'If there is something wrong about it, please contact us', 'donate' ); ?>: 
+					<?php _e( 'If there is something wrong about it, please contact us', 'donate' ); ?>:
 					<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
 				</div>
 			</div>
@@ -1131,10 +1125,10 @@ if ( ! function_exists ( 'dnt_delete_options' ) ) {
 		/* Get all file names */
 		$files = glob( WP_CONTENT_DIR . "/donate-uploads/*" );
 		/*iterate files*/
-		foreach( $files as $file ) {
+		foreach ( $files as $file ) {
 			if ( is_file( $file ) ) {
-			/* Delete file */
-				unlink( $file );
+				/* Delete file */
+				@unlink( $file );
 			}
 		}
 		@rmdir( $del_dir );
