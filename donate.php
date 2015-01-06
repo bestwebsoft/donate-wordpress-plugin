@@ -1,17 +1,17 @@
 <?php
 /*
 Plugin Name: Donate
-Plugin URI:  http://bestwebsoft.com/plugin/
+Plugin URI: http://bestwebsoft.com/products/
 Description: Create custom buttons for payment systems
 Author: BestWebSoft
-Version: 2.0.2
+Version: 2.0.3
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
 
 /*
-	© Copyright 2014  BestWebSoft  ( http://support.bestwebsoft.com )
+	© Copyright 2015  BestWebSoft  ( http://support.bestwebsoft.com )
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -31,13 +31,13 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 /* Create pages for the plugin */
 if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 	function dnt_add_admin_menu() {
-		global $bstwbsftwppdtplgns_options, $wpmu, $bstwbsftwppdtplgns_added_menu;
+		global $bstwbsftwppdtplgns_options, $bstwbsftwppdtplgns_added_menu;
 		$bws_menu_info = get_plugin_data( plugin_dir_path( __FILE__ ) . "bws_menu/bws_menu.php" );
 		$bws_menu_version = $bws_menu_info["Version"];
 		$base = plugin_basename( __FILE__ );
 
 		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
-			if ( 1 == $wpmu ) {
+			if ( is_multisite() ) {
 				if ( ! get_site_option( 'bstwbsftwppdtplgns_options' ) )
 					add_site_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
 				$bstwbsftwppdtplgns_options = get_site_option( 'bstwbsftwppdtplgns_options' );
@@ -51,11 +51,17 @@ if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 		if ( isset( $bstwbsftwppdtplgns_options['bws_menu_version'] ) ) {
 			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
 			unset( $bstwbsftwppdtplgns_options['bws_menu_version'] );
-			update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			if ( is_multisite() )
+				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			else
+				update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
 			require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
 		} else if ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] < $bws_menu_version ) {
 			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
-			update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			if ( is_multisite() )
+				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			else
+				update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
 			require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
 		} else if ( ! isset( $bstwbsftwppdtplgns_added_menu ) ) {
 			$plugin_with_newer_menu = $base;
@@ -69,8 +75,8 @@ if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 			if ( file_exists( ABSPATH . $wp_content_dir . '/plugins/' . $plugin_with_newer_menu[0] . '/bws_menu/bws_menu.php' ) )
 				require_once( ABSPATH . $wp_content_dir . '/plugins/' . $plugin_with_newer_menu[0] . '/bws_menu/bws_menu.php' );
 			else
-				require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
-			$bstwbsftwppdtplgns_added_menu = true;
+				require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );	
+			$bstwbsftwppdtplgns_added_menu = true;			
 		}
 
 		add_menu_page( 'BWS Plugins', 'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', plugins_url( "images/px.png", __FILE__ ), 1001 );
@@ -81,7 +87,9 @@ if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 if ( ! function_exists( 'dnt_init' ) ) {
 	function dnt_init() {
 		/* Internationalization */
-		load_plugin_textdomain( 'donate', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_plugin_textdomain( 'donate', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );		
+  		/* Function check if plugin is compatible with current WP version  */
+		dnt_version_check();
 		/* Get/Register and check settings for plugin */
 		if ( ! is_admin() || ( isset( $_GET['page'] ) && "donate.php" == $_GET['page'] ) )
 			dnt_register_settings();
@@ -97,9 +105,6 @@ if ( ! function_exists( 'dnt_admin_init' ) ) {
 
 		if ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) )
 			$bws_plugin_info = array( 'id' => '103', 'version' => $dnt_plugin_info["Version"] );
-
-  		/* Function check if plugin is compatible with current WP version  */
-		dnt_version_check();
 	}
 }
 
@@ -110,9 +115,13 @@ if ( ! function_exists ( 'dnt_version_check' ) ) {
 		$require_wp		=	"3.0"; /* Wordpress at least requires version */
 		$plugin			=	plugin_basename( __FILE__ );
 	 	if ( version_compare( $wp_version, $require_wp, "<" ) ) {
+	 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			if ( is_plugin_active( $plugin ) ) {
 				deactivate_plugins( $plugin );
-				wp_die( "<strong>" . $dnt_plugin_info['Name'] . " </strong> " . __( 'requires', 'donate' ) . " <strong>WordPress " . $require_wp . "</strong> " . __( 'or higher, that is why it has been deactivated! Please upgrade WordPress and try again.', 'donate' ) . "<br /><br />" . __( 'Back to the WordPress', 'donate' ) . " <a href='" . get_admin_url( null, 'plugins.php' ) . "'>" . __( 'Plugins page', 'donate' ) . "</a>." );
+				$admin_url = ( function_exists( 'get_admin_url' ) ) ? get_admin_url( null, 'plugins.php' ) : esc_url( '/wp-admin/plugins.php' );
+				if ( ! $dnt_plugin_info )
+					$dnt_plugin_info = get_plugin_data( __FILE__, false );
+				wp_die( "<strong>" . $dnt_plugin_info['Name'] . " </strong> " . __( 'requires', 'donate' ) . " <strong>WordPress " . $require_wp . "</strong> " . __( 'or higher, that is why it has been deactivated! Please upgrade WordPress and try again.', 'donate' ) . "<br /><br />" . __( 'Back to the WordPress', 'donate' ) . " <a href='" . $admin_url . "'>" . __( 'Plugins page', 'donate' ) . "</a>." );
 			}
 		}
 	}
@@ -122,7 +131,7 @@ if ( ! function_exists ( 'dnt_version_check' ) ) {
 if ( ! function_exists ( 'dnt_register_settings' ) ) {
 	function dnt_register_settings() {
 		/* Database array for payment */
-		global $wpmu, $dnt_options, $dnt_plugin_info;
+		global $dnt_options, $dnt_plugin_info;
 
 		if ( ! $dnt_plugin_info ) {
 			if ( ! function_exists( 'get_plugin_data' ) )
@@ -142,6 +151,7 @@ if ( ! function_exists ( 'dnt_register_settings' ) ) {
 				'image_paypal_id'		=>	'',
 				'item_source_paypal'	=>	'',
 				'img'					=>	'',
+				'paypal_amount'			=>	'1.00'
 			),
 			'co_options' => array(
 				'style'					=>	1,
@@ -162,15 +172,9 @@ if ( ! function_exists ( 'dnt_register_settings' ) ) {
 			),
 			'plugin_option_version' => $dnt_plugin_info["Version"]
 		);
-		if ( 1 == $wpmu ) {
-			if ( ! get_site_option( 'dnt_options' ) )
-				add_site_option( 'dnt_options', $default_pay_options, '', 'yes' );
-			$dnt_options = get_site_option( 'dnt_options' );
-		} else {
-			if ( ! get_site_option( 'dnt_options' ) )
-				add_option( 'dnt_options', $default_pay_options, '', 'yes' );
-			$dnt_options = get_option( 'dnt_options' );
-		}
+		if ( ! get_option( 'dnt_options' ) )
+			add_option( 'dnt_options', $default_pay_options, '', 'yes' );
+		$dnt_options = get_option( 'dnt_options' );
 
 		if ( ! isset( $dnt_options['plugin_option_version'] ) || $dnt_options['plugin_option_version'] != $dnt_plugin_info["Version"] ) {
 			$dnt_options = array_merge( $default_pay_options, $dnt_options );
@@ -183,11 +187,10 @@ if ( ! function_exists ( 'dnt_register_settings' ) ) {
 /* PayPal API */
 if ( ! function_exists ( 'dnt_draw_paypal_form' ) ) {
 	function dnt_draw_paypal_form() {
-		global $wpmu;
-		$dnt_options = ( 1 == $wpmu ) ? get_site_option( 'dnt_options', array() ) : get_option( 'dnt_options', array() ); ?>
+		$dnt_options = get_option( 'dnt_options', array() ); ?>
 		<input type='hidden' name='business' value="<?php echo $dnt_options['paypal_options']['paypal_account']; ?>" />
 		<input type='hidden' name='item_name' value="<?php echo $dnt_options['paypal_options']['paypal_purpose']; ?>" />
-		<input type='hidden' name='amount' value='1.00'>
+		<input type='hidden' name='amount' value="<?php echo $dnt_options['paypal_options']['paypal_amount']; ?>">
 		<input type='hidden' name='cmd' value='_donations' />
 	<?php }
 }
@@ -195,8 +198,7 @@ if ( ! function_exists ( 'dnt_draw_paypal_form' ) ) {
 /* 2CO API */
 if ( ! function_exists ( 'dnt_draw_co_form' ) ) {
 	function dnt_draw_co_form() {
-		global $wpmu;
-		$dnt_options = ( 1 == $wpmu ) ? get_site_option( 'dnt_options', array() ) : get_option( 'dnt_options', array() ); ?>
+		$dnt_options = get_option( 'dnt_options', array() ); ?>
 		<input type='hidden' name='sid' value="<?php echo $dnt_options['co_options']['co_account']; ?>" />
 		<input type='hidden' name='quantity' value="<?php echo $dnt_options['co_options']['co_quantity']; ?>" />
 		<input type='hidden' name='product_id' value="<?php echo $dnt_options['co_options']['product_id']; ?>" />
@@ -206,8 +208,8 @@ if ( ! function_exists ( 'dnt_draw_co_form' ) ) {
 /* Add CSS and JS for plugin */
 if ( ! function_exists ( 'dnt_plugin_stylesheet' ) ) {
 	function dnt_plugin_stylesheet() {
-		global $wp_version;
-		if ( ! is_admin() || ( isset( $_GET['page'] ) && "donate.php" == $_GET['page'] ) ) {
+		global $wp_version, $hook_suffix;	
+		if ( ! is_admin() || ( isset( $_GET['page'] ) && "donate.php" == $_GET['page'] ) || ( isset( $hook_suffix ) && "widgets.php" == $hook_suffix ) ) {
 			if ( 3.8 > $wp_version )
 				wp_enqueue_style( 'dnt_style', plugins_url( 'css/style_wp_before_3.8.css', __FILE__ ) );
 			else
@@ -635,20 +637,31 @@ if ( ! function_exists ( 'dnt_display_output_block' ) ) {
 /* Add content for donate Menu */
 if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 	function dnt_admin_settings() {
-		global $dnt_error, $dnt_options, $image_source_donate, $shortcode_donate, $shortcode_paypal, $image_alt_donate, $style_paypal, $style_co;
-		$message = $choice_check = $dnt_tab_co = $dnt_tab_paypal = $dnt_tab_active_paypal = $dnt_tab_active_co = '';
+		global $dnt_error, $dnt_options, $image_source_donate, $shortcode_donate, $shortcode_paypal, $image_alt_donate, $style_paypal, $style_co,
+				$image_source_co, $image_source_paypal, $image_alt_co, $shortcode_co, $image_alt_paypal;
+
+		$message = $choice_check = $dnt_tab_co = $dnt_tab_paypal = $dnt_tab_active_paypal = $dnt_tab_active_co = $shortcode_donate	=	$image_alt_donate = '';
 		/* PayPal save options */
 		if ( isset( $_POST['option_form'] ) && check_admin_referer( plugin_basename( __FILE__ ), 'dnt_check_field' ) ) {
 			if ( null != $_POST['dnt_paypal_account'] ) {
 				if ( ! is_email( $_POST['dnt_paypal_account'] ) ) {
 					$dnt_error['account_paypal'] = __( 'Email validation error, email must be written like example@gmail.com', 'donate' );
 				} else {
-					$dnt_options['paypal_options']['paypal_account'] = stripslashes( esc_html(  $_POST['dnt_paypal_account'] ) );
+					$dnt_options['paypal_options']['paypal_account'] = $_POST['dnt_paypal_account'];
 				}
 			} else {
 				$dnt_options['paypal_options']['paypal_account'] = '';
 				$dnt_error['account_paypal'] = __( 'Account name is required field, please write your account name in PayPal tab', 'donate' );
 			}
+
+			if ( ( isset ( $_POST['dnt_paypal_amount'] ) ) && ( null != $_POST['dnt_paypal_amount'] ) ) {
+				$dnt_options['paypal_options']['paypal_amount'] = number_format( floatval( $_POST['dnt_paypal_amount'] ), 2, ".", '' );
+				if ( "0.00" == $dnt_options['paypal_options']['paypal_amount'] )
+					$dnt_options['paypal_options']['paypal_amount'] = '1.00';
+			} else {
+				$dnt_options['paypal_options']['paypal_amount'] = '1.00';
+			}
+			
 			if ( ( isset ( $_POST['dnt_paypal_purpose'] ) ) && ( null != $_POST['dnt_paypal_purpose'] ) ) {
 				$dnt_options['paypal_options']['paypal_purpose'] = stripslashes( esc_html( $_POST['dnt_paypal_purpose'] ) );
 			} else {
@@ -749,8 +762,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 		$style_load_co		=	$dnt_options['co_options']['style_load'];
 		$choice_check_co	=	$dnt_options['co_options']['choice_check'];
 
-		/* Get options for one button */
-		$shortcode_donate	=	$image_alt_donate = '';
+		/* Get options for one button */		
 		$check_donate		=	$dnt_options['donate_options']['check_donate'];
 
 		dnt_output_images( 'paypal' );
@@ -760,8 +772,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 			$image_source_donate	=	plugins_url( 'images/donate-button.png', __FILE__ );
 			$image_alt_donate		=	'donate-default';
 		}
-		dnt_output_images( 'co' );
-		global $dnt_error, $image_source_co, $image_source_paypal, $image_alt_co, $shortcode_paypal, $shortcode_co, $image_alt_paypal; ?>
+		dnt_output_images( 'co' ); ?>
 		<!--Interface-->
 		<!--Errors-->
 		<div class="wrap">
@@ -833,7 +844,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 										<h2 class='nav-tab-wrapper dnt_hidden'>
 											<a class='nav-tab <?php echo $dnt_tab_active_paypal; ?>'><span class='dnt_paypal_text'>PayPal</span></a>
 											<a class='nav-tab <?php echo $dnt_tab_active_co; ?>'><span class='dnt_co_text'>2CO</span></a>
-											<a class='nav-tab' href="http://bestwebsoft.com/plugin/donate/#faq" target='_blank'><?php _e( 'FAQ', 'donate' ); ?></a>
+											<a class='nav-tab' href="http://bestwebsoft.com/products/donate/faq/" target='_blank'><?php _e( 'FAQ', 'donate' ); ?></a>
 										</h2>
 									</td>
 								</tr>
@@ -857,6 +868,14 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 												</td>
 												<td class='dnt_account_row'>
 													<input type='text' id='dnt_paypal_purpose' name='dnt_paypal_purpose' value="<?php if ( null != $dnt_options['paypal_options']['paypal_purpose'] ) echo $dnt_options['paypal_options']['paypal_purpose']; ?>" />
+												</td>
+											</tr>
+											<tr>
+												<th class='dnt_row dnt_account_row' scope="row">
+													<?php _e( 'Amount:', 'donate' ); ?>
+												</td>
+												<td class='dnt_account_row'>
+													<input type='text' id='dnt_paypal_amount' name='dnt_paypal_amount' value="<?php if ( null != $dnt_options['paypal_options']['paypal_amount'] ) echo $dnt_options['paypal_options']['paypal_amount']; ?>" />
 												</td>
 											</tr>
 											<tr>
@@ -1034,13 +1053,14 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 									</td>
 								</tr>
 							</table>
-							<input type='submit' name='option_form' value='<?php _e( "Save changes", "donate" ); ?>' class='button-primary' />
-							<?php wp_nonce_field( plugin_basename( __FILE__ ), 'dnt_check_field' ) ?>
-						</form>
+							<p class="submit">
+								<input type='submit' name='option_form' value='<?php _e( "Save changes", "donate" ); ?>' class='button-primary' />
+								<?php wp_nonce_field( plugin_basename( __FILE__ ), 'dnt_check_field' ) ?>	
+							</p>
+						</form>					
 					</td>
 				</tr>
 			</table>
-			<br/>
 			<div class="bws-plugin-reviews">
 				<div class="bws-plugin-reviews-rate">
 					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'donate' ); ?>:
@@ -1120,7 +1140,6 @@ if ( ! function_exists ( 'dnt_user_shortcode' ) ) {
 if ( ! function_exists ( 'dnt_delete_options' ) ) {
 	function dnt_delete_options() {
 		delete_option( 'dnt_options' );
-		delete_site_option( 'dnt_options' );
 		$del_dir = WP_CONTENT_DIR . "/donate-uploads/";
 		/* Get all file names */
 		$files = glob( WP_CONTENT_DIR . "/donate-uploads/*" );

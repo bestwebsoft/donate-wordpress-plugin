@@ -148,19 +148,17 @@
 
 		/*Widget settings*/
 		$( 'a#dnt_paypal_widget_tab' ).live( 'click', function() {
-			if ( $( this ).parent().hasClass( 'tabs' ) ) {
-				$( this ).parent().toggleClass( 'tabs' );
+			if ( ! $( this ).parent().hasClass( 'tabs' ) ) {
+				$( this ).parent().addClass( 'tabs' );
 			}
-			$( this ).parent().toggleClass( 'tabs' );
 			$( this ).parent().next().children( 'a#dnt_co_widget_tab' ).parent().removeClass( 'tabs' );
 			$( this ).parent().parent().next().removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );
 			$( this ).parent().parent().next().next().removeClass( 'dnt_display' ).addClass( 'dnt_hidden' );
 		} );
 		$( 'a#dnt_co_widget_tab' ).live( 'click', function() {
-			if ( $( this ).parent().hasClass( 'tabs' ) ) {
-				$( this ).parent().toggleClass( 'tabs' );
+			if ( ! $( this ).parent().hasClass( 'tabs' ) ) {
+				$( this ).parent().addClass( 'tabs' );
 			}
-			$( this ).parent().toggleClass( 'tabs' );
 			$( this ).parent().prev().children( 'a#dnt_paypal_widget_tab' ).parent().removeClass( 'tabs' );
 			$( this ).parent().parent().next().removeClass( 'dnt_display' ).addClass( 'dnt_hidden' );
 			$( this ).parent().parent().next().next().removeClass( 'dnt_hidden' ).addClass( 'dnt_display' );

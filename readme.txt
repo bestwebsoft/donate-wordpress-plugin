@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: 2checkout, 2co, button, custom buttons, denate, donat, donate, donnate, doneit, donte, donate buttons, donate button in post, donate button in sidebar, donate button on page, donate plugin, donation, get donations, payment, payment button, payment system, paypal, Pp, shortcode
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 2.0.2
+Tested up to: 4.1
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,7 +30,7 @@ http://www.youtube.com/watch?v=82g6FTpQTr0
 The author of the Donate also recommends the following plugins:
 
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=613962505e24bb2b58c58becdb22c91c">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/?k=613962505e24bb2b58c58becdb22c91c">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
 = Translation =
 
@@ -95,6 +95,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.0.3 - 06.01.2015 =
+* NEW : PayPal amount is added.
+* Update : We updated all functionality for wordpress 4.1.
+
 = V2.0.2 - 08.08.2014 =
 * Bugfix : Security Exploit was fixed.
 * Bugfix : Bug with uploading custom images was fixed.
@@ -149,6 +153,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0.3 =
+PayPal amount is added. We updated all functionality for wordpress 4.1.
 
 = V2.0.2 =
 Security Exploit was fixed. Bug with uploading custom images was fixed.
