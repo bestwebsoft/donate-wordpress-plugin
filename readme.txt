@@ -1,10 +1,10 @@
-=== Donate ===
+=== Donate by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: 2checkout, 2co, button, custom buttons, denate, donat, donate, donnate, doneit, donte, donate buttons, donate button in post, donate button in sidebar, donate button on page, donate plugin, donation, get donations, payment, payment button, payment system, paypal, Pp, shortcode
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 2.0.3
+Tested up to: 4.1.1
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,8 @@ We can fix some things for free for the users who provide translation of our plu
 3. You can adjust the necessary settings using your WordPress admin panel in "BWS Plugins" > "Donate".
 4. Create a page or a post, customize button settings and insert generated shortcode into the text.
 
+<a href="https://docs.google.com/document/d/1cVBfBEzjHVwu1JDEr81ARZelUz_N-tZj7g3yA7LT_8w/edit" target="_blank">View a Step-by-step Instruction on Donate Installation</a>.
+
 == Frequently Asked Questions ==
 
 = How can I add Donate button to my website? =
@@ -94,6 +96,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 6. Click on button `Donate`, displays all payment systems.
 
 == Changelog ==
+
+= V2.0.4 - 01.04.2015 =
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 4.1.1
 
 = V2.0.3 - 06.01.2015 =
 * NEW : PayPal amount is added.
@@ -153,6 +159,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0.4 =
+BWS plugins section is updated. We updated all functionality for wordpress 4.1.1
+
 
 = V2.0.3 =
 PayPal amount is added. We updated all functionality for wordpress 4.1.

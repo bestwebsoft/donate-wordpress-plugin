@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Donate
+Plugin Name: Donate by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: Create custom buttons for payment systems
 Author: BestWebSoft
-Version: 2.0.3
+Version: 2.0.4
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -31,65 +31,28 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 /* Create pages for the plugin */
 if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 	function dnt_add_admin_menu() {
-		global $bstwbsftwppdtplgns_options, $bstwbsftwppdtplgns_added_menu;
-		$bws_menu_info = get_plugin_data( plugin_dir_path( __FILE__ ) . "bws_menu/bws_menu.php" );
-		$bws_menu_version = $bws_menu_info["Version"];
-		$base = plugin_basename( __FILE__ );
-
-		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
-			if ( is_multisite() ) {
-				if ( ! get_site_option( 'bstwbsftwppdtplgns_options' ) )
-					add_site_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
-				$bstwbsftwppdtplgns_options = get_site_option( 'bstwbsftwppdtplgns_options' );
-			} else {
-				if ( ! get_option( 'bstwbsftwppdtplgns_options' ) )
-					add_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
-				$bstwbsftwppdtplgns_options = get_option( 'bstwbsftwppdtplgns_options' );
-			}
-		}
-
-		if ( isset( $bstwbsftwppdtplgns_options['bws_menu_version'] ) ) {
-			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
-			unset( $bstwbsftwppdtplgns_options['bws_menu_version'] );
-			if ( is_multisite() )
-				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
-			else
-				update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
-			require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
-		} else if ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] < $bws_menu_version ) {
-			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
-			if ( is_multisite() )
-				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
-			else
-				update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
-			require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
-		} else if ( ! isset( $bstwbsftwppdtplgns_added_menu ) ) {
-			$plugin_with_newer_menu = $base;
-			foreach ( $bstwbsftwppdtplgns_options['bws_menu']['version'] as $key => $value ) {
-				if ( $bws_menu_version < $value && is_plugin_active( $base ) ) {
-					$plugin_with_newer_menu = $key;
-				}
-			}
-			$plugin_with_newer_menu = explode( '/', $plugin_with_newer_menu );
-			$wp_content_dir = defined( 'WP_CONTENT_DIR' ) ? basename( WP_CONTENT_DIR ) : 'wp-content';
-			if ( file_exists( ABSPATH . $wp_content_dir . '/plugins/' . $plugin_with_newer_menu[0] . '/bws_menu/bws_menu.php' ) )
-				require_once( ABSPATH . $wp_content_dir . '/plugins/' . $plugin_with_newer_menu[0] . '/bws_menu/bws_menu.php' );
-			else
-				require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );	
-			$bstwbsftwppdtplgns_added_menu = true;			
-		}
-
-		add_menu_page( 'BWS Plugins', 'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', plugins_url( "images/px.png", __FILE__ ), 1001 );
-		add_submenu_page( 'bws_plugins', __( 'Donate', 'donate' ), __( 'Donate', 'donate' ), 'manage_options', "donate.php", 'dnt_admin_settings' );
+		bws_add_general_menu( plugin_basename( __FILE__ ) );
+		add_submenu_page( 'bws_plugins', 'Donate', 'Donate', 'manage_options', "donate.php", 'dnt_admin_settings' );
 	}
 }
 
 if ( ! function_exists( 'dnt_init' ) ) {
 	function dnt_init() {
+		global $dnt_plugin_info;
 		/* Internationalization */
 		load_plugin_textdomain( 'donate', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );		
-  		/* Function check if plugin is compatible with current WP version  */
-		dnt_version_check();
+  		
+		require_once( dirname( __FILE__ ) . '/bws_menu/bws_functions.php' );
+		
+		if ( empty( $dnt_plugin_info ) ) {
+			if ( ! function_exists( 'get_plugin_data' ) )
+				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			$dnt_plugin_info = get_plugin_data( __FILE__ );
+		}
+
+		/* Function check if plugin is compatible with current WP version  */
+		bws_wp_version_check( plugin_basename( __FILE__ ), $dnt_plugin_info, "3.0" );
+
 		/* Get/Register and check settings for plugin */
 		if ( ! is_admin() || ( isset( $_GET['page'] ) && "donate.php" == $_GET['page'] ) )
 			dnt_register_settings();
@@ -100,30 +63,8 @@ if ( ! function_exists( 'dnt_admin_init' ) ) {
 	function dnt_admin_init() {
 		global $bws_plugin_info, $dnt_plugin_info;
 
-		if ( ! $dnt_plugin_info )
-			$dnt_plugin_info = get_plugin_data( __FILE__ );
-
 		if ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) )
 			$bws_plugin_info = array( 'id' => '103', 'version' => $dnt_plugin_info["Version"] );
-	}
-}
-
-/* Function check if plugin is compatible with current WP version  */
-if ( ! function_exists ( 'dnt_version_check' ) ) {
-	function dnt_version_check() {
-		global $wp_version, $dnt_plugin_info;
-		$require_wp		=	"3.0"; /* Wordpress at least requires version */
-		$plugin			=	plugin_basename( __FILE__ );
-	 	if ( version_compare( $wp_version, $require_wp, "<" ) ) {
-	 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-			if ( is_plugin_active( $plugin ) ) {
-				deactivate_plugins( $plugin );
-				$admin_url = ( function_exists( 'get_admin_url' ) ) ? get_admin_url( null, 'plugins.php' ) : esc_url( '/wp-admin/plugins.php' );
-				if ( ! $dnt_plugin_info )
-					$dnt_plugin_info = get_plugin_data( __FILE__, false );
-				wp_die( "<strong>" . $dnt_plugin_info['Name'] . " </strong> " . __( 'requires', 'donate' ) . " <strong>WordPress " . $require_wp . "</strong> " . __( 'or higher, that is why it has been deactivated! Please upgrade WordPress and try again.', 'donate' ) . "<br /><br />" . __( 'Back to the WordPress', 'donate' ) . " <a href='" . $admin_url . "'>" . __( 'Plugins page', 'donate' ) . "</a>." );
-			}
-		}
 	}
 }
 
@@ -225,7 +166,8 @@ if ( ! function_exists ( 'dnt_register_plugin_links' ) ) {
 	function dnt_register_plugin_links( $links, $file ) {
 		$base = plugin_basename( __FILE__ );
 		if ( $file == $base ) {
-			$links[]	=	'<a href="admin.php?page=donate.php">' . __( 'Settings', 'donate' ) . '</a>';
+			if ( ! is_network_admin() )
+				$links[]	=	'<a href="admin.php?page=donate.php">' . __( 'Settings', 'donate' ) . '</a>';
 			$links[]	=	'<a href="http://wordpress.org/plugins/donate-button/faq/" target="_blank">' . __( 'FAQ', 'donate' ) . '</a>';
 			$links[]	=	'<a href="http://support.bestwebsoft.com">' . __( 'Support', 'donate' ) . '</a>';
 		}
@@ -236,13 +178,15 @@ if ( ! function_exists ( 'dnt_register_plugin_links' ) ) {
 /* Adds "Settings" link to the plugin action page */
 if ( ! function_exists ( 'dnt_plugin_action_links' ) ) {
 	function dnt_plugin_action_links( $links, $file ) {
-		/* Static so we don't call plugin_basename on every plugin row */
-		static $this_plugin;
-		if ( ! $this_plugin )
-			$this_plugin = plugin_basename( __FILE__ );
-		if ( $file == $this_plugin ) {
-			$settings_link = '<a href="admin.php?page=donate.php">' . __( 'Settings', 'donate' ) . '</a>';
-			array_unshift( $links, $settings_link );
+		if ( ! is_network_admin() ) {
+			/* Static so we don't call plugin_basename on every plugin row */
+			static $this_plugin;
+			if ( ! $this_plugin )
+				$this_plugin = plugin_basename( __FILE__ );
+			if ( $file == $this_plugin ) {
+				$settings_link = '<a href="admin.php?page=donate.php">' . __( 'Settings', 'donate' ) . '</a>';
+				array_unshift( $links, $settings_link );
+			}
 		}
 		return $links;
 	}
@@ -286,8 +230,8 @@ class Donate_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'donate_widget',
-			__( 'Donate Widget', 'donate' ),
-			array( 'description' => __( 'Donate Widget', 'donate' ), )
+			'Donate ' . __( 'Widget', 'donate' ),
+			array( 'description' => 'Donate ' . __( 'Widget', 'donate' ), )
 		);
 	}
 
@@ -638,7 +582,7 @@ if ( ! function_exists ( 'dnt_display_output_block' ) ) {
 if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 	function dnt_admin_settings() {
 		global $dnt_error, $dnt_options, $image_source_donate, $shortcode_donate, $shortcode_paypal, $image_alt_donate, $style_paypal, $style_co,
-				$image_source_co, $image_source_paypal, $image_alt_co, $shortcode_co, $image_alt_paypal;
+				$image_source_co, $image_source_paypal, $image_alt_co, $shortcode_co, $image_alt_paypal, $dnt_plugin_info;
 
 		$message = $choice_check = $dnt_tab_co = $dnt_tab_paypal = $dnt_tab_active_paypal = $dnt_tab_active_co = $shortcode_donate	=	$image_alt_donate = '';
 		/* PayPal save options */
@@ -1061,16 +1005,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 					</td>
 				</tr>
 			</table>
-			<div class="bws-plugin-reviews">
-				<div class="bws-plugin-reviews-rate">
-					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'donate' ); ?>:
-					<a href="http://wordpress.org/support/view/plugin-reviews/donate-button/" target="_blank" title="Donate reviews"><?php _e( 'Rate the plugin', 'donate' ); ?></a><br/>
-				</div>
-				<div class="bws-plugin-reviews-support">
-					<?php _e( 'If there is something wrong about it, please contact us', 'donate' ); ?>:
-					<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
-				</div>
-			</div>
+			<?php bws_plugin_reviews_block( $dnt_plugin_info['Name'], 'donate-button' ); ?>
 		</div>
 	<?php }
 }
