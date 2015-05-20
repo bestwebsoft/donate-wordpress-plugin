@@ -4,7 +4,7 @@ Plugin Name: Donate by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: Create custom buttons for payment systems
 Author: BestWebSoft
-Version: 2.0.4
+Version: 2.0.5
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html

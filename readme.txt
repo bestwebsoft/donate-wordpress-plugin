@@ -1,10 +1,10 @@
 === Donate by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Donate link: http://bestwebsoft.com/donate/
 Tags: 2checkout, 2co, button, custom buttons, denate, donat, donate, donnate, doneit, donte, donate buttons, donate button in post, donate button in sidebar, donate button on page, donate plugin, donation, get donations, payment, payment button, payment system, paypal, Pp, shortcode
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 2.0.4
+Tested up to: 4.2.2
+Stable tag: 2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,10 @@ Donate plugin helps to get donations from payment systems, like PayPal or 2Check
 
 http://www.youtube.com/watch?v=82g6FTpQTr0
 
+<a href="http://www.youtube.com/watch?v=vqbItGXpwuk" target="_blank">Video instruction on Installation</a>
+
 <a href="http://wordpress.org/plugins/donate-button/faq/" target="_blank">FAQ</a>
+
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 = Features =
@@ -56,6 +59,8 @@ We can fix some things for free for the users who provide translation of our plu
 
 <a href="https://docs.google.com/document/d/1cVBfBEzjHVwu1JDEr81ARZelUz_N-tZj7g3yA7LT_8w/edit" target="_blank">View a Step-by-step Instruction on Donate Installation</a>.
 
+http://www.youtube.com/watch?v=vqbItGXpwuk
+
 == Frequently Asked Questions ==
 
 = How can I add Donate button to my website? =
@@ -81,6 +86,7 @@ You may use images not bigger than size 170x70.
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
@@ -96,6 +102,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 6. Click on button `Donate`, displays all payment systems.
 
 == Changelog ==
+
+= V2.0.5 - 20.05.2015 =
+* Update : We updated all functionality for wordpress 4.2.2.
 
 = V2.0.4 - 01.04.2015 =
 * Update : BWS plugins section is updated.
@@ -160,9 +169,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Upgrade Notice ==
 
+= V2.0.5 =
+We updated all functionality for wordpress 4.2.2.
+
 = V2.0.4 =
 BWS plugins section is updated. We updated all functionality for wordpress 4.1.1
-
 
 = V2.0.3 =
 PayPal amount is added. We updated all functionality for wordpress 4.1.
