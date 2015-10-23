@@ -1,62 +1,41 @@
-/*===Pay Settings===*/
-
-.dnt_notice {
-	margin: 2px 0;
-	font-weight: 600;
-}
-
 /*==Payment Tabs==*/
-
 .dnt_custom_buttons h3 {
 	display: block;
 	padding: 5px;
 }
-#dnt_donate {
-	width: 100%;
-}
-#dnt_settings_box #dnt_noscript > .form-table {
-	float: left;
-	width: auto;
-	margin-right: 40px;
-}
-.dnt_output_block_paypal, .dnt_output_block_co {
+.dnt_output_block {
 	background-color: #E6E6E6;
 	border: 1px solid #DDDDDD;
 	border-radius: 10px;
 	max-width: 280px;
 	padding: 10px;
 	text-align: center;
+	margin: 15px 15px 0;
+	float: left;
 }
-.dnt_shortcode_box {
-	color: #000000;
+.dnt_form-table {
+	max-width: 600px;
+	float: left;
 }
-#dnt_shortcode_options_paypal td, #dnt_shortcode_options_co td {
-	vertical-align: top;
+.rtl .dnt_output_block,
+.rtl .dnt_form-table {
+	float: right;
 }
-#dnt_imagex_box td {
-	vertical-align: middle;
+.dnt_inside_block {
+	border-top: 1px solid #ccc;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
-.dnt_custom_buttons .postbox {
-	max-width: 350px;
-	text-align: center;
-}
-.dnt_custom_buttons .postbox table {
-	width: 100%;
-}
-
-.dnt_notice_box {
-	padding: 0 10px 10px;
+.dnt_inside_block:first-of-type {
+	border: none;
 }
 .dnt_img_box {
-	width: 170px;
-	margin: 0 auto;
-	text-align: center;
-	padding: 10px;
+	padding-top: 5px;
 }
-
 /*===Widget settings===*/
 
-.dnt_tabs-panel-paypal label, .dnt_tabs-panel-co label {
+.dnt_tabs-panel-paypal label,
+.dnt_tabs-panel-co label {
 	padding: 4px 12px;
 	display: block;
 }
@@ -79,23 +58,23 @@
 .dnt_donate_button:hover {
 	cursor: pointer;
 }
-.post .dnt_donate_button #dnt_options_box {
+.post .dnt_donate_button .dnt_options_box {
 	left: 0;
 }
-.dnt_widget_settings_donate .dnt_tabs-panel label {
+.dnt_settings_donate .dnt_tabs-panel label {
 	margin-top: 4px;
 }
-.dnt_widget_settings_donate .dnt_tabs-panel-co,
+.dnt_tabs-panel-co,
 .dnt_tabs-panel-paypal {
 	border: 1px solid #DFDFDF;
 	padding: 5px 0;
 	background-color: #F7F7F7;
 }
-.dnt_widget_settings_donate .category-tabs .tabs {
+.dnt_settings_donate .category-tabs .tabs {
 	background-color: #F7F7F7;
 	border-bottom-color: #F7F7F7;
 }
-.dnt_widget_settings_donate input[type='text'] {
+.dnt_settings_donate input[type='text'] {
 	margin-top: 1px;
 	margin-bottom: 9px;
 }
@@ -120,11 +99,9 @@
 	padding-top: 6px;
 }
 
-/*Script classes*/
-
+.widget_donate_widget li {
+	list-style: none;
+}
 .dnt_hidden {
 	display: none;
-}
-.dnt_display {
-	display: block;
 }

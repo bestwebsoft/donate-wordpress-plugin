@@ -1,10 +1,10 @@
 === Donate by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
-Tags: 2checkout, 2co, button, custom buttons, denate, donat, donate, donnate, doneit, donte, donate buttons, donate button in post, donate button in sidebar, donate button on page, donate plugin, donation, get donations, payment, payment button, payment system, paypal, Pp, shortcode
-Requires at least: 3.0
-Tested up to: 4.2.2
-Stable tag: 2.0.5
+Tags: 2checkout, 2checkout form, 2checkout for wordpress, 2checkout in wordpress, 2checkout plugin, 2co, 2co form, 2co for wordpress, 2co in wordpress, 2co plugin, add button, add donate button, add free donate button, add wp donate button, button,  button shortcode, charity, checkout, custom buttons, denate, donat, donate, donate button in post, donate button in sidebar, donate button on page, donate buttons, donate plugin, donation, doneit, donnate, donte, get donations, nonprofit, non-profit, online donation, online payment, payment, payment button, payment system, paypal donation, paypal donations, paypal, paypal form, paypal for wordpress, paypal in wordpress, paypal plugin, plugin, Pp, shortcode, transactions, wordpress donation, wordpress donation plugin, wordpress donations, wp donation
+Requires at least: 3.8
+Tested up to: 4.3.1
+Stable tag: 2.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,17 +16,17 @@ Donate plugin helps to get donations from payment systems, like PayPal or 2Check
 
 http://www.youtube.com/watch?v=82g6FTpQTr0
 
-<a href="http://www.youtube.com/watch?v=vqbItGXpwuk" target="_blank">Video instruction on Installation</a>
+<a href="http://www.youtube.com/watch?v=vqbItGXpwuk" target="_blank">Donate by BestWebSoft Video instruction on Installation</a>
 
-<a href="http://wordpress.org/plugins/donate-button/faq/" target="_blank">FAQ</a>
+<a href="http://wordpress.org/plugins/donate-button/faq/" target="_blank">Donate by BestWebSoft FAQ</a>
 
-<a href="http://support.bestwebsoft.com" target="_blank">Support</a>
+<a href="http://support.bestwebsoft.com" target="_blank">Donate by BestWebSoft Support</a>
 
 = Features =
 
-* Actions: Customize the buttons easily (change their size, type, custom image).
-* Actions: Ability to see all the changes immediately in the unit preview.
-* Actions: Display the buttons in the widget or using a shortcode.
+* Customize the buttons easily (change their size, type, custom image).
+* Ability to see all the changes immediately in the unit preview.
+* Display the buttons in the widget or using a shortcode.
 
 = Recommended Plugins =
 
@@ -65,23 +65,25 @@ http://www.youtube.com/watch?v=vqbItGXpwuk
 
 = How can I add Donate button to my website? =
 
-You should switch `donate` settings and copy the [shortcode] that is displayed in the preview block.
+You can add the button to your page or post by clicking on `[]` button in the content edit block using the Visual mode. If the button isn't displayed, please use the shortcode.
+You can also add a widget: Donate Widget.
 
 = How can I use my own button? =
 
-You should switch the tab you need, and select the setting `Custom button` then `Use image from file` or `Use image from URL`.
+You should switch the tab you need, and select the setting `Add custom button image` then `Use image from file` or `Use image from URL`.
 
 = How can I use one of images uploaded earlier? =
 
-You should select `Custom button` and click `Display all custom buttons` field.
+You should select one from `Choose custom button image` block.
 
 = Is it possible to display one button with all payment systems? =
 
-You should check `One button donate` and click `Save changes`.
+You should check `One button for both systems`.
 
-= What size of images can I use? =
+= What images can I use? =
 
-You may use images not bigger than size 170x70.
+The size of the image must be no more than 170x70 and no smaller than 16x16.
+You can upload only image files (.png, .jpg, .jpeg, .gif, .bmp, .ico, .tif, .tiff, .jpe, .svg, .svgz)
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
@@ -94,14 +96,19 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Screenshots ==
 
-1. Donate settings - check one button.
-2. Donate settings - select paypal default button.
-3. Donate settings - select custom button for 2CO.
-4. Add shortcode.
-5. Display selected buttons.
-6. Click on button `Donate`, displays all payment systems.
+1. PayPal settings on the Donate settings page.
+2. 2CO settings on the Donate settings page.
+3. Adding Donate Widget.
+5. Adding Donate button to your page or post.
+5. Displaying Donate Widget in the Sidebar on your WordPress website.
+6. Click on button `Donate` to see all payment systems.
 
 == Changelog ==
+
+= V2.0.6 - 23.10.2015 =
+* NEW : A button for Donate shortcode inserting to the content was added.
+* NEW : We added ability to restore settings to defaults.
+* Update : Textdomain was changed.
 
 = V2.0.5 - 20.05.2015 =
 * Update : We updated all functionality for wordpress 4.2.2.
@@ -168,6 +175,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0.6 =
+A button for Donate shortcode inserting to the content was added. We added ability to restore settings to defaults. Textdomain was changed.
 
 = V2.0.5 =
 We updated all functionality for wordpress 4.2.2.
