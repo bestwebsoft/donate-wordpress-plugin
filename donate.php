@@ -6,7 +6,7 @@ Description: Create custom buttons for payment systems
 Author: BestWebSoft
 Text Domain: donate-button
 Domain Path: /languages
-Version: 2.0.6
+Version: 2.0.7
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -33,7 +33,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 /* Create pages for the plugin */
 if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 	function dnt_add_admin_menu() {
-		bws_add_general_menu( plugin_basename( __FILE__ ) );
+		bws_general_menu();
 		$settings = add_submenu_page( 'bws_plugins', 'Donate', 'Donate', 'manage_options', 'donate.php', 'dnt_admin_settings' );
 		add_action( 'load-' . $settings, 'dnt_add_tabs' );
 	}
@@ -384,7 +384,7 @@ if ( ! function_exists ( 'dnt_save_custom_images' ) ) {
 					$current_image_height	=	$getimagesize[1];
 					if ( $current_image_width <= $max_width && $current_image_height <= $max_height && $current_image_width >= $min_width && $current_image_height >= $min_height ) {
 						/* File name */
-						${"uploadfile_$payment"} = "id-" . time() . "-" . basename( $_FILES['dnt_custom_local_' . $payment ]['name'] );
+						${"uploadfile_$payment"} = "id-" . time() . "-" . sanitize_file_name( basename( $_FILES['dnt_custom_local_' . $payment ]['name'] ) );
 						${"source_$payment"} = $uploaddir . ${"uploadfile_$payment"};
 						/* Copy file from temp to needed dir */
 						if ( copy( $_FILES['dnt_custom_local_' . $payment]['tmp_name'], ${"source_$payment"} ) ) {
@@ -511,7 +511,7 @@ if ( ! function_exists ( 'dnt_display_output_block' ) ) {
 	function dnt_display_output_block() {
 		global $dnt_options; ?>
 		<div class='dnt_display_box'>
-			<h3><?php _e( 'Output', 'donate-button' ); ?></h3>			
+			<h2><?php _e( 'Output', 'donate-button' ); ?></h2>			
 			<div class='dnt_inside_block'>
 				<?php _e( 'One button for both systems', 'donate-button' ); ?>
 				<div class='dnt_img_box'><img src='<?php echo plugins_url( 'images/donate-button.png', __FILE__ ); ?>' alt='donate-default' /></div>
@@ -636,7 +636,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 			$message = __( 'All plugin settings were restored.', 'donate-button' );
 		} ?>
 		<div class="wrap dnt_wrap">
-			<h2><?php _e( 'Donate Settings', 'donate-button' ); ?></h2>
+			<h1><?php _e( 'Donate Settings', 'donate-button' ); ?></h1>
 			<?php bws_show_settings_notice(); ?>
 			<?php if ( ! empty( $dnt_error ) ) { ?>
 				<div class="error">
@@ -676,7 +676,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 						<a class='nav-tab <?php echo $dnt_tab_active_co; ?> dnt_co_text'><?php _e( '2CO', 'donate-button' ); ?></a>
 					</h2>	
 					<!--PayPal-->
-					<h3 class="hide-if-js"><?php _e( 'PayPal', 'donate-button' ); ?></h3>
+					<h2 class="hide-if-js"><?php _e( 'PayPal', 'donate-button' ); ?></h2>
 					<div id='dnt_shortcode_options_paypal'>
 						<table class="form-table">
 							<tr>
@@ -702,7 +702,7 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 						<input type='hidden' id='dnt_tab_paypal' name='dnt_tab_paypal' value='1' />
 					</div>
 					<!--2CO-->
-					<h3 class="hide-if-js"><?php _e( '2CO', 'donate-button' ); ?></h3>
+					<h2 class="hide-if-js"><?php _e( '2CO', 'donate-button' ); ?></h2>
 					<div id='dnt_shortcode_options_co'>
 						<table class="form-table">
 							<tr>

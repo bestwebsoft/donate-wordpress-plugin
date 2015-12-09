@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: 2checkout, 2checkout form, 2checkout for wordpress, 2checkout in wordpress, 2checkout plugin, 2co, 2co form, 2co for wordpress, 2co in wordpress, 2co plugin, add button, add donate button, add free donate button, add wp donate button, button,  button shortcode, charity, checkout, custom buttons, denate, donat, donate, donate button in post, donate button in sidebar, donate button on page, donate buttons, donate plugin, donation, doneit, donnate, donte, get donations, nonprofit, non-profit, online donation, online payment, payment, payment button, payment system, paypal donation, paypal donations, paypal, paypal form, paypal for wordpress, paypal in wordpress, paypal plugin, plugin, Pp, shortcode, transactions, wordpress donation, wordpress donation plugin, wordpress donations, wp donation
 Requires at least: 3.8
-Tested up to: 4.3.1
-Stable tag: 2.0.6
+Tested up to: 4.4
+Stable tag: 2.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ This plugin makes it possible to place donation buttons of various payment syste
 
 Donate plugin helps to get donations from payment systems, like PayPal or 2CheckOut. It has a user-friendly and simple interface which allows to place the donate button anywhere on the site. 
 
-http://www.youtube.com/watch?v=82g6FTpQTr0
+http://www.youtube.com/watch?v=pjBTW4qH6Bg
 
 <a href="http://www.youtube.com/watch?v=vqbItGXpwuk" target="_blank">Donate by BestWebSoft Video instruction on Installation</a>
 
@@ -105,6 +105,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.0.7 - 09.12.2015 =
+* Bugfix : The bug with plugin menu duplicating was fixed.
+
 = V2.0.6 - 23.10.2015 =
 * NEW : A button for Donate shortcode inserting to the content was added.
 * NEW : We added ability to restore settings to defaults.
@@ -175,6 +178,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0.7 =
+The bug with plugin menu duplicating was fixed.
 
 = V2.0.6 =
 A button for Donate shortcode inserting to the content was added. We added ability to restore settings to defaults. Textdomain was changed.
