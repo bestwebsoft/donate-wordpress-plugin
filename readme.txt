@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: 2checkout, 2checkout form, 2checkout for wordpress, 2checkout in wordpress, 2checkout plugin, 2co, 2co form, 2co for wordpress, 2co in wordpress, 2co plugin, add button, add donate button, add free donate button, add wp donate button, button,  button shortcode, charity, checkout, custom buttons, denate, donat, donate, donate button in post, donate button in sidebar, donate button on page, donate buttons, donate plugin, donation, doneit, donnate, donte, get donations, nonprofit, non-profit, online donation, online payment, payment, payment button, payment system, paypal donation, paypal donations, paypal, paypal form, paypal for wordpress, paypal in wordpress, paypal plugin, plugin, Pp, shortcode, transactions, wordpress donation, wordpress donation plugin, wordpress donations, wp donation
 Requires at least: 3.8
-Tested up to: 4.4
-Stable tag: 2.0.7
+Tested up to: 4.5
+Stable tag: 2.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,8 @@ http://www.youtube.com/watch?v=pjBTW4qH6Bg
 * Customize the buttons easily (change their size, type, custom image).
 * Ability to see all the changes immediately in the unit preview.
 * Display the buttons in the widget or using a shortcode.
+
+If you have a feature, suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">Suggest a Feature</a>
 
 = Recommended Plugins =
 
@@ -105,6 +107,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.0.8 - 18.04.2016 =
+* NEW : Ability to add custom styles.
+* Bugfix : Bug with Donate Widget title was fixed.
+
 = V2.0.7 - 09.12.2015 =
 * Bugfix : The bug with plugin menu duplicating was fixed.
 
@@ -178,6 +184,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0.8 =
+Ability to add custom styles. Bug with Donate Widget title was fixed.
 
 = V2.0.7 =
 The bug with plugin menu duplicating was fixed.

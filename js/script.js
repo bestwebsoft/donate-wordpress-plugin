@@ -46,7 +46,7 @@
 			$( '#dnt_shortcode_options_co, .dnt_output_block_co' ).hide();
 			$( '#dnt_tab_paypal' ).val( '1' );
 			$( '#dnt_tab_co' ).val( '0' );
-			$( '.dnt_wrap .nav-tab' ).removeClass( 'nav-tab-active' );
+			$( '.dnt_tabs .nav-tab' ).removeClass( 'nav-tab-active' );
 			$( this ).addClass( 'nav-tab-active' );
 		});
 		$( '.dnt_co_text' ).click( function() {
@@ -54,7 +54,7 @@
 			$( '#dnt_shortcode_options_co, .dnt_output_block_co' ).show();
 			$( '#dnt_tab_co' ).val( '1' );
 			$( '#dnt_tab_paypal' ).val( '0' );
-			$( '.dnt_wrap .nav-tab' ).removeClass( 'nav-tab-active' );
+			$( '.dnt_tabs .nav-tab' ).removeClass( 'nav-tab-active' );
 			$( this ).addClass( 'nav-tab-active' );
 		});
 			
