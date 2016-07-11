@@ -1,14 +1,14 @@
 === Donate by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
-Tags: 2checkout, 2checkout form, 2checkout for wordpress, 2checkout in wordpress, 2checkout plugin, 2co, 2co form, 2co for wordpress, 2co in wordpress, 2co plugin, add button, add donate button, add free donate button, add wp donate button, button,  button shortcode, charity, checkout, custom buttons, denate, donat, donate, donate button in post, donate button in sidebar, donate button on page, donate buttons, donate plugin, donation, doneit, donnate, donte, get donations, nonprofit, non-profit, online donation, online payment, payment, payment button, payment system, paypal donation, paypal donations, paypal, paypal form, paypal for wordpress, paypal in wordpress, paypal plugin, plugin, Pp, shortcode, transactions, wordpress donation, wordpress donation plugin, wordpress donations, wp donation
+Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
 Requires at least: 3.8
-Tested up to: 4.5
-Stable tag: 2.0.8
+Tested up to: 4.5.3
+Stable tag: 2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin makes it possible to place donation buttons of various payment systems on your web page the easiest and fastest way.
+Add PayPal and 2CO donate buttons to receive charity payments.
 
 == Description ==
 
@@ -42,7 +42,7 @@ There is also a premium version of the plugin <a href="http://bestwebsoft.com/pr
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
@@ -56,7 +56,7 @@ We can fix some things for free for the users who provide translation of our plu
 
 1. Upload plugin `donate` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin using the 'Plugins' menu in your WordPress admin panel.
-3. You can adjust the necessary settings using your WordPress admin panel in "BWS Plugins" > "Donate".
+3. You can adjust the necessary settings using your WordPress admin panel in "BWS Panel" > "Donate".
 4. Create a page or a post, customize button settings and insert generated shortcode into the text.
 
 <a href="https://docs.google.com/document/d/1cVBfBEzjHVwu1JDEr81ARZelUz_N-tZj7g3yA7LT_8w/edit" target="_blank">View a Step-by-step Instruction on Donate Installation</a>.
@@ -98,14 +98,18 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Screenshots ==
 
-1. PayPal settings on the Donate settings page.
-2. 2CO settings on the Donate settings page.
-3. Adding Donate Widget.
-5. Adding Donate button to your page or post.
-5. Displaying Donate Widget in the Sidebar on your WordPress website.
-6. Click on button `Donate` to see all payment systems.
+1. Displaying Donate Widget in the Sidebar on your WordPress website.
+2. Click on button `Donate` to see all payment systems.
+3. PayPal settings on the Donate settings page.
+4. 2CO settings on the Donate settings page.
+5. Adding Donate Widget.
+6. Adding Donate button to your page or post.
 
 == Changelog ==
+
+= V2.0.9 - 11.07.2016 =
+* Update : Functionality of plugin`s scripts adding has been changed so that they will be added only on pages where the Donate button will be displayed.
+* Update : We updated all functionality for wordpress 4.5.3.
 
 = V2.0.8 - 18.04.2016 =
 * NEW : Ability to add custom styles.
@@ -184,6 +188,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.0.9 =
+Functionality of plugin`s scripts adding has been changed so that they will be added only on pages where the Donate button will be displayed. We updated all functionality for wordpress 4.5.3.
 
 = V2.0.8 =
 Ability to add custom styles. Bug with Donate Widget title was fixed.

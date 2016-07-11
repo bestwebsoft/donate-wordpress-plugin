@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Donate by BestWebSoft
-Plugin URI: http://bestwebsoft.com/products/
-Description: Create custom buttons for payment systems
+Plugin URI: http://bestwebsoft.com/products/donate/
+Description: Add PayPal and 2CO donate buttons to receive charity payments.
 Author: BestWebSoft
 Text Domain: donate-button
 Domain Path: /languages
-Version: 2.0.8
+Version: 2.0.9
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -34,7 +34,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 if ( ! function_exists ( 'dnt_add_admin_menu' ) ) {
 	function dnt_add_admin_menu() {
 		bws_general_menu();
-		$settings = add_submenu_page( 'bws_plugins', 'Donate', 'Donate', 'manage_options', 'donate.php', 'dnt_admin_settings' );
+		$settings = add_submenu_page( 'bws_panel', 'Donate', 'Donate', 'manage_options', 'donate.php', 'dnt_admin_settings' );
 		add_action( 'load-' . $settings, 'dnt_add_tabs' );
 	}
 }
@@ -60,7 +60,7 @@ if ( ! function_exists( 'dnt_init' ) ) {
 		}
 
 		/* Function check if plugin is compatible with current WP version  */
-		bws_wp_min_version_check( plugin_basename( __FILE__ ), $dnt_plugin_info, '3.8', '3.1' );
+		bws_wp_min_version_check( plugin_basename( __FILE__ ), $dnt_plugin_info, '3.8' );
 
 		/* Get/Register and check settings for plugin */
 		dnt_register_settings();
@@ -71,7 +71,7 @@ if ( ! function_exists( 'dnt_admin_init' ) ) {
 	function dnt_admin_init() {
 		global $bws_plugin_info, $dnt_plugin_info, $bws_shortcode_list;
 
-		if ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) )
+		if ( empty( $bws_plugin_info ) )
 			$bws_plugin_info = array( 'id' => '103', 'version' => $dnt_plugin_info["Version"] );
 
 		/* add gallery to global $bws_shortcode_list  */
@@ -140,21 +140,35 @@ if ( ! function_exists( 'dnt_draw_co_form' ) ) {
 }
 
 /* Add CSS and JS for plugin */
-if ( ! function_exists ( 'dnt_plugin_stylesheet' ) ) {
-	function dnt_plugin_stylesheet() {
-		wp_enqueue_style( 'dnt_style', plugins_url( 'css/style.css', __FILE__ ) );
+if ( ! function_exists ( 'dnt_wp_enqueue_scripts' ) ) {
+	function dnt_wp_enqueue_scripts() {
+		wp_enqueue_style( 'dnt_style', plugins_url( 'css/style.css', __FILE__ ) );		
+	}
+}
 
-		if ( is_admin() ) {
-			if ( isset( $_GET['page'] ) && "donate.php" == $_GET['page'] ) {
+/* Add CSS and JS for plugin */
+if ( ! function_exists ( 'dnt_wp_footer' ) ) {
+	function dnt_wp_footer() {
+		if ( wp_script_is( 'dnt_script', 'registered' ) && ! wp_script_is( 'dnt_script', 'enqueued' ) )
+			wp_enqueue_script( 'dnt_script' );	
+	}
+}
 
-				wp_enqueue_script( 'dnt_script', plugins_url( '/js/script.js', __FILE__ ) , array( 'jquery' ) );
+/* Add CSS and JS for plugin */
+if ( ! function_exists ( 'dnt_admin_enqueue_scripts' ) ) {
+	function dnt_admin_enqueue_scripts() {
+		global $hook_suffix;
+
+		if ( 'widgets.php' == $hook_suffix || ( isset( $_GET['page'] ) && 'donate.php' == $_GET['page'] ) ) {
+			wp_enqueue_style( 'dnt_style', plugins_url( 'css/style.css', __FILE__ ) );
+
+			if ( isset( $_GET['page'] ) && 'donate.php' == $_GET['page'] ) {
+				wp_enqueue_script( 'dnt_script', plugins_url( 'js/admin_script.js', __FILE__ ) , array( 'jquery' ) );
 			
 				if ( isset( $_GET['action'] ) && 'custom_code' == $_GET['action'] )
 					bws_plugins_include_codemirror();
 			}
-		} else {
-			wp_enqueue_script( 'dnt_script', plugins_url( '/js/script.js', __FILE__ ) , array( 'jquery' ) );
-		}		
+		}
 	}
 }
 
@@ -212,7 +226,7 @@ if ( ! class_exists( 'Donate_Widget' ) ) {
 				echo $args['before_widget']; 
 
 				echo $args['before_title'];
-				echo ( ! empty( $instance['dnt_widget_title'] ) ) ? apply_filters( 'widget_title', $instance['dnt_widget_title'] ) : '';
+				echo ( ! empty( $instance['dnt_widget_title'] ) ) ? apply_filters( 'widget_title', $instance['dnt_widget_title'], $instance, $this->id_base ) : '';
 				echo $args['after_title']; ?>
 				<ul>
 					<li>
@@ -243,6 +257,9 @@ if ( ! class_exists( 'Donate_Widget' ) ) {
 					</li>
 				</ul>
 				<?php echo $args['after_widget'];
+
+				if ( ! wp_script_is( 'dnt_script', 'registered' ) )
+					wp_register_script( 'dnt_script', plugins_url( 'js/script.js', __FILE__ ) , array( 'jquery' ), false, true );
 			}
 		}
 
@@ -817,11 +834,13 @@ if ( ! function_exists ( 'dnt_user_shortcode' ) ) {
 			$dnt_shortcode_return .= $out_options_box;
 			$dnt_shortcode_return .= "</div>";
 		}
+
+		if ( ! wp_script_is( 'dnt_script', 'registered' ) )
+			wp_register_script( 'dnt_script', plugins_url( 'js/script.js', __FILE__ ) , array( 'jquery' ), false, true );
 		
 		return $dnt_shortcode_return;
 	}
 }
-
 
 /* add shortcode content  */
 if ( ! function_exists( 'dnt_shortcode_button_content' ) ) {
@@ -990,8 +1009,10 @@ add_action( 'init', 'dnt_init' );
 add_action( 'admin_init', 'dnt_admin_init' );
 add_action( 'plugins_loaded', 'dnt_plugins_loaded' );
 
-add_action( 'admin_enqueue_scripts', 'dnt_plugin_stylesheet' );
-add_action( 'wp_enqueue_scripts', 'dnt_plugin_stylesheet' );
+add_action( 'admin_enqueue_scripts', 'dnt_admin_enqueue_scripts' );
+add_action( 'wp_enqueue_scripts', 'dnt_wp_enqueue_scripts' );
+add_action( 'wp_footer', 'dnt_wp_footer' );
+
 add_action( 'widgets_init', 'dnt_register_widget' );
 add_shortcode( 'donate', 'dnt_user_shortcode' );
 
