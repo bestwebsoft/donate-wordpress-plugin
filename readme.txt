@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
 Requires at least: 3.8
-Tested up to: 4.5.3
-Stable tag: 2.0.9
+Tested up to: 4.6.1
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ If you have a feature, suggestion or idea you'd like to see in the plugin, we'd 
 The author of the Donate also recommends the following plugins:
 
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/?k=613962505e24bb2b58c58becdb22c91c">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/wordpress/plugins/updater/?k=613962505e24bb2b58c58becdb22c91c">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
 = Translation =
 
@@ -106,6 +106,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 6. Adding Donate button to your page or post.
 
 == Changelog ==
+
+= V2.1.0 - 12.10.2016 =
+* Update : Compatibility with Pagination plugin was added.
 
 = V2.0.9 - 11.07.2016 =
 * Update : Functionality of plugin`s scripts adding has been changed so that they will be added only on pages where the Donate button will be displayed.
@@ -188,6 +191,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.1.0 =
+* The compatibility with new Pagination version updated.
 
 = V2.0.9 =
 Functionality of plugin`s scripts adding has been changed so that they will be added only on pages where the Donate button will be displayed. We updated all functionality for wordpress 4.5.3.

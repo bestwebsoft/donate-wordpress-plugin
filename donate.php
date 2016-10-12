@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Donate by BestWebSoft
-Plugin URI: http://bestwebsoft.com/products/donate/
+Plugin URI: http://bestwebsoft.com/products/wordpress/plugins/donate/
 Description: Add PayPal and 2CO donate buttons to receive charity payments.
 Author: BestWebSoft
 Text Domain: donate-button
 Domain Path: /languages
-Version: 2.0.9
+Version: 2.1.0
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -149,8 +149,17 @@ if ( ! function_exists ( 'dnt_wp_enqueue_scripts' ) ) {
 /* Add CSS and JS for plugin */
 if ( ! function_exists ( 'dnt_wp_footer' ) ) {
 	function dnt_wp_footer() {
-		if ( wp_script_is( 'dnt_script', 'registered' ) && ! wp_script_is( 'dnt_script', 'enqueued' ) )
-			wp_enqueue_script( 'dnt_script' );	
+		if ( wp_script_is( 'dnt_script', 'registered' ) )
+			wp_enqueue_script( 'dnt_script' );
+		elseif ( defined( 'BWS_ENQUEUE_ALL_SCRIPTS' ) )
+			wp_enqueue_script( 'dnt_script', plugins_url( 'js/script.js', __FILE__ ) , array( 'jquery' ), false, true );
+	}
+}
+
+if ( ! function_exists( 'dnt_pagination_callback' ) ) {
+	function dnt_pagination_callback( $content ) {
+		$content .= "$( '.dnt_options_box' ).addClass( 'dnt_hidden' );";
+		return $content;
 	}
 }
 
@@ -163,7 +172,7 @@ if ( ! function_exists ( 'dnt_admin_enqueue_scripts' ) ) {
 			wp_enqueue_style( 'dnt_style', plugins_url( 'css/style.css', __FILE__ ) );
 
 			if ( isset( $_GET['page'] ) && 'donate.php' == $_GET['page'] ) {
-				wp_enqueue_script( 'dnt_script', plugins_url( 'js/admin_script.js', __FILE__ ) , array( 'jquery' ) );
+				wp_enqueue_script( 'dnt_admin_script', plugins_url( 'js/admin_script.js', __FILE__ ) , array( 'jquery' ) );
 			
 				if ( isset( $_GET['action'] ) && 'custom_code' == $_GET['action'] )
 					bws_plugins_include_codemirror();
@@ -1012,6 +1021,7 @@ add_action( 'plugins_loaded', 'dnt_plugins_loaded' );
 add_action( 'admin_enqueue_scripts', 'dnt_admin_enqueue_scripts' );
 add_action( 'wp_enqueue_scripts', 'dnt_wp_enqueue_scripts' );
 add_action( 'wp_footer', 'dnt_wp_footer' );
+add_filter( 'pgntn_callback', 'dnt_pagination_callback' );
 
 add_action( 'widgets_init', 'dnt_register_widget' );
 add_shortcode( 'donate', 'dnt_user_shortcode' );
