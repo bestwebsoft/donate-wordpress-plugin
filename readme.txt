@@ -12,54 +12,71 @@ Add PayPal and 2CO donate buttons to receive charity payments.
 
 == Description ==
 
-Donate plugin helps to get donations from payment systems, like PayPal or 2CheckOut. It has a user-friendly and simple interface which allows to place the donate button anywhere on the site. 
+Simple donate plugin which adds PayPal and 2CO donate buttons on your WordPress website posts, pages, and widgets. Customize the appearance and place your buttons wherever you want.
+
+Install, configure, and accept your first donations today!
 
 http://www.youtube.com/watch?v=pjBTW4qH6Bg
 
-<a href="http://www.youtube.com/watch?v=vqbItGXpwuk" target="_blank">Donate by BestWebSoft Video instruction on Installation</a>
-
-<a href="http://wordpress.org/plugins/donate-button/faq/" target="_blank">Donate by BestWebSoft FAQ</a>
-
-<a href="http://support.bestwebsoft.com" target="_blank">Donate by BestWebSoft Support</a>
-
 = Features =
 
-* Customize the buttons easily (change their size, type, custom image).
-* Ability to see all the changes immediately in the unit preview.
-* Display the buttons in the widget or using a shortcode.
+* Connect payment processing services:
+	* PayPal
+	* 2CO
+* Add Donate buttons via shortcode
+* Add Donate widget:
+	* Default
+	* Small
+	* Credit cards
+* Customize PayPal donation button:
+	* Donation purpose
+	* Donation amount
+	* Image
+* Customize 2CO donation button:
+	* Product quantity
+	* Product ID
+	* Image
+* Add custom code via plugin settings page
+* Compatible with latest WordPress version
+* Incredibly simple settings for fast setup without modifying code
+* Detailed step-by-step documentation and videos
 
-If you have a feature, suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">Suggest a Feature</a>
+If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](http://support.bestwebsoft.com/hc/en-us/requests/new)
 
-= Recommended Plugins =
+= Documentation & Videos =
 
-The author of the Donate also recommends the following plugins:
+* [[Doc] Installation](https://docs.google.com/document/d/1cVBfBEzjHVwu1JDEr81ARZelUz_N-tZj7g3yA7LT_8w/)
+* [[Video] Installation Instruction](http://www.youtube.com/watch?v=vqbItGXpwuk)
 
-* <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/wordpress/plugins/updater/?k=613962505e24bb2b58c58becdb22c91c">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+= Help & Support =
+
+Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <http://support.bestwebsoft.com/>
 
 = Translation =
 
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](http://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](http://www.poedit.net/download.php).
 
-= Technical support =
+= Recommended Plugins =
 
-Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in other languages won't be accepted.
+* [Updater](http://bestwebsoft.com/products/wordpress/plugins/updater/?k=613962505e24bb2b58c58becdb22c91c) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
 
-If you notice any bugs in the plugin's work, you can notify us about it and we'll investigate and fix the issue then. Your request should contain URL of the website, issues description and WordPress admin panel credentials.
-Moreover we can customize the plugin according to your requirements. It's a paid service (as a rule it costs $40, but the price can vary depending on the amount of the necessary changes and their complexity). Please note that we could also include a certain feature (developed for you) in the next release and share with the other users then.
-We can fix some things for free for the users who provide translation of our plugin into their native language (this should be a new translation of a certain plugin, you can check available translations on the official plugin page).
+= Donate =
 
-== Installation ==
+Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.
+
+[Donate Now](http://bestwebsoft.com/donate/)
+
+== Installation == 
 
 1. Upload plugin `donate` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin using the 'Plugins' menu in your WordPress admin panel.
 3. You can adjust the necessary settings using your WordPress admin panel in "BWS Panel" > "Donate".
 4. Create a page or a post, customize button settings and insert generated shortcode into the text.
 
-<a href="https://docs.google.com/document/d/1cVBfBEzjHVwu1JDEr81ARZelUz_N-tZj7g3yA7LT_8w/edit" target="_blank">View a Step-by-step Instruction on Donate Installation</a>.
+[View a Step-by-step Instruction on Donate Installation](https://docs.google.com/document/d/1cVBfBEzjHVwu1JDEr81ARZelUz_N-tZj7g3yA7LT_8w/)
 
 http://www.youtube.com/watch?v=vqbItGXpwuk
 
@@ -89,12 +106,12 @@ You can upload only image files (.png, .jpg, .jpeg, .gif, .bmp, .ico, .tif, .tif
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
-Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+Please make sure that the problem hasn't been discussed yet on our forum (<http://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
 
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: <a href="https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit?pli=1" target="_blank">System_Status</a>
+4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit)
 
 == Screenshots ==
 
