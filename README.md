@@ -3,8 +3,6 @@
 
 Add PayPal and 2CO donate buttons to receive charity payments.
 
-<img src="http://bestwebsoft.com/wp-content/uploads/2014/09/donation-button-banner-website1.jpg" />
-
 <p>Simple donate plugin which adds PayPal and 2CO donate buttons on your WordPress website posts, pages, and widgets. Customize the appearance and place your buttons wherever you want.</p>
 
 <p>Install, configure, and accept your first donations today!</p>
