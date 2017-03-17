@@ -1,10 +1,10 @@
 === Donate by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: http://bestwebsoft.com/donate/
+Donate link: https://bestwebsoft.com/donate/
 Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
 Requires at least: 3.8
-Tested up to: 4.6.1
-Stable tag: 2.1.0
+Tested up to: 4.7.3
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,33 +41,33 @@ http://www.youtube.com/watch?v=pjBTW4qH6Bg
 * Incredibly simple settings for fast setup without modifying code
 * Detailed step-by-step documentation and videos
 
-If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](http://support.bestwebsoft.com/hc/en-us/requests/new)
+If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](https://support.bestwebsoft.com/hc/en-us/requests/new)
 
 = Documentation & Videos =
 
-* [[Doc] Installation](https://docs.google.com/document/d/1cVBfBEzjHVwu1JDEr81ARZelUz_N-tZj7g3yA7LT_8w/)
+* [[Doc] Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 * [[Video] Installation Instruction](http://www.youtube.com/watch?v=vqbItGXpwuk)
 
 = Help & Support =
 
-Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <http://support.bestwebsoft.com/>
+Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <https://support.bestwebsoft.com/>
 
 = Translation =
 
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](http://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](http://www.poedit.net/download.php).
+Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](https://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](http://www.poedit.net/download.php).
 
 = Recommended Plugins =
 
-* [Updater](http://bestwebsoft.com/products/wordpress/plugins/updater/?k=613962505e24bb2b58c58becdb22c91c) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
+* [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=613962505e24bb2b58c58becdb22c91c) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
 
 = Donate =
 
 Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.
 
-[Donate Now](http://bestwebsoft.com/donate/)
+[Donate Now](https://bestwebsoft.com/donate/)
 
 == Installation == 
 
@@ -76,7 +76,7 @@ Donations play an important role in supporting open-source projects. We greatly 
 3. You can adjust the necessary settings using your WordPress admin panel in "BWS Panel" > "Donate".
 4. Create a page or a post, customize button settings and insert generated shortcode into the text.
 
-[View a Step-by-step Instruction on Donate Installation](https://docs.google.com/document/d/1cVBfBEzjHVwu1JDEr81ARZelUz_N-tZj7g3yA7LT_8w/)
+[View a Step-by-step Instruction on Donate Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 
 http://www.youtube.com/watch?v=vqbItGXpwuk
 
@@ -106,7 +106,7 @@ You can upload only image files (.png, .jpg, .jpeg, .gif, .bmp, .ico, .tif, .tif
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
-Please make sure that the problem hasn't been discussed yet on our forum (<http://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
+Please make sure that the problem hasn't been discussed yet on our forum (<https://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
 
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
@@ -123,6 +123,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 6. Adding Donate button to your page or post.
 
 == Changelog ==
+
+= V2.1.1 - 16.03.2017 =
+* Update : We updated all functionality for wordpress 4.7.3.
 
 = V2.1.0 - 12.10.2016 =
 * Update : Compatibility with Pagination plugin was added.
@@ -208,6 +211,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.1.1 =
+* The compatibility with new WordPress version updated.
 
 = V2.1.0 =
 * The compatibility with new Pagination version updated.

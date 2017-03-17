@@ -1,19 +1,19 @@
 <?php
 /*
 Plugin Name: Donate by BestWebSoft
-Plugin URI: http://bestwebsoft.com/products/wordpress/plugins/donate/
+Plugin URI: https://bestwebsoft.com/products/wordpress/plugins/donate/
 Description: Add PayPal and 2CO donate buttons to receive charity payments.
 Author: BestWebSoft
 Text Domain: donate-button
 Domain Path: /languages
-Version: 2.1.0
-Author URI: http://bestwebsoft.com/
+Version: 2.1.1
+Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
 
 /*
-	© Copyright 2016  BestWebSoft  ( http://support.bestwebsoft.com )
+	© Copyright 2017  BestWebSoft  ( https://support.bestwebsoft.com )
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -699,12 +699,12 @@ if ( ! function_exists ( 'dnt_admin_settings' ) ) {
 						<br/>
 						<div><?php printf( 
 							__( "If you would like to add the button to your page or post, please use %s button", 'donate-button' ), 
-							'<span class="bws_code"><img style="vertical-align: sub;" src="' . plugins_url( 'bws_menu/images/shortcode-icon.png', __FILE__ ) . '" alt=""/></span>' ); ?> 
+							'<span class="bwsicons bwsicons-shortcode"></span>' ); ?> 
 							<div class="bws_help_box bws_help_box_right dashicons dashicons-editor-help">
 								<div class="bws_hidden_help_text" style="min-width: 180px;">
 									<?php printf( 
 										__( "You can add the button to your page or post by clicking on %s button in the content edit block using the Visual mode. If the button isn't displayed, please use the shortcode %s, where you can specify payment one of %s, and type one of %s", 'donate-button' ), 
-										'<code><img style="vertical-align: sub;" src="' . plugins_url( 'bws_menu/images/shortcode-icon.png', __FILE__ ) . '" alt="" /></code>',
+										'<code><span class="bwsicons bwsicons-shortcode"></span></code>',
 										'<code>[donate payment=* type=*]</code>',
 										'`paypal`, `co`',
 										'`default-small`, `default-credits`, `custom`'
@@ -930,8 +930,8 @@ if ( ! function_exists ( 'dnt_register_plugin_links' ) ) {
 		if ( $file == $base ) {
 			if ( ! is_network_admin() )
 				$links[]	=	'<a href="admin.php?page=donate.php">' . __( 'Settings', 'donate-button' ) . '</a>';
-			$links[]	=	'<a href="http://wordpress.org/plugins/donate-button/faq/" target="_blank">' . __( 'FAQ', 'donate-button' ) . '</a>';
-			$links[]	=	'<a href="http://support.bestwebsoft.com">' . __( 'Support', 'donate-button' ) . '</a>';
+			$links[]	=	'<a href="https://support.bestwebsoft.com/hc/en-us/sections/200538699" target="_blank">' . __( 'FAQ', 'donate-button' ) . '</a>';
+			$links[]	=	'<a href="https://support.bestwebsoft.com">' . __( 'Support', 'donate-button' ) . '</a>';
 		}
 		return $links;
 	}
