@@ -6,7 +6,7 @@ Description: Add PayPal and 2CO donate buttons to receive charity payments.
 Author: BestWebSoft
 Text Domain: donate-button
 Domain Path: /languages
-Version: 2.1.1
+Version: 2.1.2
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -60,7 +60,7 @@ if ( ! function_exists( 'dnt_init' ) ) {
 		}
 
 		/* Function check if plugin is compatible with current WP version  */
-		bws_wp_min_version_check( plugin_basename( __FILE__ ), $dnt_plugin_info, '3.8' );
+		bws_wp_min_version_check( plugin_basename( __FILE__ ), $dnt_plugin_info, '3.9' );
 
 		/* Get/Register and check settings for plugin */
 		dnt_register_settings();
@@ -170,6 +170,8 @@ if ( ! function_exists ( 'dnt_admin_enqueue_scripts' ) ) {
 
 		if ( 'widgets.php' == $hook_suffix || ( isset( $_GET['page'] ) && 'donate.php' == $_GET['page'] ) ) {
 			wp_enqueue_style( 'dnt_style', plugins_url( 'css/style.css', __FILE__ ) );
+
+			bws_enqueue_settings_scripts();
 
 			if ( isset( $_GET['page'] ) && 'donate.php' == $_GET['page'] ) {
 				wp_enqueue_script( 'dnt_admin_script', plugins_url( 'js/admin_script.js', __FILE__ ) , array( 'jquery' ) );
@@ -854,7 +856,7 @@ if ( ! function_exists ( 'dnt_user_shortcode' ) ) {
 /* add shortcode content  */
 if ( ! function_exists( 'dnt_shortcode_button_content' ) ) {
 	function dnt_shortcode_button_content( $content ) {
-		global $wp_version, $dnt_options; ?>
+		global $dnt_options; ?>
 		<div id="dnt" style="display:none;">
 			<fieldset class='dnt_settings_donate'>
 				<label>
@@ -890,30 +892,24 @@ if ( ! function_exists( 'dnt_shortcode_button_content' ) ) {
 			<input class="bws_default_shortcode" type="hidden" name="default" value="[donate]" />
 			<script type="text/javascript">
 				function dnt_shortcode_init() {
-					(function($) {	
-						<?php if ( $wp_version < '3.9' ) { ?>	
-							var current_object = '#TB_ajaxContent';
-						<?php } else { ?>
-							var current_object = '.mce-reset';
-						<?php } ?>			
-
-						$( current_object + ' #dnt_button_system,' + current_object + ' select[name="dnt_co"],' + current_object + ' select[name="dnt_paypal"]' ).on( 'change', function() {
+					(function($) {
+						$( '.mce-reset #dnt_button_system, .mce-reset select[name="dnt_co"], .mce-reset select[name="dnt_paypal"]' ).on( 'change', function() {
 							var shortcode = '';
 
-							if ( $( current_object + ' #dnt_button_system' ).is( ':checked' ) ) {
+							if ( $( '.mce-reset #dnt_button_system' ).is( ':checked' ) ) {
 								shortcode = '[donate]';
-								$( current_object + ' select[name="dnt_co"],' + current_object + ' select[name="dnt_paypal"]' ).val( 'default' ).attr( 'disabled', 'disabled' );
+								$( '.mce-reset select[name="dnt_co"], .mce-reset select[name="dnt_paypal"]' ).val( 'default' ).attr( 'disabled', 'disabled' );
 							} else {								
-								$( current_object + ' select[name="dnt_co"],' + current_object + ' select[name="dnt_paypal"]' ).removeAttr( 'disabled' );
-								var co = $( current_object + ' select[name="dnt_co"]' ).val();
-								var paypal = $( current_object + ' select[name="dnt_paypal"]' ).val();								
+								$( '.mce-reset select[name="dnt_co"], .mce-reset select[name="dnt_paypal"]' ).removeAttr( 'disabled' );
+								var co = $( '.mce-reset select[name="dnt_co"]' ).val();
+								var paypal = $( '.mce-reset select[name="dnt_paypal"]' ).val();								
 								if ( paypal != 'hide' )
 									shortcode = '[donate payment=paypal type=' + paypal + ']';
 								if ( co != 'hide' )
 									shortcode = shortcode + ' [donate payment=co type=' + co + ']';
 							}
 
-							$( current_object + ' #bws_shortcode_display' ).text( shortcode );
+							$( '.mce-reset #bws_shortcode_display' ).text( shortcode );
 						});         
 					})(jQuery);
 				}
@@ -929,9 +925,9 @@ if ( ! function_exists ( 'dnt_register_plugin_links' ) ) {
 		$base = plugin_basename( __FILE__ );
 		if ( $file == $base ) {
 			if ( ! is_network_admin() )
-				$links[]	=	'<a href="admin.php?page=donate.php">' . __( 'Settings', 'donate-button' ) . '</a>';
-			$links[]	=	'<a href="https://support.bestwebsoft.com/hc/en-us/sections/200538699" target="_blank">' . __( 'FAQ', 'donate-button' ) . '</a>';
-			$links[]	=	'<a href="https://support.bestwebsoft.com">' . __( 'Support', 'donate-button' ) . '</a>';
+				$links[] = '<a href="admin.php?page=donate.php">' . __( 'Settings', 'donate-button' ) . '</a>';
+			$links[] = '<a href="https://support.bestwebsoft.com/hc/en-us/sections/200538699" target="_blank">' . __( 'FAQ', 'donate-button' ) . '</a>';
+			$links[] = '<a href="https://support.bestwebsoft.com">' . __( 'Support', 'donate-button' ) . '</a>';
 		}
 		return $links;
 	}

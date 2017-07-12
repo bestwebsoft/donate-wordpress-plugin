@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
-Requires at least: 3.8
-Tested up to: 4.7.3
-Stable tag: 2.1.1
+Requires at least: 3.9
+Tested up to: 4.8
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,13 +61,7 @@ Some of these translations are not complete. We are constantly adding new featur
 
 = Recommended Plugins =
 
-* [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=613962505e24bb2b58c58becdb22c91c) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
-
-= Donate =
-
-Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.
-
-[Donate Now](https://bestwebsoft.com/donate/)
+* [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=613962505e24bb2b58c58becdb22c91c) - Automatically check and update WordPress website core with all installed plugins and themes to the latest versions.
 
 == Installation == 
 
@@ -84,34 +78,34 @@ http://www.youtube.com/watch?v=vqbItGXpwuk
 
 = How can I add Donate button to my website? =
 
-You can add the button to your page or post by clicking on `[]` button in the content edit block using the Visual mode. If the button isn't displayed, please use the shortcode.
-You can also add a widget: Donate Widget.
+You can add the button to your page or post by clicking on "[]" button in the content edit block using the Visual mode. If the button isn't displayed, please switch Donate settings and copy the shortcode that is displayed in the preview block.
+
+You can also add a Donate Widget.
 
 = How can I use my own button? =
 
-You should switch the tab you need, and select the setting `Add custom button image` then `Use image from file` or `Use image from URL`.
-
-= How can I use one of images uploaded earlier? =
-
-You should select one from `Choose custom button image` block.
-
-= Is it possible to display one button with all payment systems? =
-
-You should check `One button for both systems`.
+You should switch the tab you need, and select the setting "Add custom button image", then "Use image from file" or "Use image from URL".
 
 = What images can I use? =
 
-The size of the image must be no more than 170x70 and no smaller than 16x16.
-You can upload only image files (.png, .jpg, .jpeg, .gif, .bmp, .ico, .tif, .tiff, .jpe, .svg, .svgz)
+The size of the image must be no more than 170x70 and no smaller than 16x16. You can upload only image files (.png, .jpg, .jpeg, .gif, .bmp, .ico, .tif, .tiff, .jpe, .svg, .svgz).
+
+= I have an image I want to use, but it was uploaded a while ago. How can I use it? =
+
+You should select one from "Choose custom button image" block.
+
+= Is it possible to display one button with all payment systems? =
+
+You should check "One button for both systems"
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<https://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
 
-1. the link to the page where the problem occurs
-2. the name of the plugin and its version. If you are using a pro version - your order number.
-3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit)
+- The link to the page where the problem occurs
+- The name of the plugin and its version. If you are using a pro version - your order number.
+- The version of your WordPress installation
+- Copy and paste into the message your system status report. Please read more here [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/)
 
 == Screenshots ==
 
@@ -123,6 +117,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 6. Adding Donate button to your page or post.
 
 == Changelog ==
+
+= V2.1.2 - 12.07.2017 =
+* Update : We updated all functionality for wordpress 4.8.
 
 = V2.1.1 - 16.03.2017 =
 * Update : We updated all functionality for wordpress 4.7.3.
@@ -211,6 +208,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.1.2 =
+* The compatibility with new WordPress version updated.
 
 = V2.1.1 =
 * The compatibility with new WordPress version updated.
