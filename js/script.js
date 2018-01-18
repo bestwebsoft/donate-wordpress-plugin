@@ -1,19 +1,20 @@
 ( function( $ ) {
 	$( document ).ready( function() {
-		$( '.dnt_options_box' ).addClass( 'dnt_hidden' );
+		$( '.dnt-box' ).hide();
 		/* Display_pay_options */
-		$( document ).on( 'click', '.dnt_donate_button', function() {
-			if ( $( this ).children( '.dnt_options_box' ).hasClass( 'dnt_hidden' ) ) {
-				$( this ).children( '.dnt_options_box' ).removeClass( 'dnt_hidden' );
-			} else {
-				$( this ).children( '.dnt_options_box' ).addClass( 'dnt_hidden' );
-			}
+		$( document ).on( 'click', '.dnt-button > img', function() {
+			$( this ).hide();
+			$( this ).closest( '.dnt-button' ).children( '.dnt-box' ).show();
+		} );
+		$( document ).on( 'click', '#dnt_co_button, #dnt_paypal_button', function() {
+			$( this ).closest( '.dnt-button' ).children( '.dnt-box' ).hide();
+			$( '.dnt-button > img' ).show();
 		} );
 		/* New window */
-		$( document ).on( 'click', '.dnt_co_button, #dnt_co_button', function() {
+		$( document ).on( 'click', '.dnt-co-button, #dnt_co_button', function() {
 			window.open( '', 'co_window' );
 		});
-		$( document ).on( 'click', '.dnt_paypal_button, #dnt_paypal_button', function() {
+		$( document ).on( 'click', '.dnt-paypal-button, #dnt_paypal_button', function() {
 			window.open( '', 'paypal_window' );
 		});
 	});

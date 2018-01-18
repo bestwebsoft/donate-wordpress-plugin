@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
 Requires at least: 3.9
-Tested up to: 4.8
-Stable tag: 2.1.2
+Tested up to: 4.9.2
+Stable tag: 2.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,7 +50,7 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 
 = Help & Support =
 
-Visit our Help Center if you have any questions, our friendly Support Team is happy to help — <https://support.bestwebsoft.com/>
+Visit our Help Center if you have any questions, our friendly Support Team is happy to help - <https://support.bestwebsoft.com/>
 
 = Translation =
 
@@ -63,11 +63,11 @@ Some of these translations are not complete. We are constantly adding new featur
 
 * [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=613962505e24bb2b58c58becdb22c91c) - Automatically check and update WordPress website core with all installed plugins and themes to the latest versions.
 
-== Installation == 
+== Installation ==
 
 1. Upload plugin `donate` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin using the 'Plugins' menu in your WordPress admin panel.
-3. You can adjust the necessary settings using your WordPress admin panel in "BWS Panel" > "Donate".
+3. You can adjust the necessary settings using your WordPress admin panel "Donate".
 4. Create a page or a post, customize button settings and insert generated shortcode into the text.
 
 [View a Step-by-step Instruction on Donate Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
@@ -84,7 +84,7 @@ You can also add a Donate Widget.
 
 = How can I use my own button? =
 
-You should switch the tab you need, and select the setting "Add custom button image", then "Use image from file" or "Use image from URL".
+You should switch the tab you need, and select the setting "Custom Button Image", then "Upload an image" or "Paste image URL".
 
 = What images can I use? =
 
@@ -117,6 +117,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 6. Adding Donate button to your page or post.
 
 == Changelog ==
+
+= V2.1.3 - 18.01.2018 =
+* Update : We updated all functionality for wordpress 4.9.2.
+* Bugfix : Options removal from the database when working on a multisite network has been fixed.
 
 = V2.1.2 - 12.07.2017 =
 * Update : We updated all functionality for wordpress 4.8.
@@ -208,6 +212,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.1.3 =
+* The compatibility with new WordPress version updated.
+* Bugs fixed.
 
 = V2.1.2 =
 * The compatibility with new WordPress version updated.

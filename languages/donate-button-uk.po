@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donate-button\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-18 12:39+0300\n"
+"POT-Creation-Date: 2018-01-05 11:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: BestWebSoft <bestwebsoft.com>\n"
@@ -13,84 +13,92 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: donate.php:165
-msgid "Please choose the payment system to make a donation"
+#: donate.php:36 donate.php:37 donate.php:688
+msgid "Donate Settings"
+msgstr "Налаштування Donate"
+
+#: donate.php:37 donate.php:690 donate.php:939 donate.php:956
+msgid "Settings"
+msgstr "Налаштування"
+
+#: donate.php:203
+msgid "Please choose the donation payment system"
 msgstr "Будь ласка, оберіть систему для внеску пожертвувань"
 
-#: donate.php:200 donate.php:201
+#: donate.php:232 donate.php:233
 msgid "Widget"
 msgstr "Віджет"
 
-#: donate.php:290
+#: donate.php:325
 msgid "Title:"
 msgstr "Назва:"
 
-#: donate.php:294 donate.php:529 donate.php:833
+#: donate.php:329 donate.php:564 donate.php:874
 msgid "One button for both systems"
 msgstr "Одна кнопка для обох систем"
 
-#: donate.php:299 donate.php:302 donate.php:532 donate.php:693 donate.php:697
-#: donate.php:846
+#: donate.php:334 donate.php:337 donate.php:567 donate.php:729 donate.php:733
+#: donate.php:887
 msgid "PayPal"
 msgstr "PayPal"
 
-#: donate.php:300 donate.php:322 donate.php:532 donate.php:694 donate.php:723
-#: donate.php:859
+#: donate.php:335 donate.php:357 donate.php:567 donate.php:730 donate.php:762
+#: donate.php:900
 msgid "2CO"
 msgstr "2СО"
 
-#: donate.php:305 donate.php:325 donate.php:533 donate.php:838 donate.php:851
+#: donate.php:340 donate.php:360 donate.php:568 donate.php:879 donate.php:892
 msgid "Small button"
 msgstr "Маленька"
 
-#: donate.php:308 donate.php:328 donate.php:533 donate.php:839 donate.php:852
+#: donate.php:343 donate.php:363 donate.php:568 donate.php:880 donate.php:893
 msgid "Credit cards button"
 msgstr "Кнопка з кредитними картками"
 
-#: donate.php:311 donate.php:331 donate.php:533 donate.php:840 donate.php:853
+#: donate.php:346 donate.php:366 donate.php:568 donate.php:881 donate.php:894
 msgid "Default button"
-msgstr "Стандартна конпка"
+msgstr "Стандартна кнопка"
 
-#: donate.php:315 donate.php:335 donate.php:541 donate.php:842 donate.php:855
+#: donate.php:350 donate.php:370 donate.php:576 donate.php:883 donate.php:896
 msgid "Custom button"
 msgstr "Кнопка користувача"
 
-#: donate.php:319 donate.php:339 donate.php:844 donate.php:857
+#: donate.php:354 donate.php:374 donate.php:885 donate.php:898
 msgid "Don't show"
 msgstr "Не показувати"
 
-#: donate.php:413
+#: donate.php:448
 msgid "Unable to move the file"
 msgstr "Переміщення файлу не вдалося"
 
-#: donate.php:417 donate.php:456
+#: donate.php:452 donate.php:491
 msgid "Uploaded file smaller than 16x16"
 msgstr "Розмір файлу, що завантажується, менше 16х16"
 
-#: donate.php:419 donate.php:458
+#: donate.php:454 donate.php:493
 msgid "Uploaded file bigger then 170x70"
 msgstr "Файл, що завантажується, перевищує дозволені параметри 170х70"
 
-#: donate.php:422 donate.php:461 donate.php:498
+#: donate.php:457 donate.php:496 donate.php:533
 msgid "You can upload only image files"
 msgstr "Ви можете завантажувати тільки файли із зображеннями"
 
-#: donate.php:465
-msgid "Please enable curl on server"
-msgstr "Будь ласка, підключіть curl на сервері"
+#: donate.php:500
+msgid "Please enable cURL on server"
+msgstr "Будь ласка, підключіть cURL на сервері"
 
-#: donate.php:478
-msgid "Choose custom button image"
+#: donate.php:513
+msgid "Choose Custom Button Image"
 msgstr "Обрати зображення кнопки користувача"
 
-#: donate.php:494
-msgid "Add custom button image"
-msgstr "Додати зображення кнопки користувача"
+#: donate.php:529
+msgid "Custom Button Image"
+msgstr "Користувацьке зображення для кнопки"
 
-#: donate.php:497
+#: donate.php:532
 #, php-format
 msgid ""
 "The size of the image you upload must be no more than %s and no smaller than "
@@ -99,83 +107,79 @@ msgstr ""
 "Розмір зображення, що завантажується, не повинен перевищувати %s та бути "
 "менше %s."
 
-#: donate.php:506
-msgid "Use image from file"
-msgstr "Використовувати зображення з файлу"
+#: donate.php:541
+msgid "Upload an image"
+msgstr "Завантажити файл"
 
-#: donate.php:513
-msgid "Use image from URL"
-msgstr "Використовувати зображення з URL"
+#: donate.php:548
+msgid "Paste image URL"
+msgstr "Вказати посилання"
 
-#: donate.php:527
+#: donate.php:562
 msgid "Output"
 msgstr "Виведення"
 
-#: donate.php:562
+#: donate.php:597
 #, php-format
 msgid "Email validation error, email must be written like %s"
 msgstr "Помилка валідації електронної адреси, він повинен бути виду  %s"
 
-#: donate.php:569
+#: donate.php:604
 msgid ""
 "Account name is required field, please write your account name in PayPal tab"
 msgstr ""
 "Поле акаунту обов'язкове для заповнення, будь ласка, введіть ім'я акаунту у "
 "вкладці PayPal"
 
-#: donate.php:595
+#: donate.php:610
+msgid "The amount must be a positive number."
+msgstr "Сума повинна бути позитивним числом"
+
+#: donate.php:631
 msgid "2CO Account error: You type string, numeric expected."
 msgstr "2CO помилка акаунту: ви вписали текст у числове поле."
 
-#: donate.php:601
+#: donate.php:637
 msgid ""
 "2CO account ID is required field, please write your account name in 2CO tab"
 msgstr ""
 "Поле акаунту 2CO обов'язкове для заповнення, будь ласка, введіть ім'я "
 "акаунту у вкладці 2CO"
 
-#: donate.php:606
+#: donate.php:642
 msgid "2CO Quantity error: You type string, numeric expected."
 msgstr "2CO помилка поля кількості: ви вписали текст у числове поле."
 
-#: donate.php:612
+#: donate.php:648
 msgid ""
 "Quantity is required field, please write quantity of products in 2CO tab"
 msgstr ""
 "Кількість - обов'язкове поле, будь ласка, введіть потрібну кількість "
 "подукції у вкладці 2CO"
 
-#: donate.php:617
+#: donate.php:653
 msgid "2CO Product ID error: You type string, numeric expected."
 msgstr "2CO помилка ID продукту: ви вписали текст у числове поле."
 
-#: donate.php:623
+#: donate.php:659
 msgid "Product ID is required field, please write product ID in 2CO tab"
 msgstr ""
 "Поле з ID продукту не повинно залишатися порожнім, будь ласка, введіть ID "
 "продукту у вкладці 2CO"
 
-#: donate.php:641
+#: donate.php:677
 msgid "Changes saved"
-msgstr "Установки збережені"
+msgstr "Налаштування збережені"
 
-#: donate.php:649
+#: donate.php:685
 msgid "All plugin settings were restored."
 msgstr "Налаштування плагіну відновлені."
 
-#: donate.php:652
-msgid "Donate Settings"
-msgstr "Установки Donate"
-
-#: donate.php:654 donate.php:904 donate.php:921
-msgid "Settings"
-msgstr "Установки"
-
-#: donate.php:655
+#: donate.php:691
 msgid "Custom code"
 msgstr "Користувацький код"
 
-#: donate.php:675
+#: donate.php:711
 #, php-format
 msgid ""
 "If you would like to add the button to your page or post, please use %s "
@@ -184,7 +188,7 @@ msgstr ""
 "Якщо ви хочете додати кнопку на вашу сторінку або пост, будь ласка, "
 "використовуйте кнопку %s"
 
-#: donate.php:680
+#: donate.php:716
 #, php-format
 msgid ""
 "You can add the button to your page or post by clicking on %s button in the "
@@ -192,55 +196,93 @@ msgid ""
 "please use the shortcode %s, where you can specify payment one of %s, and "
 "type one of %s"
 msgstr ""
-"Ви можете додати кнопку на вашу сторінку або пост, натиснувши на кнопку %s в "
-"блоці редагування контенту в режимі Visual. Якщо кнопка не відображається, "
+"Ви можете додати кнопку на вашу сторінку або запис, натиснувши на кнопку %s "
+"в блоці редагування контенту в режимі Visual. Якщо кнопка не відображається, "
 "будь ласка, використовуйте шорткод %s, де ви можете задати аргумент "
 "`payment` ( %s ) і  аргумент `type` ( %s )"
 
-#: donate.php:689
+#: donate.php:725
 msgid "You can also add a widget"
 msgstr "Ви також можете додати віджет"
 
-#: donate.php:691
+#: donate.php:727
 msgid "Please fill in the required fields for each payment system"
 msgstr ""
 "Будь ласка, заповніть необхідні поля для роботи з кожною системою платежів."
 
-#: donate.php:701
-msgid "Your paypal account email address"
+#: donate.php:737
+msgid "Your PayPal Account Email Address"
 msgstr "Електронна адреса вашого акаунту PayPal"
 
-#: donate.php:707
-msgid "Your donation purpose"
+#: donate.php:743
+msgid "Your Donation Purpose"
 msgstr "Мета вашої пожертви"
 
-#: donate.php:713
+#: donate.php:749
 msgid "Amount"
-msgstr "Кількість"
+msgstr "Сума"
 
-#: donate.php:727
-msgid "Your 2CO account ID"
+#: donate.php:753
+#, php-format
+msgid "Set \"%d\" to allow users to set donation amount"
+msgstr "Встановіть \"%d\", щоб дозволити користувачам задавати суму пожертви"
+
+#: donate.php:766
+msgid "Your 2CO Account ID"
 msgstr "ID вашого акаунту 2CO"
 
-#: donate.php:733
+#: donate.php:772
 msgid "Quantity"
 msgstr "Кількість"
 
-#: donate.php:739
+#: donate.php:778
 msgid "Product ID"
 msgstr "ID продукту"
 
-#: donate.php:749
+#: donate.php:788
 msgid "Save changes"
 msgstr "Зберегти зміни"
 
-#: donate.php:905
+#: donate.php:940
 msgid "FAQ"
 msgstr "Часті питання"
 
-#: donate.php:906
+#: donate.php:941
 msgid "Support"
 msgstr "Підтримка"
+
+#~ msgid "Please choose the payment system to make a donation"
+#~ msgstr "Будь ласка, оберіть систему для внеску пожертвувань"
+
+#~ msgid "Please enable curl on server"
+#~ msgstr "Будь ласка, підключіть curl на сервері"
+
+#~ msgid "Upload am image"
+#~ msgstr "Завантажити файл"
+
+#~ msgid "Add Custom Button Image"
+#~ msgstr "Додати зображення кнопки користувача"
+
+#~ msgid "Use image from file"
+#~ msgstr "Використовувати зображення з файлу"
+
+#~ msgid "Use image from URL"
+#~ msgstr "Використовувати зображення з URL"
+
+#~ msgid "Choose custom button image"
+#~ msgstr "Обрати зображення кнопки користувача"
+
+#~ msgid "Add custom button image"
+#~ msgstr "Додати зображення кнопки користувача"
+
+#~ msgid "Your paypal account email address"
+#~ msgstr "Електронна адреса вашого акаунту PayPal"
+
+#~ msgid "Your donation purpose"
+#~ msgstr "Мета вашої пожертви"
+
+#~ msgid "Your 2CO account ID"
+#~ msgstr "ID вашого акаунту 2CO"
 
 #~ msgid "One button"
 #~ msgstr "Одна кнопка"

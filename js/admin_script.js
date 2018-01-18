@@ -9,7 +9,7 @@
 			$( 'input[name="dnt_button_custom_choice_' + payment + '"]' ).filter('[value="url"]').attr( 'checked', true );
 		});
 	}
-	
+
 	$( document ).ready( function() {
 		/* Display active payment tab */
 		if ( $( '.dnt_co_text' ).hasClass( 'nav-tab-active' ) ) {
@@ -37,8 +37,8 @@
 			$( '.dnt_tabs .nav-tab' ).removeClass( 'nav-tab-active' );
 			$( this ).addClass( 'nav-tab-active' );
 		});
-			
+
 		dnt_upload_checker( 'paypal' );
-		dnt_upload_checker( 'co' );				
+		dnt_upload_checker( 'co' );
 	});
 })( jQuery );

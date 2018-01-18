@@ -1,9 +1,5 @@
 /*==Payment Tabs==*/
-.dnt_custom_buttons h3 {
-	display: block;
-	padding: 5px;
-}
-.dnt_output_block {
+.dnt-output-block {
 	background-color: #E6E6E6;
 	border: 1px solid #DDDDDD;
 	border-radius: 10px;
@@ -13,80 +9,80 @@
 	margin: 15px 15px 0;
 	float: left;
 }
-.dnt_form-table {
+.dnt-form-table {
 	max-width: 600px;
 	float: left;
 }
-.rtl .dnt_output_block,
-.rtl .dnt_form-table {
+.rtl .dnt-output-block,
+.rtl .dnt-form-table {
 	float: right;
 }
-.dnt_inside_block {
+.dnt-inside-block {
 	border-top: 1px solid #ccc;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-.dnt_inside_block:first-of-type {
+.dnt-inside-block:first-of-type {
 	border: none;
 }
-.dnt_img_box {
+.dnt-img-box {
 	padding-top: 5px;
 }
 /*===Widget settings===*/
-
-.dnt_tabs-panel-paypal label,
-.dnt_tabs-panel-co label {
+.dnt-tabs-panel-paypal label,
+.dnt-tabs-panel-co label {
 	padding: 4px 12px;
 	display: block;
 }
-.dnt_widget {
+.dnt-widget {
 	position: relative;
 	z-index: 100;
 	width: 260px;
 }
-.dnt_widget_title {
+.dnt-widget-title {
 	width: 100%;
 }
-.dnt_donate_button > img {
+.dnt-button > img {
 	z-index: 1000;
 }
-.dnt_donate_button {
+.dnt-button {
 	position: relative;
 	margin-bottom: 10px;
 	z-index: 100;
+	text-align: center;
 }
-.dnt_donate_button:hover {
+.dnt-button:hover {
 	cursor: pointer;
 }
-.post .dnt_donate_button .dnt_options_box {
+.post .dnt-button .dnt-box {
 	left: 0;
 }
-.dnt_settings_donate .dnt_tabs-panel label {
+.dnt-settings-donate .dnt-tabs-panel label {
 	margin-top: 4px;
 }
-.dnt_tabs-panel-co,
-.dnt_tabs-panel-paypal {
+.dnt-tabs-panel-co,
+.dnt-tabs-panel-paypal {
 	border: 1px solid #DFDFDF;
 	padding: 5px 0;
 	background-color: #F7F7F7;
 }
-.dnt_settings_donate .category-tabs .tabs {
+.dnt-settings-donate .category-tabs .tabs {
 	background-color: #F7F7F7;
 	border-bottom-color: #F7F7F7;
 }
-.dnt_settings_donate input[type='text'] {
+.dnt-settings-donate input[type='text'] {
 	margin-top: 1px;
 	margin-bottom: 9px;
 }
 .category-tabs > input,
-.dnt_tabs-panel-paypal > input,
-.dnt_tabs-panel-co > input {
+.dnt-tabs-panel-paypal > input,
+.dnt-tabs-panel-co > input {
 	margin-top: -4px;
 }
 .category-tabs li:hover {
 	cursor: pointer;
 }
-.dnt_widget ul {
+.dnt-widget ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 18px;
@@ -98,10 +94,17 @@
 	padding: 0;
 	padding-top: 6px;
 }
-
-.widget_donate_widget li {
+.dnt-widdget-list li {
 	list-style: none;
 }
-.dnt_hidden {
-	display: none;
+.dnt-co-button,
+.dnt-paypal-button {
+	vertical-align: middle;
+	display: block;
+	margin: 10px auto;
+}
+@media only screen and ( max-width: 782px ) {
+	.dnt-form-table input[type=file]{
+		width: 100%;
+	}
 }
