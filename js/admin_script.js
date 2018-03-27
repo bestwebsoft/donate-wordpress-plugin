@@ -3,10 +3,10 @@
 	/*Local/URL upload box*/
 	function dnt_upload_checker( payment ) {
 		$( 'input[name="dnt_custom_local_' + payment + '"]' ).click( function() {
-			$( 'input[name="dnt_button_custom_choice_' + payment + '"]' ).filter('[value="local"]').attr( 'checked', true );
+			$( 'input[name="dnt_button_custom_choice_' + payment + '"]' ).filter( '[value="local"]' ).attr( 'checked', true );
 		});
 		$( 'input[name="dnt_custom_url_' + payment + '"]' ).click( function() {
-			$( 'input[name="dnt_button_custom_choice_' + payment + '"]' ).filter('[value="url"]').attr( 'checked', true );
+			$( 'input[name="dnt_button_custom_choice_' + payment + '"]' ).filter( '[value="url"]' ).attr( 'checked', true );
 		});
 	}
 

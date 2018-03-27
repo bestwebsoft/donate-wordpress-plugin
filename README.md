@@ -24,6 +24,7 @@
 <ul>
 <li>Donation purpose</li>
 <li>Donation amount</li>
+<li>Donation currency [NEW]</li>
 <li>Image</li>
 </ul>
 </li>

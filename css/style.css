@@ -51,6 +51,8 @@
 	z-index: 100;
 	text-align: center;
 }
+.dnt_paypal_text:hover,
+.dnt_co_text:hover,
 .dnt-button:hover {
 	cursor: pointer;
 }
