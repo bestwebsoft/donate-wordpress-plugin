@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
 Requires at least: 3.9
-Tested up to: 4.9.4
-Stable tag: 2.1.4
+Tested up to: 5.0.2
+Stable tag: 2.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,7 @@ http://www.youtube.com/watch?v=pjBTW4qH6Bg
 * Customize PayPal donation button:
 	* Donation purpose
 	* Donation amount
-	* Donation currency [NEW]
+	* Donation currency
 	* Image
 * Customize 2CO donation button:
 	* Product quantity
@@ -118,6 +118,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 6. Adding Donate button to your page or post.
 
 == Changelog ==
+
+= V2.1.5 - 21.12.2018 =
+* Update : All functionality was updated for wordpress 5.0.2.
 
 = V2.1.4 - 27.03.2018 =
 * NEW : Ability to select the currency for Paypal button has been added.
@@ -216,6 +219,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.1.5 =
+* The compatibility with new WordPress version updated.
 
 = V2.1.4 =
 * New features added.
