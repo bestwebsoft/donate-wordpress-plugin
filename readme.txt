@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
-Requires at least: 3.9
-Tested up to: 5.0.2
-Stable tag: 2.1.5
+Requires at least: 4.0
+Tested up to: 5.2.2
+Stable tag: 2.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -119,6 +119,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V2.1.6 - 04.09.2019 =
+* Update: The deactivation feedback has been changed. Misleading buttons have been removed.
+
 = V2.1.5 - 21.12.2018 =
 * Update : All functionality was updated for wordpress 5.0.2.
 
@@ -219,6 +222,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.1.6 =
+* Usability improved
 
 = V2.1.5 =
 * The compatibility with new WordPress version updated.

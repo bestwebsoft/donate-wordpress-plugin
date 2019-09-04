@@ -6,14 +6,14 @@ Description: Add PayPal and 2CO donate buttons to receive charity payments.
 Author: BestWebSoft
 Text Domain: donate-button
 Domain Path: /languages
-Version: 2.1.5
+Version: 2.1.6
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 */
 
 /*
-	© Copyright 2018  BestWebSoft  ( https://support.bestwebsoft.com )
+	© Copyright 2019  BestWebSoft  ( https://support.bestwebsoft.com )
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
