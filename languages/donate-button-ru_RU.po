@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: donate-button\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-13 09:52+0200\n"
+"POT-Creation-Date: 2020-11-05 16:29+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: BestWebSoft <bestwebsoft.com>\n"
@@ -10,99 +10,177 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: bws_menu\n"
 
-#: donate.php:36 donate.php:37 donate.php:743
+#: donate.php:36 donate.php:37 donate.php:160
+#: includes/class-dnt-settings.php:157
 msgid "Donate Settings"
 msgstr "Настройки Donate"
 
-#: donate.php:37 donate.php:745 donate.php:1009 donate.php:1028
+#: donate.php:37 donate.php:592 donate.php:611
+#: includes/class-dnt-settings.php:24
 msgid "Settings"
 msgstr "Настройки"
 
-#: donate.php:210
+#: donate.php:215
+msgid "Insert Media"
+msgstr "Вставить медиа"
+
+#: donate.php:216
+msgid "Insert"
+msgstr "Вставить"
+
+#: donate.php:230
 msgid "Please choose the donation payment system"
 msgstr "Выберите систему для пожертвований"
 
-#: donate.php:239 donate.php:240
+#: donate.php:261 donate.php:262
 msgid "Widget"
 msgstr "Виджет"
 
-#: donate.php:333
+#: donate.php:369
 msgid "Title:"
 msgstr "Название:"
 
-#: donate.php:337 donate.php:580 donate.php:942
+#: donate.php:373 donate.php:525 includes/class-dnt-settings.php:385
 msgid "One button for both systems"
 msgstr "Одна кнопка для обеих систем"
 
-#: donate.php:342 donate.php:345 donate.php:583 donate.php:784 donate.php:788
-#: donate.php:955
+#: donate.php:378 donate.php:381 donate.php:538
+#: includes/class-dnt-settings.php:165 includes/class-dnt-settings.php:178
 msgid "PayPal"
 msgstr "PayPal"
 
-#: donate.php:343 donate.php:365 donate.php:583 donate.php:785 donate.php:829
-#: donate.php:968
+#: donate.php:379 donate.php:401 donate.php:551
+#: includes/class-dnt-settings.php:169 includes/class-dnt-settings.php:259
 msgid "2CO"
 msgstr "2СО"
 
-#: donate.php:348 donate.php:368 donate.php:584 donate.php:947 donate.php:960
+#: donate.php:384 donate.php:404 donate.php:530 donate.php:543
+#: includes/class-dnt-settings.php:398
 msgid "Small button"
 msgstr "Маленькая"
 
-#: donate.php:351 donate.php:371 donate.php:584 donate.php:948 donate.php:961
+#: donate.php:387 donate.php:407 donate.php:531 donate.php:544
+#: includes/class-dnt-settings.php:405
 msgid "Credit cards button"
 msgstr "Кнопка с кредитками"
 
-#: donate.php:354 donate.php:374 donate.php:584 donate.php:949 donate.php:962
+#: donate.php:390 donate.php:410 donate.php:532 donate.php:545
+#: includes/class-dnt-settings.php:391
 msgid "Default button"
 msgstr "Кнопка по умолчанию"
 
-#: donate.php:358 donate.php:378 donate.php:592 donate.php:951 donate.php:964
+#: donate.php:394 donate.php:414 donate.php:534 donate.php:547
 msgid "Custom button"
 msgstr "Пользовательская кнопка"
 
-#: donate.php:362 donate.php:382 donate.php:953 donate.php:966
+#: donate.php:398 donate.php:418 donate.php:536 donate.php:549
 msgid "Don't show"
 msgstr "Не показывать"
 
-#: donate.php:457
-msgid "Unable to move the file"
-msgstr "Перемещение файла не удалось"
+#: donate.php:594
+msgid "FAQ"
+msgstr "Часто задаваемые вопросы"
 
-#: donate.php:461 donate.php:502
+#: donate.php:595
+msgid "Support"
+msgstr "Поддержка"
+
+#: includes/class-dnt-settings.php:25
+msgid "Misc"
+msgstr "Разное"
+
+#: includes/class-dnt-settings.php:26
+msgid "Custom Code"
+msgstr "Пользовательский код"
+
+#: includes/class-dnt-settings.php:87
+msgid "Paypal Account error: Please enter a valid email address"
+msgstr ""
+"Ошибка учетной записи Paypal: введите действующий адрес электронной почты"
+
+#: includes/class-dnt-settings.php:94
+msgid "The amount must be a positive number."
+msgstr "Сумма должна быть положительным числом."
+
+#: includes/class-dnt-settings.php:133
 msgid "Uploaded file smaller than 16x16"
 msgstr "Размер загружаемого файла меньше 16х16"
 
-#: donate.php:463 donate.php:504
+#: includes/class-dnt-settings.php:136
 msgid "Uploaded file bigger then 170x70"
 msgstr "Загружаемый файл превышает допустимые параметры 170х70"
 
-#: donate.php:467 donate.php:508 donate.php:547
-msgid "You can upload only image files"
-msgstr "Вы можете загружать только файлы изображений"
+#: includes/class-dnt-settings.php:141
+msgid "Error: Invalid file type"
+msgstr "Ошибка: неверный тип файла"
 
-#: donate.php:512
-msgid "Please enable cURL on server"
-msgstr "Пожалуйста подключите cURL на сервере"
+#: includes/class-dnt-settings.php:150
+msgid "Changes saved"
+msgstr "Настройки сохранены"
 
-#: donate.php:515
-msgid "Please enter the correct address and image format"
-msgstr "Пожалуйста, введите правильный адрес и формат изображения"
+#: includes/class-dnt-settings.php:160
+msgid "General"
+msgstr "Общее"
 
-#: donate.php:527
-msgid "Choose Custom Button Image"
-msgstr "Выберите изображение для пользовательской кнопки"
+#: includes/class-dnt-settings.php:163
+msgid "Buttons"
+msgstr "Кнопки"
 
-#: donate.php:543
-msgid "Custom Button Image"
-msgstr "Пользовательское изображение для кнопки"
+#: includes/class-dnt-settings.php:167
+msgid "Enable to display a PayPal button."
+msgstr "Включите отображение кнопки PayPal."
 
-#: donate.php:546
+#: includes/class-dnt-settings.php:171
+msgid "Enable to display a 2Checkout button."
+msgstr "Включите отображения кнопки 2Checkout."
+
+#: includes/class-dnt-settings.php:181
+msgid "PayPal Email Address"
+msgstr "Адрес электронной почты PayPal"
+
+#: includes/class-dnt-settings.php:187
+msgid "Donation Purpose"
+msgstr "Цель пожертвования"
+
+#: includes/class-dnt-settings.php:193
+msgid "Amount"
+msgstr "Сумма"
+
+#: includes/class-dnt-settings.php:197
+#, php-format
+msgid "Set \"%d\" to allow users to set donation amount."
+msgstr ""
+"Установите \"% d\", чтобы разрешить пользователям устанавливать сумму "
+"пожертвования."
+
+#: includes/class-dnt-settings.php:202
+msgid "Currency"
+msgstr "Валюта"
+
+#: includes/class-dnt-settings.php:215 includes/class-dnt-settings.php:281
+msgid "Button Image"
+msgstr "Изображение кнопки"
+
+#: includes/class-dnt-settings.php:221 includes/class-dnt-settings.php:287
+msgid "Default"
+msgstr "Кнопка по умолчанию"
+
+#: includes/class-dnt-settings.php:225 includes/class-dnt-settings.php:291
+msgid "Custom"
+msgstr "Пользовательский "
+
+#: includes/class-dnt-settings.php:229 includes/class-dnt-settings.php:295
+msgid "Add Media"
+msgstr "Добавить медиа"
+
+#: includes/class-dnt-settings.php:231 includes/class-dnt-settings.php:297
 #, php-format
 msgid ""
 "The size of the image you upload must be no more than %s and no smaller than "
@@ -110,154 +188,198 @@ msgid ""
 msgstr ""
 "Размер загружаемого изображения не должен быть больше %s и не меньше %s."
 
-#: donate.php:556
-msgid "Upload an image"
-msgstr "Загрузить файл"
-
-#: donate.php:563
-msgid "Paste image URL"
-msgstr "Указать ссылку"
-
-#: donate.php:578
-msgid "Output"
-msgstr "Вывод"
-
-#: donate.php:641
+#: includes/class-dnt-settings.php:232 includes/class-dnt-settings.php:298
 #, php-format
-msgid "Email validation error, email must be written like %s"
-msgstr "Ошибка валидации емейла, он должен быть вида %s"
+msgid "You can upload only image types: %s."
+msgstr "Вы можете загружать только изображения: %s."
 
-#: donate.php:648
-msgid ""
-"Account name is required field, please write your account name in PayPal tab"
-msgstr ""
-"Поле аккаунта обязательное для ввода, пожалуйста введите имя аккаунта во "
-"вкладке PayPal"
+#: includes/class-dnt-settings.php:262
+msgid "2CO Account ID"
+msgstr "Идентификатор учетной записи 2CO"
 
-#: donate.php:655
-msgid "The amount must be a positive number."
-msgstr "Сумма должна быть положительным числом."
-
-#: donate.php:680
-msgid "2CO Account error: You type string, numeric expected."
-msgstr "2CO ошибка аккаунта: вы вписали текст в числовое поле."
-
-#: donate.php:687
-msgid ""
-"2CO account ID is required field, please write your account name in 2CO tab"
-msgstr ""
-"ID аккаунта 2CO обязательное для ввода, пожалуйста введите имя аккаунта в "
-"вкладке 2CO"
-
-#: donate.php:693
-msgid "2CO Quantity error: You type string, numeric expected."
-msgstr "2CO ошибка поля количества: вы вписали текст в числовое поле."
-
-#: donate.php:700
-msgid ""
-"Quantity is required field, please write quantity of products in 2CO tab"
-msgstr ""
-"Количество - обязательное поле, пожалуйста введите нужное количество "
-"продукции во вкладке 2CO"
-
-#: donate.php:706
-msgid "2CO Product ID error: You type string, numeric expected."
-msgstr "2CO ошибка ID продукта: вы вписали текст в числовое поле."
-
-#: donate.php:713
-msgid "Product ID is required field, please write product ID in 2CO tab"
-msgstr ""
-"Поле c ID продукта не должно оставаться пустым, пожалуйста введите ID "
-"продукта в вкладке 2CO"
-
-#: donate.php:732
-msgid "Changes saved"
-msgstr "Настройки сохранены"
-
-#: donate.php:740
-msgid "All plugin settings were restored."
-msgstr "Настройки плагина восстановлены."
-
-#: donate.php:746
-msgid "Custom code"
-msgstr "Пользовательский код"
-
-#: donate.php:766
-#, php-format
-msgid ""
-"If you would like to add the button to your page or post, please use %s "
-"button"
-msgstr ""
-"Если вы хотите добавить кнопку на вашу страницу или пост, то используйте "
-"кнопку %s"
-
-#: donate.php:771
-#, php-format
-msgid ""
-"You can add the button to your page or post by clicking on %s button in the "
-"content edit block using the Visual mode. If the button isn't displayed, "
-"please use the shortcode %s, where you can specify payment one of %s, and "
-"type one of %s"
-msgstr ""
-"Вы можете добавить кнопку на вашу страницу или запись, нажав на кнопку %s в "
-"блоке редактирования контента в режиме Visual. Если кнопка не отображается, "
-"пожалуйста, используйте шорткод %s, в котором вы можете указать параметр "
-"payment ( %s ) и параметр type ( %s )"
-
-#: donate.php:780
-msgid "You can also add a widget"
-msgstr "Вы также можете добавить виджет"
-
-#: donate.php:782
-msgid "Please fill in the required fields for each payment system"
-msgstr ""
-"Пожалуйста, заполните необходимые поля для работы с каждой платёжной системой"
-
-#: donate.php:792
-msgid "Your PayPal Account Email Address"
-msgstr "Ваш аккаунт PayPal (email адрес)"
-
-#: donate.php:798
-msgid "Your Donation Purpose"
-msgstr "Цель вашего пожертвования"
-
-#: donate.php:804
-msgid "Amount"
-msgstr "Сумма"
-
-#: donate.php:808
-#, php-format
-msgid "Set \"%d\" to allow users to set donation amount"
-msgstr ""
-"Установите \"% d\", чтобы пользователи могли задавать сумму пожертвования"
-
-#: donate.php:813
-msgid "Currency"
-msgstr "Валюта"
-
-#: donate.php:833
-msgid "Your 2CO Account ID"
-msgstr "ID вашего аккаунта 2CO"
-
-#: donate.php:839
+#: includes/class-dnt-settings.php:268
 msgid "Quantity"
 msgstr "Количество"
 
-#: donate.php:845
+#: includes/class-dnt-settings.php:274
 msgid "Product ID"
 msgstr "ID продукта"
 
-#: donate.php:855
-msgid "Save changes"
-msgstr "Сохранить изменения"
+#: includes/class-dnt-settings.php:334
+msgid "Donate Shortcode"
+msgstr "Donate шорткод"
 
-#: donate.php:1011
-msgid "FAQ"
-msgstr "Часто задаваемые вопросы"
+#: includes/class-dnt-settings.php:337
+msgid "Add Donate button to a widget."
+msgstr "Добавить кнопку Donate в виджет."
 
-#: donate.php:1012
-msgid "Support"
-msgstr "Поддержка"
+#: includes/class-dnt-settings.php:337
+msgid "Navigate to Widgets"
+msgstr "Перейти к виджетам"
+
+#: includes/class-dnt-settings.php:340
+msgid ""
+"Add Donate button for both systems to your posts or pages using the "
+"following shortcode:"
+msgstr ""
+"Добавьте кнопку Donate для обеих систем в свои сообщения или страницы, "
+"используя следующий шорткод:"
+
+#: includes/class-dnt-settings.php:344
+msgid ""
+"Add Paypal default button to your posts or pages using the following "
+"shortcode:"
+msgstr ""
+"Добавьте кнопку Paypal по умолчанию в свои сообщения или страницы, используя "
+"следующий шорткод:"
+
+#: includes/class-dnt-settings.php:348
+msgid ""
+"Add Paypal small button to your posts or pages using the following shortcode:"
+msgstr ""
+"Добавьте маленькую кнопку Paypal в свои сообщения или страницы, используя "
+"следующий шорткод:"
+
+#: includes/class-dnt-settings.php:352
+msgid ""
+"Add Paypal credits button to your posts or pages using the following "
+"shortcode:"
+msgstr ""
+"Добавьте кнопку кредитов Paypal в свои сообщения или страницы, используя "
+"следующий шорткод:"
+
+#: includes/class-dnt-settings.php:356
+msgid ""
+"Add Paypal custom button to your posts or pages using the following "
+"shortcode:"
+msgstr ""
+"Добавьте пользовательскую кнопку Paypal в свои сообщения или страницы, "
+"используя следующий шорткод:"
+
+#: includes/class-dnt-settings.php:360
+msgid ""
+"Add 2CO default button to your posts or pages using the following shortcode:"
+msgstr ""
+"Добавьте кнопку 2CO по умолчанию в свои сообщения или страницы, используя "
+"следующий шорткод:"
+
+#: includes/class-dnt-settings.php:364
+msgid ""
+"Add 2CO small button to your posts or pages using the following shortcode:"
+msgstr ""
+"Добавьте маленькую кнопку 2CO в свои сообщения или страницы, используя "
+"следующий шорткод:"
+
+#: includes/class-dnt-settings.php:368
+msgid ""
+"Add 2CO credits button to your posts or pages using the following shortcode:"
+msgstr ""
+"Добавьте кнопку кредитов 2CO к своим сообщениям или страницам, используя "
+"следующий шорткод:"
+
+#: includes/class-dnt-settings.php:372
+msgid ""
+"Add 2CO custom button to your posts or pages using the following shortcode:"
+msgstr ""
+"Добавьте пользовательскую кнопку 2CO в свои сообщения или страницы, "
+"используя следующий шорткод:"
+
+#: includes/class-dnt-settings.php:381
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+#~ msgid "2CO Quantity error: You type string, numeric expected."
+#~ msgstr "2CO ошибка поля количества: вы вписали текст в числовое поле."
+
+#~ msgid ""
+#~ "Quantity is required field, please write quantity of products in 2CO tab"
+#~ msgstr ""
+#~ "Количество - обязательное поле, пожалуйста введите нужное количество "
+#~ "продукции во вкладке 2CO"
+
+#~ msgid "2CO Product ID error: You type string, numeric expected."
+#~ msgstr "2CO ошибка ID продукта: вы вписали текст в числовое поле."
+
+#~ msgid "Product ID is required field, please write product ID in 2CO tab"
+#~ msgstr ""
+#~ "Поле c ID продукта не должно оставаться пустым, пожалуйста введите ID "
+#~ "продукта в вкладке 2CO"
+
+#~ msgid "Custom image"
+#~ msgstr "Пользовательское изображение"
+
+#~ msgid "Unable to move the file"
+#~ msgstr "Перемещение файла не удалось"
+
+#~ msgid "Please enable cURL on server"
+#~ msgstr "Пожалуйста подключите cURL на сервере"
+
+#~ msgid "Please enter the correct address and image format"
+#~ msgstr "Пожалуйста, введите правильный адрес и формат изображения"
+
+#~ msgid "Choose Custom Button Image"
+#~ msgstr "Выберите изображение для пользовательской кнопки"
+
+#~ msgid "Upload an image"
+#~ msgstr "Загрузить файл"
+
+#~ msgid "Paste image URL"
+#~ msgstr "Указать ссылку"
+
+#~ msgid "Output"
+#~ msgstr "Вывод"
+
+#~ msgid "Email validation error, email must be written like %s"
+#~ msgstr "Ошибка валидации емейла, он должен быть вида %s"
+
+#~ msgid ""
+#~ "Account name is required field, please write your account name in PayPal "
+#~ "tab"
+#~ msgstr ""
+#~ "Поле аккаунта обязательное для ввода, пожалуйста введите имя аккаунта во "
+#~ "вкладке PayPal"
+
+#~ msgid "2CO Account error: You type string, numeric expected."
+#~ msgstr "2CO ошибка аккаунта: вы вписали текст в числовое поле."
+
+#~ msgid ""
+#~ "2CO account ID is required field, please write your account name in 2CO "
+#~ "tab"
+#~ msgstr ""
+#~ "ID аккаунта 2CO обязательное для ввода, пожалуйста введите имя аккаунта в "
+#~ "вкладке 2CO"
+
+#~ msgid "All plugin settings were restored."
+#~ msgstr "Настройки плагина восстановлены."
+
+#~ msgid ""
+#~ "If you would like to add the button to your page or post, please use %s "
+#~ "button"
+#~ msgstr ""
+#~ "Если вы хотите добавить кнопку на вашу страницу или пост, то используйте "
+#~ "кнопку %s"
+
+#~ msgid ""
+#~ "You can add the button to your page or post by clicking on %s button in "
+#~ "the content edit block using the Visual mode. If the button isn't "
+#~ "displayed, please use the shortcode %s, where you can specify payment one "
+#~ "of %s, and type one of %s"
+#~ msgstr ""
+#~ "Вы можете добавить кнопку на вашу страницу или запись, нажав на кнопку %s "
+#~ "в блоке редактирования контента в режиме Visual. Если кнопка не "
+#~ "отображается, пожалуйста, используйте шорткод %s, в котором вы можете "
+#~ "указать параметр payment ( %s ) и параметр type ( %s )"
+
+#~ msgid "You can also add a widget"
+#~ msgstr "Вы также можете добавить виджет"
+
+#~ msgid "Please fill in the required fields for each payment system"
+#~ msgstr ""
+#~ "Пожалуйста, заполните необходимые поля для работы с каждой платёжной "
+#~ "системой"
+
+#~ msgid "Save changes"
+#~ msgstr "Сохранить изменения"
 
 #~ msgid "Upload am image"
 #~ msgstr "Загрузить файл"
@@ -280,9 +402,6 @@ msgstr "Поддержка"
 #~ msgid "Choose custom button image"
 #~ msgstr "Выберите изображение для пользовательской кнопки"
 
-#~ msgid "Add custom button image"
-#~ msgstr "Добавьте изображение для пользовательской кнопки"
-
 #~ msgid "Your paypal account email address"
 #~ msgstr "Ваш аккаунт PayPal (email адрес)"
 
@@ -294,9 +413,6 @@ msgstr "Поддержка"
 
 #~ msgid "One button"
 #~ msgstr "Одна кнопка"
-
-#~ msgid "Display all custom buttons"
-#~ msgstr "Отобразить все загруженные кнопки"
 
 #~ msgid "Use button"
 #~ msgstr "Выбрать кнопку"
@@ -310,12 +426,6 @@ msgstr "Поддержка"
 #~ msgstr ""
 #~ "Настройки плагина были изменены. Для того, чтобы сохранить их, "
 #~ "пожалуйста, не забудьте нажать кнопку \"Сохранить\"."
-
-#~ msgid "Button type:"
-#~ msgstr "Тип кнопки:"
-
-#~ msgid "Default"
-#~ msgstr "Кнопка по умолчанию"
 
 #~ msgid "Use small image"
 #~ msgstr "Использовать маленькое изображение"

@@ -17,13 +17,12 @@
 .rtl .dnt-form-table {
 	float: right;
 }
-.dnt-inside-block {
-	border-top: 1px solid #ccc;
-	padding-top: 10px;
-	padding-bottom: 10px;
+.dnt-image img {
+	max-width: 170px;
+	max-height: 70px;
 }
-.dnt-inside-block:first-of-type {
-	border: none;
+.dnt-button img {
+	margin: auto;
 }
 .dnt-img-box {
 	padding-top: 5px;
@@ -35,7 +34,6 @@
 	display: block;
 }
 .dnt-widget {
-	position: relative;
 	z-index: 100;
 	width: 260px;
 }
@@ -46,13 +44,17 @@
 	z-index: 1000;
 }
 .dnt-button {
-	position: relative;
 	margin-bottom: 10px;
 	z-index: 100;
 	text-align: center;
 }
-.dnt_paypal_text:hover,
-.dnt_co_text:hover,
+.dnt-preview-box {
+	padding: 5px 10px 15px;
+	width: auto !important;
+}
+.dnt-preview-box .form-table {
+	margin-left: 10px;
+}
 .dnt-button:hover {
 	cursor: pointer;
 }
@@ -88,6 +90,10 @@
 	list-style-type: none;
 	margin: 0;
 	padding: 18px;
+}
+.dnt-paypal-block,
+.dnt-co2-block {
+	display: none;
 }
 #widget-donate_widget_id-4-dnt_widget_donate {
 	margin-top: 5px;

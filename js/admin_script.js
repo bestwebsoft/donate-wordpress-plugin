@@ -1,44 +1,28 @@
 ( function( $ ) {
-	/* Check radio button via clicking on span under it */
-	/*Local/URL upload box*/
-	function dnt_upload_checker( payment ) {
-		$( 'input[name="dnt_custom_local_' + payment + '"]' ).click( function() {
-			$( 'input[name="dnt_button_custom_choice_' + payment + '"]' ).filter( '[value="local"]' ).attr( 'checked', true );
-		});
-		$( 'input[name="dnt_custom_url_' + payment + '"]' ).click( function() {
-			$( 'input[name="dnt_button_custom_choice_' + payment + '"]' ).filter( '[value="url"]' ).attr( 'checked', true );
-		});
-	}
+	$(document).ready( function() {
+		$( '.add_media' ).on( 'click', function() {
+			var currentParent = $( this ).parents( 'td' );
+			if ( this.window === undefined ) {
+				this.window = wp.media({
+					title: dnt_var.wp_media_title,
+					library: { type: 'image' },
+					multiple: false,
+					button: { text: dnt_var.wp_media_button }
+				});
 
-	$( document ).ready( function() {
-		/* Display active payment tab */
-		if ( $( '.dnt_co_text' ).hasClass( 'nav-tab-active' ) ) {
-			$( '#dnt_shortcode_options_paypal, .dnt_output_block_paypal' ).hide();
-		} else if ( $( '.dnt_paypal_text' ).hasClass( 'nav-tab-active' ) ) {
-			$( '#dnt_shortcode_options_co, .dnt_output_block_co' ).hide();
-		} else {
-			$( '.dnt_paypal_text' ).addClass( 'nav-tab-active' );
-			$( '#dnt_shortcode_options_co, .dnt_output_block_co' ).hide();
-		}
-
-		$( '.dnt_paypal_text' ).click( function() {
-			$( '#dnt_shortcode_options_paypal, .dnt_output_block_paypal' ).show();
-			$( '#dnt_shortcode_options_co, .dnt_output_block_co' ).hide();
-			$( '#dnt_tab_paypal' ).val( '1' );
-			$( '#dnt_tab_co' ).val( '0' );
-			$( '.dnt_tabs .nav-tab' ).removeClass( 'nav-tab-active' );
-			$( this ).addClass( 'nav-tab-active' );
+				var self = this; /* Needed to retrieve our variable in the anonymous function below */
+				this.window.on( 'select', function() {
+					var all = self.window.state().get( 'selection' ).toJSON();
+					currentParent.find( '.dnt-image' ).html( '<img src="' + all[0].url + '" /><span class="dnt-delete-image"><span class="dashicons dashicons-no-alt"></span></span>' );
+					currentParent.find( '.dnt-image-id' ).val( all[0].id );
+				});
+			}
+			this.window.open();
+			return false;
 		});
-		$( '.dnt_co_text' ).click( function() {
-			$( '#dnt_shortcode_options_paypal, .dnt_output_block_paypal' ).hide();
-			$( '#dnt_shortcode_options_co, .dnt_output_block_co' ).show();
-			$( '#dnt_tab_co' ).val( '1' );
-			$( '#dnt_tab_paypal' ).val( '0' );
-			$( '.dnt_tabs .nav-tab' ).removeClass( 'nav-tab-active' );
-			$( this ).addClass( 'nav-tab-active' );
+		$( '.dnt_settings_form' ).on( 'click', '.dnt-delete-image', function(){
+			$( this ).parent().next().val( '' );
+			$( this ).parent().html( '' );
 		});
-
-		dnt_upload_checker( 'paypal' );
-		dnt_upload_checker( 'co' );
 	});
 })( jQuery );

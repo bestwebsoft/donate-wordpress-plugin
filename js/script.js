@@ -1,5 +1,5 @@
 ( function( $ ) {
-	$( document ).ready( function() {
+	$(document).ready( function() {
 		$( '.dnt-box' ).hide();
 		/* Display_pay_options */
 		$( document ).on( 'click', '.dnt-button > img', function() {

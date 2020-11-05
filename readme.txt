@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
-Requires at least: 4.0
-Tested up to: 5.2.2
-Stable tag: 2.1.6
+Requires at least: 4.5
+Tested up to: 5.5.3
+Stable tag: 2.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,12 +112,15 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 1. Displaying Donate Widget in the Sidebar on your WordPress website.
 2. Click on button `Donate` to see all payment systems.
-3. PayPal settings on the Donate settings page.
-4. 2CO settings on the Donate settings page.
-5. Adding Donate Widget.
-6. Adding Donate button to your page or post.
+3. Donate settings page.
+4. Adding Donate Widget.
 
 == Changelog ==
+
+= V2.1.7 - 05.11.2020 =
+* Update : The plugin settings page was changed.
+* Update : BWS Panel section was updated.
+* Update : All functionality was updated for WordPress 5.5.1.
 
 = V2.1.6 - 04.09.2019 =
 * Update: The deactivation feedback has been changed. Misleading buttons have been removed.
@@ -222,6 +225,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.1.7 =
+* Plugin optimization completed.
 
 = V2.1.6 =
 * Usability improved
