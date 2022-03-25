@@ -1,10 +1,10 @@
-=== Donate by BestWebSoft ===
+=== Donate by BestWebSoft - Donations Acception Extention for WordPress ===
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: 2checkout form, add donate buttons, charity, checkout, donate plugin, donation, nonprofit, online donation, payment buttons, paypal form, transactions, donate button on sidebar
 Requires at least: 4.5
-Tested up to: 5.5.3
-Stable tag: 2.1.7
+Tested up to: 5.9
+Stable tag: 2.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,8 @@ Add PayPal and 2CO donate buttons to receive charity payments.
 Simple donate plugin which adds PayPal and 2CO donate buttons on your WordPress website posts, pages, and widgets. Customize the appearance and place your buttons wherever you want.
 
 Install, configure, and accept your first donations today!
+
+[View Demo](https://bestwebsoft.com/demo-donate-by-bestwebsoft/?ref=readme)
 
 http://www.youtube.com/watch?v=pjBTW4qH6Bg
 
@@ -46,6 +48,7 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 
 = Documentation & Videos =
 
+* [[Doc] User Guide](https://docs.google.com/document/d/15MfkX2ivGkIsM-T7n2x-Ijlnwv2R4ulF89oMKFrg-sA/)
 * [[Doc] Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 * [[Video] Installation Instruction](http://www.youtube.com/watch?v=vqbItGXpwuk)
 
@@ -116,6 +119,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 4. Adding Donate Widget.
 
 == Changelog ==
+
+= V2.1.8 - 24.03.2022 =
+* Update : BWS Panel section was updated.
+* Update : Functionality was updated for WordPress 5.9.
 
 = V2.1.7 - 05.11.2020 =
 * Update : The plugin settings page was changed.
@@ -225,6 +232,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * Update : Immediate upgrade.
 
 == Upgrade Notice ==
+
+= V2.1.8 =
+* Usability improved
 
 = V2.1.7 =
 * Plugin optimization completed.
